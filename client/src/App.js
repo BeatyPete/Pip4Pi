@@ -1,4 +1,5 @@
-import socketIOClient from "socket.io-client";
+import {useContext, useEffect} from 'react'
+import {SocketContext, socket} from './context/socket';
 
 import headAnim from "./assets/images/icon_condition_head_1.svg";
 import bodyAnim from "./assets/images/icon_condition_body_0.svg";
@@ -8,23 +9,34 @@ import helmet from "./assets/images/helmet.svg";
 import zap from "./assets/images/zap.svg";
 import rads from "./assets/images/rads.svg";
 
-const ENDPOINT = "http://localhost:3001";
+
 
 
 
 function App() {
 
-  /* var socket = socketIOClient(ENDPOINT); //load socket.io-client and connect to the host that serves the page
-  var counter = document.getElementById("counter");
+
+  /* var socket = socketIOClient(ENDPOINT, {
+    withCredentials: true,
+    extraHeaders: {
+      "my-custom-header": "abcd"
+    }
+  }); */
+
+  useEffect(() => {
+    socket.on('connection', () => {
+      console.log(`I'm connected with the back-end`);
+    });
+  }, [socket]);
 
   
 
-  socket.on('count', function (data) { //get button status from client
+  /* socket.on('count', function (data) { //get button status from client
     counter.innerHTML = data
   }); */
 
   return (
-    <div>
+    <SocketContext.Provider value={socket}>
       <header>
         <nav className="main-tabs">
           <ul>
@@ -110,7 +122,7 @@ function App() {
 
         <div>AP 70/70</div>
       </footer>
-    </div>
+    </SocketContext.Provider>
   );
 }
 
