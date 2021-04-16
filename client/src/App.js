@@ -1,4 +1,4 @@
-import {useContext, useEffect} from 'react'
+import {useContext, useState, useEffect} from 'react'
 import {SocketContext, socket} from './context/socket';
 
 import headAnim from "./assets/images/icon_condition_head_1.svg";
@@ -9,19 +9,9 @@ import helmet from "./assets/images/helmet.svg";
 import zap from "./assets/images/zap.svg";
 import rads from "./assets/images/rads.svg";
 
-
-
-
-
 function App() {
 
-
-  /* var socket = socketIOClient(ENDPOINT, {
-    withCredentials: true,
-    extraHeaders: {
-      "my-custom-header": "abcd"
-    }
-  }); */
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     socket.on('connection', () => {
@@ -31,16 +21,16 @@ function App() {
 
   
 
-  /* socket.on('count', function (data) { //get button status from client
-    counter.innerHTML = data
-  }); */
+  socket.on('count', function (data) { //get button status from client
+    setCount(data)
+  });
 
   return (
     <SocketContext.Provider value={socket}>
       <header>
         <nav className="main-tabs">
           <ul>
-            <li>STAT</li>
+            <li>{count}</li>
             <li>SPECIAL</li>
             <li>DATA</li>
             <li>MAP</li>

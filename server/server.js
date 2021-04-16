@@ -4,7 +4,7 @@ const http = require('http');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-/* var Gpio = require('onoff').Gpio; */
+var Gpio = require('onoff').Gpio;
 
 const server = http.createServer(app);
 const io = socketIo(server, {
@@ -16,7 +16,7 @@ const io = socketIo(server, {
   }
 });
 
-/* var pushButton = new Gpio(17, 'in', 'both'); */
+var pushButton = new Gpio(17, 'in', 'both');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,11 +26,7 @@ server.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
 });
 
-io.on('connection', (socket) => { /* socket object may be used to send specific messages to the new connected client */
-  console.log('new client connected');
-  socket.emit('connection', null);
-});
-/* io.on('connection', function (socket) {// WebSocket Connection
+io.on('connection', function (socket) {// WebSocket Connection
   var countvalue = 0; //static variable for current status
   pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton
     if (err) { //if an error
@@ -38,16 +34,11 @@ io.on('connection', (socket) => { /* socket object may be used to send specific 
       return;
     }
     countvalue = countvalue + value;
-    console.log(value)
     socket.emit('count', countvalue); //send button status to client
   });
-  socket.on('light', function(data) { //get light switch status from client
-    console.log(data)
-  });
+});
 
-}); */
-
-/* process.on('SIGINT', function () { //on ctrl+c
+process.on('SIGINT', function () { //on ctrl+c
   pushButton.unexport(); // Unexport Button GPIO to free resources
   process.exit(); //exit completely
-}); */
+});
