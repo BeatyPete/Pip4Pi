@@ -2,6 +2,11 @@
   padding: 0px;
   margin: 0px;
 }
+:root {
+  --core-color: #6efda3;
+  --glow-color: rgb(49, 240, 160);
+  --backing-color: rgb(121, 9, 155);
+}
 @font-face {
   font-family: 'monofontoregular';
   src: url('./assets/fonts/monofonto-webfont.woff2') format('woff2'),
@@ -10,25 +15,104 @@
   font-style: normal;
 
 }
+
+.large-text {
+  color: var(--core-color);
+  text-shadow: #29f429 0px 0px 10px;
+  font-weight: 600;
+}
+.small-text {
+  color: var(--core-color);
+  text-shadow: #29f429 0px 0px 4px;
+  font-weight: 400;
+}
+
 body {
-  font-family: "monofontoregular";
-  padding: 5vh;
+  font-family: 'Roboto', sans-serif;;
+  padding: 5vh 10vh;
   height: 90vh;
   overflow: hidden;
   background-color: #353733;
+}
+
+header {
+  height: 10vh;
+  /* background-color: aliceblue; */
+}
+.main-tabs {
+  height: 50%;
+  border-bottom: var(--core-color) .2vw solid;
+  display: flex;
+  justify-content: center;
+  padding-bottom: .5%;
+  position: relative;
+}
+.main-tabs::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 100%;
+  left: 0;
+  height: .7vw;
+  width: 10px;
+  box-shadow: inset 0.2vw 0.2vw 0 0 var(--core-color);
+}
+.main-tabs::after {
+  content: "";
+    position: absolute;
+    background-color: transparent;
+    top: 100%;
+    right: 0;
+    height: .7vw;
+    width: 10px;
+    box-shadow: inset -0.2vw 0.2vw 0 0 var(--core-color);
 }
 .main-tabs ul {
   display: flex;
   list-style: none;
   justify-content: space-between;
-  color: #6efda3;
-  border-bottom: #6efda3 2px solid;
-  padding: 0 3.2rem;
+  height: 100%;
+  font-size: 3vw;
+  width: 70%;
 }
-header {
-  height: 10vh;
-  background-color: aliceblue;
+.selected {
+  position: relative;
+  z-index: 2;
 }
+.selected div {
+  height: 100%;
+  background: #353733;
+}
+.selected::before {
+  content: "";
+  position: absolute;
+  bottom: -.7vw;
+  left: -10%;
+  height: 70%;
+  width: 120%;
+  border-top: 0.2vw var(--core-color) solid;
+  border-right: 0.2vw var(--core-color) solid;
+  border-bottom: 0.3vw #353733 solid;
+  border-left: 0.2vw var(--core-color) solid;
+  box-sizing: border-box;
+  z-index: -1;
+}
+.sub-tabs {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+.sub-tabs ul {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  font-size: 3vw;
+  width: 75%;
+}
+.sub-tabs ul li {
+  padding-right: 2ch;
+}
+
 main {
   background-color: blue;
   height: 74vh;

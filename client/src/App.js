@@ -11,7 +11,7 @@ import rads from "./assets/images/rads.svg";
 
 function App() {
 
-  const [count, setCount] = useState(0)
+  /* const [count, setCount] = useState(0)
 
   useEffect(() => {
     socket.on('connection', () => {
@@ -23,23 +23,33 @@ function App() {
 
   socket.on('count', function (data) { //get button status from client
     setCount(data)
-  });
+  }); */
 
   return (
     <SocketContext.Provider value={socket}>
       <header>
         <nav className="main-tabs">
-          <ul>
-            <li>{count}</li>
-            <li>SPECIAL</li>
-            <li>DATA</li>
-            <li>MAP</li>
-            <li>RADIO</li>
+          <ul className="large-text">
+            <li className="selected">
+              <div>STAT</div>
+            </li>
+            <li>
+              <div>INV</div>
+            </li>
+            <li>
+              <div>DATA</div>
+            </li>
+            <li>
+              <div>MAP</div>
+            </li>
+            <li>
+              <div>RADIO</div>
+            </li>
           </ul>
         </nav>
 
         <nav className='sub-tabs'>
-          <ul>
+          <ul className='small-text'>
             <li>STATUS</li>
             <li>SPECIAL</li>
             <li>PERKS</li>
