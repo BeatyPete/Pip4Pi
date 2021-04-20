@@ -18,13 +18,17 @@
 
 .large-text {
   color: var(--core-color);
-  text-shadow: #29f429 0px 0px 10px;
+  text-shadow: var(--glow-color) 0px 0px 10px;
   font-weight: 600;
 }
 .small-text {
   color: var(--core-color);
-  text-shadow: #29f429 0px 0px 4px;
+  text-shadow: var(--glow-color) 0px 0px 4px;
   font-weight: 400;
+}
+.backing {
+  background: var(--backing-color);
+  padding: .5vw;
 }
 
 body {
@@ -129,7 +133,7 @@ path {
   background: var(--core-color);
   width: 4vw;
   height: 1vw;
-  box-shadow: #29f429 0px 0px 10px
+  box-shadow: var(--glow-color) 0px 0px 10px
 }
 .character {
   height: 76%;
@@ -176,12 +180,8 @@ path {
 }
 .equip-img {
   width: 5vw;
-  background: var(--backing-color);
-  padding: .5vw;
 }
 .stat-info {
-  padding: .5vw;
-  background: var(--backing-color);
   text-align: center;
   margin-left: .3vw;
   font-size: 2vw;
@@ -210,6 +210,28 @@ path {
 }
 
 footer {
-  background-color: darkmagenta;
   height: 6vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: .3vw;
+  font-size: 2.1vw;
+}
+.xp-container {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#xp-bar {
+  width: 80%;
+  height: 60%;
+  box-shadow: inset var(--core-color) 0px 0px 0px 3px;
+}
+#xp-fill {
+  background: var(--core-color);
+    width: 25%;
+    height: 100%;
+}
+#ap {
+  text-align: end;
 }
