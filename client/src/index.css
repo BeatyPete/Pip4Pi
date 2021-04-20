@@ -5,7 +5,7 @@
 :root {
   --core-color: #6efda3;
   --glow-color: rgb(49, 240, 160);
-  --backing-color: rgb(121, 9, 155);
+  --backing-color: #268f2669;
 }
 @font-face {
   font-family: 'monofontoregular';
@@ -72,7 +72,7 @@ header {
   list-style: none;
   justify-content: space-between;
   height: 100%;
-  font-size: 3vw;
+  font-size: 2.5vw;
   width: 70%;
 }
 .selected {
@@ -86,13 +86,13 @@ header {
 .selected::before {
   content: "";
   position: absolute;
-  bottom: -.7vw;
+  bottom: -.68vw;
   left: -10%;
   height: 70%;
   width: 120%;
   border-top: 0.2vw var(--core-color) solid;
   border-right: 0.2vw var(--core-color) solid;
-  border-bottom: 0.3vw #353733 solid;
+  border-bottom: 0.4vw #353733 solid;
   border-left: 0.2vw var(--core-color) solid;
   box-sizing: border-box;
   z-index: -1;
@@ -106,17 +106,109 @@ header {
   display: flex;
   list-style: none;
   height: 100%;
-  font-size: 3vw;
+  font-size: 2.5vw;
   width: 75%;
 }
 .sub-tabs ul li {
-  padding-right: 2ch;
+  padding-right: 1.5ch;
+}
+#second {
+  opacity: 30%;
+}
+#third {
+  opacity: 15%;
 }
 
 main {
-  background-color: blue;
   height: 74vh;
 }
+path {
+  fill: var(--core-color);
+}
+.limb-bar {
+  background: var(--core-color);
+  width: 4vw;
+  height: 1vw;
+  box-shadow: #29f429 0px 0px 10px
+}
+.character {
+  height: 76%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.char-middle {
+  display: flex;
+  margin-bottom: .9vw;
+}
+.left-limbs {
+  display: grid;
+    align-items: end;
+    height: 85%;
+    margin-right: 5vw;
+}
+.vault-boy {
+  display: flex;
+  flex-direction: column;
+  opacity: 80%;
+}
+#vault-head {
+  width: 6.7vw;
+  position: relative;
+  top: 1.4vw;
+  left: 25%;
+}
+#vault-body {
+  width: 14vw;
+}
+.right-limbs {
+  display: grid;
+  align-items: end;
+  height: 85%;
+  margin-left: 5vw;
+}
+
+.equip-stats {
+  height: 12%;
+  display: flex;
+    justify-content: center;
+}
+.equip-img {
+  width: 5vw;
+  background: var(--backing-color);
+  padding: .5vw;
+}
+.stat-info {
+  padding: .5vw;
+  background: var(--backing-color);
+  text-align: center;
+  margin-left: .3vw;
+  font-size: 2vw;
+}
+.stat-img {
+  height: 1.5vw;
+}
+.weapon-stats {
+  display: flex;
+}
+.armor-stats {
+  display: flex;
+  margin-left: 1.5vw;
+}
+.equip-stats path {
+  filter: drop-shadow(0px 0px 6px var(--glow-color));
+}
+
+
+.nameplate {
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.3vw;
+}
+
 footer {
   background-color: darkmagenta;
   height: 6vh;
