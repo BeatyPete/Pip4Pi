@@ -225,7 +225,7 @@ footer {
 #xp-bar {
   width: 80%;
   height: 60%;
-  box-shadow: inset var(--core-color) 0px 0px 0px 3px;
+  box-shadow: inset var(--core-color) 0px 0px 0px .3vw;
 }
 #xp-fill {
   background: var(--core-color);
