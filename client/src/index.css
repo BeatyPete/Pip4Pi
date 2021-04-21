@@ -37,70 +37,13 @@ body {
   height: 90vh;
   overflow: hidden;
   background-color: #353733;
+  width: 70%;
 }
 
 header {
   height: 10vh;
-  /* background-color: aliceblue; */
 }
-.main-tabs {
-  height: 50%;
-  border-bottom: var(--core-color) .2vw solid;
-  display: flex;
-  justify-content: center;
-  padding-bottom: .5%;
-  position: relative;
-}
-.main-tabs::before {
-  content: "";
-  position: absolute;
-  background-color: transparent;
-  top: 100%;
-  left: 0;
-  height: .7vw;
-  width: 10px;
-  box-shadow: inset 0.2vw 0.2vw 0 0 var(--core-color);
-}
-.main-tabs::after {
-  content: "";
-    position: absolute;
-    background-color: transparent;
-    top: 100%;
-    right: 0;
-    height: .7vw;
-    width: 10px;
-    box-shadow: inset -0.2vw 0.2vw 0 0 var(--core-color);
-}
-.main-tabs ul {
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
-  height: 100%;
-  font-size: 2.5vw;
-  width: 70%;
-}
-.selected {
-  position: relative;
-  z-index: 2;
-}
-.selected div {
-  height: 100%;
-  background: #353733;
-}
-.selected::before {
-  content: "";
-  position: absolute;
-  bottom: -.68vw;
-  left: -10%;
-  height: 70%;
-  width: 120%;
-  border-top: 0.2vw var(--core-color) solid;
-  border-right: 0.2vw var(--core-color) solid;
-  border-bottom: 0.4vw #353733 solid;
-  border-left: 0.2vw var(--core-color) solid;
-  box-sizing: border-box;
-  z-index: -1;
-}
+
 .sub-tabs {
   height: 40%;
   display: flex;
@@ -129,109 +72,11 @@ main {
 path {
   fill: var(--core-color);
 }
-.limb-bar {
-  background: var(--core-color);
-  width: 4vw;
-  height: 1vw;
-  box-shadow: var(--glow-color) 0px 0px 10px
-}
-.character {
-  height: 76%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.char-middle {
-  display: flex;
-  margin-bottom: .9vw;
-}
-.left-limbs {
-  display: grid;
-    align-items: end;
-    height: 85%;
-    margin-right: 5vw;
-}
-.vault-boy {
-  display: flex;
-  flex-direction: column;
-  opacity: 80%;
-}
-#vault-head {
-  width: 6.7vw;
-  position: relative;
-  top: 1.4vw;
-  left: 25%;
-}
-#vault-body {
-  width: 14vw;
-}
-.right-limbs {
-  display: grid;
-  align-items: end;
-  height: 85%;
-  margin-left: 5vw;
-}
 
-.equip-stats {
-  height: 12%;
-  display: flex;
-    justify-content: center;
-}
-.equip-img {
-  width: 5vw;
-}
-.stat-info {
-  text-align: center;
-  margin-left: .3vw;
-  font-size: 2vw;
-}
-.stat-img {
-  height: 1.5vw;
-}
-.weapon-stats {
-  display: flex;
-}
-.armor-stats {
-  display: flex;
-  margin-left: 1.5vw;
-}
-.equip-stats path {
-  filter: drop-shadow(0px 0px 6px var(--glow-color));
-}
-
-
-.nameplate {
-  height: 12%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.3vw;
-}
 
 footer {
-  height: 6vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: .3vw;
   font-size: 2.1vw;
-}
-.xp-container {
-  grid-column: span 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#xp-bar {
-  width: 80%;
-  height: 60%;
-  box-shadow: inset var(--core-color) 0px 0px 0px .3vw;
-}
-#xp-fill {
-  background: var(--core-color);
-    width: 25%;
-    height: 100%;
-}
-#ap {
-  text-align: end;
 }
