@@ -1,8 +1,18 @@
-
+import {useState} from 'react'
 import MainTabs from "../../components/Main-tabs";
 import './stat.css'
 
 function STAT() {
+  const [sub, setSub] = useState('STATUS')
+  const subs = ['STATUS', 'SPECIAL', 'PERKS']
+
+  const findSub = e => {
+    let selected = e.target.innerText
+    setSub(e.target.innerText)
+    const stink = subs.findIndex(tabs => tabs === selected)
+    console.log(stink)
+  }
+
     return (
         <>
       <header>
@@ -10,9 +20,9 @@ function STAT() {
 
         <nav className='sub-tabs'>
           <ul className='small-text'>
-            <li>STATUS</li>
-            <li id='second'>SPECIAL</li>
-            <li id='third'>PERKS</li>
+            <li onClick={findSub}>STATUS</li>
+            <li onClick={findSub} id='second'>SPECIAL</li>
+            <li onClick={findSub} id='third'>PERKS</li>
           </ul>
         </nav>
       </header>

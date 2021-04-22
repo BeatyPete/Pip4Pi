@@ -1,7 +1,9 @@
 import {useContext, useState, useEffect} from 'react'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {SocketContext, socket} from './context/socket';
 
 import STAT from "./pages/STAT";
+import INV from "./pages/INV";
 
 function App() {
 
@@ -21,7 +23,16 @@ function App() {
 
   return (
     <SocketContext.Provider value={socket}>
-      <STAT></STAT>
+      <Router>
+          <Route
+            render={({ location }) => (
+                <Switch location={location} key={location.pathname}>
+                  <Route exact path="/" component={STAT} />
+                  <Route exact path="/INV" component={INV} />
+                </Switch>
+            )}
+          />
+      </Router>
     </SocketContext.Provider>
   );
 }
