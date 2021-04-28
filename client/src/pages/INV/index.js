@@ -22,19 +22,19 @@ function INV() {
     },
     {
       name:'MISC',
-      position: '10%'
+      position: '30%'
     },
     {
       name:'JUNK',
-      position: '4%'
+      position: '42%'
     },
     {
       name:'MODS',
-      position: '8%'
+      position: '54%'
     },
     {
       name:'AMMO',
-      position: '10%'
+      position: '68%'
     }
   ]
 
