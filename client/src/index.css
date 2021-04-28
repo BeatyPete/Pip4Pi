@@ -55,15 +55,19 @@ header {
   height: 100%;
   font-size: 2.5vw;
   width: 75%;
+  position: relative;
 }
 .sub-tabs ul li {
   padding-right: 1.5ch;
 }
-#second {
+.second-tabs {
   opacity: 30%;
 }
-#third {
+.third-tabs {
   opacity: 15%;
+}
+.hidden-tabs {
+  display: none;
 }
 
 main {
