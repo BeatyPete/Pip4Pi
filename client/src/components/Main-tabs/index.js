@@ -1,23 +1,29 @@
+import { Link } from "react-router-dom";
 import './main-tabs.css'
 
-function mainTabs() {
+function mainTabs({mainTab, setMainTab}) {
+
+    const changeTab = e =>{
+        const newTab = e.target.innerText
+        setMainTab(newTab)
+    }
     return (
         <nav className="main-tabs">
             <ul className="large-text">
-            <li className="selected">
-                <div>STAT</div>
+            <li className={`${mainTab === 'STAT' ? "selected" : ""}`}>
+                <div onClick={changeTab}>STAT</div>
             </li>
-            <li>
-                <div>INV</div>
+            <li className={`${mainTab === 'INV' ? "selected" : ""}`}>
+                <div onClick={changeTab}>INV</div>
             </li>
-            <li>
-                <div>DATA</div>
+            <li className={`${mainTab === 'DATA' ? "selected" : ""}`}>
+                <div onClick={changeTab}>DATA</div>
             </li>
-            <li>
-                <div>MAP</div>
+            <li className={`${mainTab === 'MAP' ? "selected" : ""}`}>
+                <div onClick={changeTab}>MAP</div>
             </li>
-            <li>
-                <div>RADIO</div>
+            <li className={`${mainTab === 'RADIO' ? "selected" : ""}`}>
+                <div onClick={changeTab}>RADIO</div>
             </li>
             </ul>
         </nav>

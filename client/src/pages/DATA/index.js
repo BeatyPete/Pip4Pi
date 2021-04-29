@@ -3,38 +3,22 @@ import MainTabs from "../../components/Main-tabs";
 import SubTabs from "../../components/Sub-tabs";
 /* import './stat.css' */
 
-function INV({mainTab, setMainTab}) {
-  const [sub, setSub] = useState('WEAPONS')
+function DATA({mainTab, setMainTab}) {
+  const [sub, setSub] = useState('QUESTS')
   
   /* const subs = ['WEAPONS', 'APPAREL', 'AID', 'MISC', 'JUNK', 'MODS', 'AMMO'] */
   const subs = [
     {
-      name:'WEAPONS',
-      position: '-12.5%'
+      name:'QUESTS',
+      position: '-29%'
     },
     {
-      name:'APPAREL',
-      position: '7%'
+      name:'WORKSHOPS',
+      position: '-8%'
     },
     {
-      name:'AID',
-      position: '20%'
-    },
-    {
-      name:'MISC',
-      position: '30%'
-    },
-    {
-      name:'JUNK',
-      position: '42%'
-    },
-    {
-      name:'MODS',
-      position: '54%'
-    },
-    {
-      name:'AMMO',
-      position: '68%'
+      name:'STATS',
+      position: '10.5%'
     }
   ]
 
@@ -47,7 +31,7 @@ function INV({mainTab, setMainTab}) {
         <SubTabs tabs={subs} sub={sub} setSub={setSub}></SubTabs>
       </header>
 
-      <main>inv</main>
+      <main>DATA</main>
 
       <footer className='large-text'>
         <div className='backing'>HP 90/90</div>
@@ -64,4 +48,4 @@ function INV({mainTab, setMainTab}) {
       </>
 )}
 
-export default INV;
+export default DATA;

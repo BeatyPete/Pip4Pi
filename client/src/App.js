@@ -4,9 +4,12 @@ import {SocketContext, socket} from './context/socket';
 
 import STAT from "./pages/STAT";
 import INV from "./pages/INV";
+import DATA from "./pages/DATA";
+import MAP from "./pages/MAP";
+import RADIO from "./pages/RADIO";
 
 function App() {
-
+  const [mainTab, setMainTab] = useState("STAT")
   /* const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -23,16 +26,11 @@ function App() {
 
   return (
     <SocketContext.Provider value={socket}>
-      <Router>
-          <Route
-            render={({ location }) => (
-                <Switch location={location} key={location.pathname}>
-                  <Route exact path="/" component={STAT} />
-                  <Route exact path="/INV" component={INV} />
-                </Switch>
-            )}
-          />
-      </Router>
+      {mainTab === 'STAT' && (<STAT mainTab={mainTab} setMainTab={setMainTab}></STAT>)}
+      {mainTab === 'INV' && (<INV mainTab={mainTab} setMainTab={setMainTab}></INV>)}
+      {mainTab === 'DATA' && (<DATA mainTab={mainTab} setMainTab={setMainTab}></DATA>)}
+      {mainTab === 'MAP' && (<MAP mainTab={mainTab} setMainTab={setMainTab}></MAP>)}
+      {mainTab === 'RADIO' && (<RADIO mainTab={mainTab} setMainTab={setMainTab}></RADIO>)}
     </SocketContext.Provider>
   );
 }

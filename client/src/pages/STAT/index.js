@@ -6,7 +6,7 @@ import Special from "../../components/stat-page/Special";
 import Perks from "../../components/stat-page/Perks";
 import './stat.css'
 
-function STAT() {
+function STAT({mainTab, setMainTab}) {
   const [sub, setSub] = useState('STATUS')
   /* const subs = ['STATUS', 'SPECIAL', 'PERKS'] */
   const subs = [
@@ -28,7 +28,7 @@ function STAT() {
     return (
         <>
       <header>
-        <MainTabs></MainTabs>
+        <MainTabs mainTab={mainTab} setMainTab={setMainTab}></MainTabs>
         <SubTabs tabs={subs} sub={sub} setSub={setSub}></SubTabs>
       </header>
 
