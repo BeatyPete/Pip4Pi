@@ -1,0 +1,44 @@
+#vault-head {
+  animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: head-bob;
+}
+@keyframes head-bob { 
+  0% { 
+    top: 8%;
+    left: 24%;
+  } 
+  12.5% { 
+    top: 6%;
+    left: 23%;
+  } 
+  25% { 
+    top: 5%;
+    left: 22%; 
+  } 
+  37.5% { 
+    top: 6%;
+    left: 22%; 
+  } 
+  50% { 
+    top: 7.7%;
+    left: 21%; 
+  } 
+  62.5% { 
+    top: 6.4%;
+    left: 22%; 
+  } 
+  75% { 
+    top: 5%;
+    left: 23%;
+  } 
+  87.5% { 
+    top: 6%;
+    left: 23%;
+  } 
+  100% {
+      top: 8%;
+      left: 24%;
+  }
+}  
