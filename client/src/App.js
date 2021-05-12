@@ -1,5 +1,4 @@
 import {useContext, useState, useEffect} from 'react'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {SocketContext, socket} from './context/socket';
 
 import STAT from "./pages/STAT";

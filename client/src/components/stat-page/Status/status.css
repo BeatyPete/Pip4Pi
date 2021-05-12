@@ -1,9 +1,13 @@
 .limb-bar {
-    background: var(--core-color);
     width: 4vw;
     height: 1vw;
-    box-shadow: var(--glow-color) 0px 0px 10px
+    box-shadow: var(--glow-color) 0px 0px 10px, inset var(--core-color) 0px 0px 0px .2vw;
   }
+.limb-bar > * {
+  background-color: var(--core-color);
+  height: 100%;
+  width: 70%;
+}
   .character {
     height: 76%;
     display: flex;

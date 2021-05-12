@@ -10,7 +10,6 @@ function SubTabs({tabs, sub, setSub}) {
         let selected = e.target.innerText
         setSub(e.target.innerText)
         const tabNum = tabs.findIndex(stuff => stuff.name === selected)
-        const style = 16 * tabNum
         setPos(tabs[tabNum].position)
         /* console.log(tabNum) */
       }

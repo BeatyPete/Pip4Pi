@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import './main-tabs.css'
 
 function mainTabs({mainTab, setMainTab}) {
