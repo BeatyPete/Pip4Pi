@@ -3,9 +3,10 @@
   margin: 0px;
 }
 :root {
-  --core-color: #6efda3;
-  --glow-color: rgb(49, 240, 160);
-  --backing-color: #268f2669;
+  --color: 110, 253, 163;
+  --core-color: rgba(var(--color));
+  --glow-color: rgba(var(--color));
+  --backing-color: rgba(var(--color), .2);
 }
 @font-face {
   font-family: 'monofontoregular';
@@ -13,7 +14,6 @@
        url('./assets/fonts/monofonto-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-
 }
 
 .large-text {
