@@ -1,5 +1,7 @@
 import {useContext, useState, useEffect} from 'react'
 import {SocketContext, socket} from './context/socket';
+import { useStoreContext } from "./utils/GlobalState";
+
 
 import STAT from "./pages/STAT";
 import INV from "./pages/INV";
@@ -8,7 +10,10 @@ import MAP from "./pages/MAP";
 import RADIO from "./pages/RADIO";
 
 function App() {
-  const [mainTab, setMainTab] = useState("STAT")
+  const [state, dispatch] = useStoreContext();
+
+  const { mainTab } = state;
+  /* const [mainTab, setMainTab] = useState("STAT") */
   /* const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -25,11 +30,11 @@ function App() {
 
   return (
     <SocketContext.Provider value={socket}>
-      {mainTab === 'STAT' && (<STAT mainTab={mainTab} setMainTab={setMainTab}></STAT>)}
-      {mainTab === 'INV' && (<INV mainTab={mainTab} setMainTab={setMainTab}></INV>)}
-      {mainTab === 'DATA' && (<DATA mainTab={mainTab} setMainTab={setMainTab}></DATA>)}
-      {mainTab === 'MAP' && (<MAP mainTab={mainTab} setMainTab={setMainTab}></MAP>)}
-      {mainTab === 'RADIO' && (<RADIO mainTab={mainTab} setMainTab={setMainTab}></RADIO>)}
+      {mainTab === 'STAT' && (<STAT></STAT>)}
+      {mainTab === 'INV' && (<INV></INV>)}
+      {mainTab === 'DATA' && (<DATA></DATA>)}
+      {mainTab === 'MAP' && (<MAP></MAP>)}
+      {mainTab === 'RADIO' && (<RADIO></RADIO>)}
     </SocketContext.Provider>
   );
 }

@@ -6,7 +6,7 @@
 .limb-bar > * {
   background-color: var(--core-color);
   height: 100%;
-  width: 70%;
+  width: 100%;
 }
   .character {
     height: 76%;

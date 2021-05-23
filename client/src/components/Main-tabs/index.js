@@ -1,10 +1,19 @@
 import './main-tabs.css'
+import { useStoreContext } from "../../utils/GlobalState";
+import { CHANGE_MAIN_TAB } from "../../utils/actions";
 
-function mainTabs({mainTab, setMainTab}) {
+function MainTabs() {
+    const [state, dispatch] = useStoreContext();
+    const { mainTab } = state;
+    
 
     const changeTab = e =>{
         const newTab = e.target.innerText
-        setMainTab(newTab)
+        /* setMainTab(newTab) */
+        dispatch({
+            type: CHANGE_MAIN_TAB,
+            mainTab: newTab
+         });
     }
     return (
         <nav className="main-tabs">
@@ -28,4 +37,4 @@ function mainTabs({mainTab, setMainTab}) {
         </nav>
 )}
 
-export default mainTabs;
+export default MainTabs;
