@@ -3,10 +3,10 @@
   margin: 0px;
 }
 :root {
-  --color: 110, 253, 163;
+  --color: 2, 253, 0;
   --core-color: rgba(var(--color));
   --glow-color: rgba(var(--color));
-  --backing-color: rgba(var(--color), .2);
+  --backing-color: rgba(var(--color), 22%);
 }
 @font-face {
   font-family: 'monofontoregular';

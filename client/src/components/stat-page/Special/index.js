@@ -10,7 +10,7 @@ function Special() {
 
     return (
     <main>
-        <input type="color" onChange={colorChange}></input>
+        <input style={{ width: '9vw', height: '9vw' }} type="color" onChange={colorChange}></input>
     </main>
 )}
 

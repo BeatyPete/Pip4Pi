@@ -7,7 +7,7 @@
   #xp-bar {
     width: 70%;
     height: 60%;
-    box-shadow: inset var(--core-color) 0px 0px 0px .3vw;
+    box-shadow: inset var(--core-color) 0px 0px 0px .2vw;
   }
   #xp-fill {
     background: var(--core-color);

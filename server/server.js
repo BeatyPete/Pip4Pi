@@ -5,6 +5,7 @@ const http = require('http');
 const PORT = process.env.PORT || 3001;
 const app = express();
 var Gpio = require('onoff').Gpio;
+const Rotary = require('raspberrypi-rotary-encoder');
 
 const server = http.createServer(app);
 const io = socketIo(server, {
@@ -16,7 +17,13 @@ const io = socketIo(server, {
   }
 });
 
-var pushButton = new Gpio(17, 'in', 'both');
+//pin 17 is taken for some reason
+// WARNING ! This is WIRINGPI pin numerotation !! please see https://fr.pinout.xyz/pinout/wiringpi#*
+const pinClk = 2;
+const pinDt = 3;
+
+
+const rotary = new Rotary(pinClk, pinDt);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -27,18 +34,12 @@ server.listen(PORT, () => {
 });
 
 io.on('connection', function (socket) {// WebSocket Connection
-  var countvalue = 0; //static variable for current status
-  pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton
-    if (err) { //if an error
-      console.error('There was an error', err); //output error message to console
-      return;
-    }
-    countvalue = countvalue + value;
-    socket.emit('count', countvalue); //send button status to client
+  rotary.on("rotate", (delta) => {
+    socket.emit('count', delta);
   });
 });
 
 process.on('SIGINT', function () { //on ctrl+c
-  pushButton.unexport(); // Unexport Button GPIO to free resources
+  /* pushButton.unexport(); // Unexport Button GPIO to free resources */
   process.exit(); //exit completely
 });

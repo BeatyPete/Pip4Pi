@@ -1,7 +1,7 @@
-import {useContext, useState, useEffect} from 'react'
+import {useEffect} from 'react'
 import {SocketContext, socket} from './context/socket';
 import { useStoreContext } from "./utils/GlobalState";
-
+import { CHANGE_MAIN_TAB } from "./utils/actions";
 
 import STAT from "./pages/STAT";
 import INV from "./pages/INV";
@@ -13,20 +13,31 @@ function App() {
   const [state, dispatch] = useStoreContext();
 
   const { mainTab } = state;
-  /* const [mainTab, setMainTab] = useState("STAT") */
-  /* const [count, setCount] = useState(0)
 
   useEffect(() => {
-    socket.on('connection', () => {
-      console.log(`I'm connected with the back-end`);
+    console.log(mainTab)
+    socket.on('count', function (data) { //get button status from client
+      changeTab(data)
     });
   }, [socket]);
 
   
-
-  socket.on('count', function (data) { //get button status from client
-    setCount(data)
-  }); */
+  const changeTab = rotation => {
+    let watchlist = JSON.parse(localStorage.getItem("tab")) || 'STAT';
+    const tabs = ['STAT', 'INV', 'DATA', 'MAP', 'RADIO']
+      const tabNum = tabs.findIndex(stuff => stuff === watchlist)
+      let newTab = tabNum + rotation;
+      if (newTab < 0) {
+        newTab = 0
+      } else if (newTab > 4) {
+        newTab = 4
+      }
+      localStorage.setItem("tab", JSON.stringify(tabs[newTab]));
+      dispatch({
+        type: CHANGE_MAIN_TAB,
+        mainTab: tabs[newTab]
+      });
+  }
 
   return (
     <SocketContext.Provider value={socket}>

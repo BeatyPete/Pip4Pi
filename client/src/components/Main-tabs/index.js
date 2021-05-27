@@ -9,7 +9,6 @@ function MainTabs() {
 
     const changeTab = e =>{
         const newTab = e.target.innerText
-        /* setMainTab(newTab) */
         dispatch({
             type: CHANGE_MAIN_TAB,
             mainTab: newTab
