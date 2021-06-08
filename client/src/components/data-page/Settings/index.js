@@ -1,6 +1,6 @@
 /* import './status.css' */
 
-function Special() {
+function Settings() {
     const colorChange = e => {
         let hex = (e.target.value)
         const rgb = ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
@@ -10,8 +10,8 @@ function Special() {
 
     return (
     <main>
-        Special
+        <input style={{ width: '9vw', height: '9vw' }} type="color" onChange={colorChange}></input>
     </main>
 )}
 
-export default Special;
+export default Settings;
