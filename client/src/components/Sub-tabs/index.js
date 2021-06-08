@@ -1,12 +1,15 @@
 /* import './sub-tabs.css' */
 import {useState} from 'react'
+import sound from '../../assets/audio/subtab-switch.mp3'
 
 function SubTabs({tabs, sub, setSub}) {
     /* console.log(tabs) */
     
     const [pos, setPos] = useState(tabs[0].position)
+    const audio = new Audio(sound);
 
     const findSub = e => {
+      audio.play();
         let selected = e.target.innerText
         setSub(e.target.innerText)
         const tabNum = tabs.findIndex(stuff => stuff.name === selected)

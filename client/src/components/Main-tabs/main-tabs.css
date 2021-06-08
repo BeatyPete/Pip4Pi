@@ -10,21 +10,21 @@
     content: "";
     position: absolute;
     background-color: transparent;
-    top: 100%;
+    top: 101%;
     left: 0;
     height: .7vw;
     width: 10px;
-    box-shadow: inset 0.2vw 0.2vw 0 0 var(--core-color);
+    box-shadow: inset 0.2vw 0 0 0 var(--core-color);
   }
   .main-tabs::after {
     content: "";
       position: absolute;
       background-color: transparent;
-      top: 100%;
+      top: 101%;
       right: 0;
       height: .7vw;
       width: 10px;
-      box-shadow: inset -0.2vw 0.2vw 0 0 var(--core-color);
+      box-shadow: inset -0.2vw 0 0 0 var(--core-color);
   }
   .main-tabs ul {
     display: flex;
@@ -45,7 +45,7 @@
   .selected::before {
     content: "";
     position: absolute;
-    bottom: -.68vw;
+    bottom: -.63vw;
     left: -10%;
     height: 70%;
     width: 120%;
