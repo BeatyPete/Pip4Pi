@@ -39,14 +39,14 @@ function STAT({mainTab, setMainTab}) {
       <footer className='large-text'>
         <div className='backing'>HP 90/90</div>
 
-        <div className='backing xp-container'>
+        <div className='backing xp-container large-footer'>
           LEVEL 1
           <div id='xp-bar'>
             <div id='xp-fill'></div>
           </div>
         </div>
 
-        <div className='backing' id="ap">AP 70/70</div>
+        <div className='backing right-footer'>AP 70/70</div>
       </footer>
       </>
 )}
