@@ -17,5 +17,5 @@
       height: 100%;
   }
   .right-footer {
-    text-align: end;
+    justify-content: flex-end;
   }

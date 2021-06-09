@@ -13,17 +13,8 @@ function RADIO({mainTab, setMainTab}) {
 
       <main>RADIO</main>
 
-      <footer className='large-text'>
-        <div className='backing'>HP 90/90</div>
-
-        <div className='backing xp-container'>
-          LEVEL 1
-          <div id='xp-bar'>
-            <div id='xp-fill'></div>
-          </div>
-        </div>
-
-        <div className='backing' id="ap">AP 70/70</div>
+      <footer className='large-text backing'>
+        <div style={{'opacity': 0}}>temp</div>
       </footer>
       </>
 )}
