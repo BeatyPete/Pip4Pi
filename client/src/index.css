@@ -16,6 +16,11 @@
   font-style: normal;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .large-text {
   color: var(--core-color);
   text-shadow: var(--glow-color) 0px 0px 10px;
