@@ -14,7 +14,7 @@ function Weapons() {
                     <li>Fragmentation Mine</li>
                     <li>Suppressed Calibrated Powerful 10mm Pistol</li>
                     <li>Suppressed Hardened Pipe Bolt-Action Sniper Rifle</li>
-                    <li>Two Shoy Boosted Automatic Laser Rifle</li>
+                    <li>Two Shot Boosted Automatic Laser Rifle</li>
                 </ul>
             </section>
             <section>
