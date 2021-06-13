@@ -24,3 +24,9 @@
 ::-webkit-scrollbar {
    width: 0;
   }
+
+  @media screen and (min-width: 1650px) {
+    .item-list ul {
+        font-size: 2.3rem;
+    }
+  }

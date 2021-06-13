@@ -1,0 +1,32 @@
+.sub-tabs {
+    height: 40%;
+    display: flex;
+    justify-content: center;
+  }
+  .sub-tabs ul {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    font-size: 2.5vw;
+    width: 75%;
+    position: relative;
+    transition-duration: .5s;
+  }
+  .sub-tabs ul li {
+    padding-right: 1.5ch;
+  }
+  .second-tabs {
+    opacity: 30%;
+  }
+  .third-tabs {
+    opacity: 15%;
+  }
+  .hidden-tabs {
+    opacity: 0;
+  }
+
+@media screen and (min-width: 1650px) {
+    .sub-tabs ul {
+      font-size: 2.7rem;
+    }
+  }
