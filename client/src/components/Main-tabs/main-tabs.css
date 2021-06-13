@@ -56,3 +56,9 @@
     box-sizing: border-box;
     z-index: -1;
   }
+
+  @media screen and (min-width: 1650px) {
+    .main-tabs ul {
+      font-size: 2.7rem
+    }
+  }

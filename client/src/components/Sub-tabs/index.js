@@ -1,4 +1,4 @@
-/* import './sub-tabs.css' */
+import './sub-tabs.css'
 import {useState} from 'react'
 import sound from '../../assets/audio/subtab-switch.mp3'
 

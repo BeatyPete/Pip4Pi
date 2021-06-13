@@ -2,6 +2,8 @@
     width: 4vw;
     height: 1vw;
     box-shadow: var(--glow-color) 0px 0px 10px, inset var(--core-color) 0px 0px 0px .2vw;
+    max-width: 4rem;
+    max-height: 1rem;
   }
 .limb-bar > * {
   background-color: var(--core-color);
@@ -32,12 +34,14 @@
   }
   #vault-head {
     width: 6.7vw;
+    max-width: 7rem;
     position: relative;
     top: 8%;
     left: 24%;
   }
   #vault-body {
     width: 14vw;
+    max-width: 14rem;
   }
   .right-limbs {
     display: grid;
@@ -53,6 +57,7 @@
   }
   .equip-img {
     width: 5vw;
+    max-width: 5rem;
   }
   .stat-info {
     text-align: center;
@@ -61,6 +66,7 @@
   }
   .stat-img {
     height: 1.5vw;
+    max-height: 2rem;
   }
   .weapon-stats {
     display: flex;
@@ -80,4 +86,13 @@
     justify-content: center;
     align-items: center;
     font-size: 2.3vw;
+  }
+
+  @media screen and (min-width: 1650px) {
+    .stat-info {
+      font-size: 2rem;
+    }
+    .nameplate {
+      font-size: 2.3rem;
+    }
   }

@@ -16,6 +16,10 @@
   font-style: normal;
 }
 
+#root {
+  width: 100%;
+  height: 100%;
+}
 .flex-center {
   display: flex;
   justify-content: center;
@@ -39,45 +43,22 @@
 body {
   font-family: 'Roboto', sans-serif;;
   padding: 5vh 10vh;
-  height: 90vh;
+  height: 54vw;
   overflow: hidden;
   background-color: #353733;
-  width: 70%;
+  width: 70vw;
+  max-width: 1200px;
+  max-height: 1000px;
 }
 
 header {
-  height: 10vh;
-}
-
-.sub-tabs {
-  height: 40%;
-  display: flex;
-  justify-content: center;
-}
-.sub-tabs ul {
-  display: flex;
-  list-style: none;
-  height: 100%;
-  font-size: 2.5vw;
-  width: 75%;
-  position: relative;
-  transition-duration: .5s;
-}
-.sub-tabs ul li {
-  padding-right: 1.5ch;
-}
-.second-tabs {
-  opacity: 30%;
-}
-.third-tabs {
-  opacity: 15%;
-}
-.hidden-tabs {
-  opacity: 0;
+  /* height: 10vh; */
+  height: 10%;
 }
 
 main {
-  height: 74vh;
+  /* height: 74vh; */
+  height: 84%;
 }
 path {
   fill: var(--core-color);
@@ -96,5 +77,15 @@ footer div {
 }
 footer svg {
   width: 2.1vw;
+  max-width: 2.1rem;
   margin-right: .5ch;
+}
+
+@media screen and (min-width: 1650px) {
+  body {
+    margin: auto;
+  }
+  footer {
+    font-size: 2.1rem;
+  }
 }
