@@ -3,6 +3,7 @@
     height: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4vw;
 }
 .item-list {
     grid-column: span 2;
@@ -10,7 +11,7 @@
     overflow-x: hidden;
 }
 .item-list ul {
-    font-size: 2.2vw;
+    font-size: 2.1vw;
     list-style: none;
 }
 .item-list li {
@@ -24,6 +25,20 @@
 ::-webkit-scrollbar {
    width: 0;
   }
+
+.item-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 2.2vw;
+}
+.item-details-container li {
+    background-color: var(--backing-color);
+    display: flex;
+    justify-content: space-between;
+    padding: .3vw;
+    margin-top: .5vw;
+}
 
   @media screen and (min-width: 1650px) {
     .item-list ul {
