@@ -7,121 +7,286 @@ function Weapons() {
             name: 'Baseball Grenade',
             quantity: 2,
             type: 'grenade',
-            Damage: {
-                physical: 200
-            },
-            'Fire Rate': 0,
-            Range: 93,
-            Accuracy: 0,
-            Weight: 1,
-            Value: 40
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        physical: 200
+                    }
+                },
+                {
+                    statName: 'Fire Rate',
+                    value: 0
+                },
+                {
+                    statName: 'Range',
+                    value: 93
+                },
+                {
+                    statName: 'Accuracy',
+                    value: 0
+                },
+                {
+                    statName: 'Weight',
+                    value: 1
+                },
+                {
+                    statName: 'Value',
+                    value: 40
+                }
+            ]
         },
         {
             name: 'Cryo Mine',
             quantity: 1,
             type: 'grenade',
-            Damage: {
-                physical: 60
-            },
-            'Fire Rate': 0,
-            Range: 93,
-            Accuracy: 0,
-            Weight: 0.5,
-            Value: 50
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        physical: 60
+                    }
+                },
+                {
+                    statName: 'Fire Rate',
+                    value: 0
+                },
+                {
+                    statName: 'Range',
+                    value: 93
+                },
+                {
+                    statName: 'Accuracy',
+                    value: 0
+                },
+                {
+                    statName: 'Weight',
+                    value: 0.5
+                },
+                {
+                    statName: 'Value',
+                    value: 50
+                }
+            ]
         },
         {
             name: 'Electrified Chinese Officer Sword',
             type: 'weapon',
-            Damage: {
-                physical: 85,
-                energy: 20
-            },
-            Speed: 'MEDIUM',
-            Weight: 3,
-            Value: 100
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        physical: 85,
+                        energy: 20
+                    }
+                },
+                {
+                    statName: 'Speed',
+                    value: 'MEDIUM'
+                },
+                {
+                    statName: 'Weight',
+                    value: 3
+                },
+                {
+                    statName: 'Value',
+                    value: 100
+                }
+            ]
         },
         {
             name: 'Fragmentation Grenade',
             quantity: 2,
             type: 'grenade',
-            Damage: {
-                physical: 300
-            },
-            'Fire Rate': 0,
-            Range: 93,
-            Accuracy: 0,
-            Weight: 0.5,
-            Value: 50
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        physical: 300
+                    }
+                },
+                {
+                    statName: 'Fire Rate',
+                    value: 0
+                },
+                {
+                    statName: 'Range',
+                    value: 93
+                },
+                {
+                    statName: 'Accuracy',
+                    value: 0
+                },
+                {
+                    statName: 'Weight',
+                    value: 0.5
+                },
+                {
+                    statName: 'Value',
+                    value: 50
+                }
+            ]
         },
         {
             name: 'Fragmentation Mine',
             quantity: 4,
             type: 'grenade',
-            Damage: {
-                physical: 250
-            },
-            'Fire Rate': 0,
-            Range: 93,
-            Accuracy: 0,
-            Weight: 0.5,
-            Value: 50
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        physical: 250
+                    }
+                },
+                {
+                    statName: 'Fire Rate',
+                    value: 0
+                },
+                {
+                    statName: 'Range',
+                    value: 93
+                },
+                {
+                    statName: 'Accuracy',
+                    value: 0
+                },
+                {
+                    statName: 'Weight',
+                    value: 0.5
+                },
+                {
+                    statName: 'Value',
+                    value: 50
+                }
+            ]
         },
         {
             name: 'Suppressed Calibrated Poweful 10mm Pistol',
             type: 'weapon',
-            Damage: {
-                physical: 55
-            },
-            ammo: '10mm',
-            'Fire Rate': 46,
-            Range: 89,
-            Accuracy: 77,
-            Weight: 6.9,
-            Value: 180
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        physical: 60
+                    }
+                },
+                {
+                    statName: 'Ammo',
+                    value: '10mm'
+                },
+                {
+                    statName: 'Fire Rate',
+                    value: 46
+                },
+                {
+                    statName: 'Range',
+                    value: 89
+                },
+                {
+                    statName: 'Accuracy',
+                    value: 77
+                },
+                {
+                    statName: 'Weight',
+                    value: 6.9
+                },
+                {
+                    statName: 'Value',
+                    value: 180
+                }
+            ]
         },
         {
             name: 'Suppressed Hardened Pipe Bolt-Action Sniper Rifle',
             type: 'weapon',
-            Damage: {
-                physical: 85
-            },
-            ammo: '.308',
-            'Fire Rate': 2,
-            Range: 185,
-            Accuracy: 106,
-            Weight: 7.3,
-            Value: 94
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        physical: 85
+                    }
+                },
+                {
+                    statName: 'Ammo',
+                    value: '.308'
+                },
+                {
+                    statName: 'Fire Rate',
+                    value: 2
+                },
+                {
+                    statName: 'Range',
+                    value: 185
+                },
+                {
+                    statName: 'Accuracy',
+                    value: 106
+                },
+                {
+                    statName: 'Weight',
+                    value: 7.3
+                },
+                {
+                    statName: 'Value',
+                    value: 94
+                }
+            ]
         },
         {
             name: 'Two Shot Boosted Automatic Laser Rifle',
             type: 'weapon',
-            Damage: {
-                energy: 91
-            },
-            ammo: 'Cell',
-            'Fire Rate': 100,
-            Range: 227,
-            Accuracy: 77,
-            Weight: 6.9,
-            Value: 360
-        },
+            stats: [
+                {
+                    statName: 'Damage',
+                    damType: {
+                        energy: 91
+                    }
+                },
+                {
+                    statName: 'Ammo',
+                    value: 'Cell'
+                },
+                {
+                    statName: 'Fire Rate',
+                    value: 100
+                },
+                {
+                    statName: 'Range',
+                    value: 227
+                },
+                {
+                    statName: 'Accuracy',
+                    value: 77
+                },
+                {
+                    statName: 'Weight',
+                    value: 6.9
+                },
+                {
+                    statName: 'Value',
+                    value: 360
+                }
+            ]
+        }
     ]
 
-    console.log(items)
+    const showItemDeets = i => {
+        console.log(items[i])
+    }
+    
+
 
     return (
     <main className='flex-center'>
         <div className='inventory-grid'>
             <section className='small-text item-list'>
                 <ul>
-                    <li>Baseball Grenade (2)</li>
-                    <li>Cryo Mine</li>
-                    <li>Electrified Chinese Officer Sword</li>
-                    <li>Fragmentation Grenade</li>
-                    <li>Fragmentation Mine</li>
-                    <li>Suppressed Calibrated Powerful 10mm Pistol</li>
-                    <li>Suppressed Hardened Pipe Bolt-Action Sniper Rifle</li>
-                    <li>Two Shot Boosted Automatic Laser Rifle</li>
+                {items.map((item, i) => (
+                    <li
+                    onMouseEnter={showItemDeets(i)}
+                        key={item.name}
+                        >{item.name}</li>
+                    ))}
                 </ul>
             </section>
             <section className='item-details-container'>
