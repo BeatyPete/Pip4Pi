@@ -16,6 +16,7 @@
 }
 .item-list li {
     text-overflow: ellipsis;
+    position: relative;
     overflow: hidden;
     white-space: nowrap;
     padding: .1em 0 .1em 1em;
@@ -27,6 +28,18 @@
 ::-webkit-scrollbar {
    width: 0;
   }
+.equipped::before {
+    content: '';
+    position: absolute;
+    background-color: var(--core-color);
+    width: 1vw;
+    height: 1vw;
+    bottom: 33.9%;
+    right: 96.5%;
+}
+.equipped:hover::before {
+    background-color: #353733;
+}
 
 .item-details-container {
     display: flex;

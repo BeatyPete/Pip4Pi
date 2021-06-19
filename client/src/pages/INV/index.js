@@ -77,6 +77,7 @@ function INV({mainTab, setMainTab}) {
           670
         </div>
 
+        {/* conditional footer section for weapons apparel and aid */}
         {sub === 'WEAPONS' 
           ? <div className='backing right-footer large-footer'>
               <GunSvg classes='footer-lg-img'></GunSvg>
