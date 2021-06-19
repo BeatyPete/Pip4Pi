@@ -1,0 +1,10 @@
+#hp-bar {
+    width: 88%;
+    height: 60%;
+    box-shadow: inset var(--core-color) 0px 0px 0px .2vw;
+}
+#hp-fill {
+    background: var(--core-color);
+    width: 100%;
+    height: 100%;
+}

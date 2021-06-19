@@ -4,19 +4,18 @@ import SubTabs from "../../components/Sub-tabs";
 
 import ItemList from '../../components/Item-list'
 import {weapons, apparel, aid, misc, junk, mods, ammo} from '../../lib/items'
-/* import './stat.css' */
-import weightImg from '../../assets/images/weight.svg'
-import capsImg from '../../assets/images/caps.svg'
+import './inv.css'
 
 import GunSvg from '../../components/images/gun'
 import ZapSvg from '../../components/images/zap'
+import HelmetSvg from '../../components/images/helmet'
+import ShieldSvg from '../../components/images/shield'
 
 
 
 function INV({mainTab, setMainTab}) {
   const [sub, setSub] = useState('WEAPONS')
   
-  /* const subs = ['WEAPONS', 'APPAREL', 'AID', 'MISC', 'JUNK', 'MODS', 'AMMO'] */
   const subs = [
     {
       name:'WEAPONS',
@@ -90,11 +89,20 @@ function INV({mainTab, setMainTab}) {
             </div>
           : sub === 'APPAREL'
           ? <div className='backing right-footer large-footer'>
-              <GunSvg classes='footer-lg-img'></GunSvg>
+              <HelmetSvg classes='footer-lg-img'></HelmetSvg>
+              <ShieldSvg classes='stat-img'></ShieldSvg>
+              118
               <ZapSvg classes='stat-img'></ZapSvg>
-              91
+              92
             </div>
-          : ''
+          : sub === 'AID'
+          ? <div className='backing xp-container large-footer'>
+              HP
+              <div id='hp-bar'>
+                <div id='hp-fill'></div>
+              </div>
+            </div>
+          : <div className='backing right-footer large-footer'></div>
         }
         
       </footer>
