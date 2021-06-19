@@ -10,7 +10,7 @@ function MainTabs() {
     
 
     const changeTab = e =>{
-        audio.play();
+        /* audio.play(); */
         const newTab = e.target.innerText
         dispatch({
             type: CHANGE_MAIN_TAB,

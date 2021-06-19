@@ -9,7 +9,7 @@ function SubTabs({tabs, sub, setSub}) {
     const audio = new Audio(sound);
 
     const findSub = e => {
-      audio.play();
+      /* audio.play(); */
         let selected = e.target.innerText
         setSub(e.target.innerText)
         const tabNum = tabs.findIndex(stuff => stuff.name === selected)
