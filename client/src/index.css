@@ -75,10 +75,13 @@ footer div {
   display: flex;
   align-items: center;
 }
-footer svg {
-  width: 2.1vw;
-  max-width: 2.1rem;
+.footer-lg-img {
+  height: 2.1vw;
+  max-height: 2.1rem;
   margin-right: .5ch;
+}
+.footer-sm-img {
+  
 }
 
 @media screen and (min-width: 1650px) {
