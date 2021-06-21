@@ -15,6 +15,12 @@ function ItemList({items}) {
         setDeets(items[itemNum[1]])
     }
 
+    const equip = e => {
+        const eventId = e.target.id
+        const itemNum = eventId.split(' ')
+        console.log(itemNum[1])
+    }
+
     return (
     <main className='flex-center'>
         <div className='inventory-grid'>
@@ -24,6 +30,7 @@ function ItemList({items}) {
                     <li
                     className='equipped'
                     onMouseEnter={showItemDeets}
+                    onClick={equip}
                         key={`item ${i}`}
                         id={`item ${i}`}
                         >{`${item.name} ${item.quantity > 1 ? `(${item.quantity})` : ""}`}</li>
