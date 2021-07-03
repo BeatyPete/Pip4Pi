@@ -1,5 +1,5 @@
-import {useEffect} from 'react'
-import {SocketContext, socket} from './context/socket';
+import {useEffect, useState} from 'react'
+import {socket} from './context/socket';
 import { useStoreContext } from "./utils/GlobalState";
 import { CHANGE_MAIN_TAB } from "./utils/actions";
 
@@ -11,42 +11,45 @@ import RADIO from "./pages/RADIO";
 
 function App() {
   const [state, dispatch] = useStoreContext();
-
+  const [currTab, setCurrTab] = useState('STAT')
   const { mainTab } = state;
 
   useEffect(() => {
-    console.log(mainTab)
-    socket.on('count', function (data) { //get button status from client
-      changeTab(data)
+    socket.on('mainChange', function (data) { //get button status from client
+      changeMainTab(data)
     });
   }, [socket]);
 
-  
-  const changeTab = rotation => {
-    let watchlist = JSON.parse(localStorage.getItem("tab")) || 'STAT';
-    const tabs = ['STAT', 'INV', 'DATA', 'MAP', 'RADIO']
-      const tabNum = tabs.findIndex(stuff => stuff === watchlist)
-      let newTab = tabNum + rotation;
-      if (newTab < 0) {
-        newTab = 0
-      } else if (newTab > 4) {
-        newTab = 4
+  useEffect(() => {
+    dispatch({
+      type: CHANGE_MAIN_TAB,
+      mainTab: currTab
+    });
+  }, [currTab]);
+
+  const changeMainTab = rotation => {
+    const getNewTab = currTab => {
+      const tabs = ['STAT', 'INV', 'DATA', 'MAP', 'RADIO']
+      let tabNum = tabs.findIndex(stuff => stuff === currTab)
+      let newTabNum = tabNum + rotation
+      if (newTabNum < 0) {
+        newTabNum = 0
+      } else if (newTabNum > 4) {
+        newTabNum = 4
       }
-      localStorage.setItem("tab", JSON.stringify(tabs[newTab]));
-      dispatch({
-        type: CHANGE_MAIN_TAB,
-        mainTab: tabs[newTab]
-      });
+      return tabs[newTabNum]
+    }
+    setCurrTab(getNewTab)
   }
 
   return (
-    <SocketContext.Provider value={socket}>
+    <>
       {mainTab === 'STAT' && (<STAT></STAT>)}
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}
       {mainTab === 'MAP' && (<MAP></MAP>)}
       {mainTab === 'RADIO' && (<RADIO></RADIO>)}
-    </SocketContext.Provider>
+    </>
   );
 }
 

@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StoreProvider } from "./utils/GlobalState";
+import {SocketContext, socket} from './context/socket';
 
 ReactDOM.render(
   <React.StrictMode>
+    <SocketContext.Provider value={socket}>
     <StoreProvider>
       <App />
     </StoreProvider>
+    </SocketContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

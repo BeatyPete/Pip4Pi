@@ -330,7 +330,428 @@ const apparel = [
         ]
     }
 ]
-const aid = []
+const aid = [
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+    {
+        name: 'Cryo Mine',
+        type: 'grenade',
+        stats: []
+    },
+]
 const misc = []
 const junk = []
 const mods = []

@@ -59,7 +59,7 @@ function Status() {
             <div className='backing stat-info'>
               <CrosshairSvg classes='stat-img'></CrosshairSvg>
               <div>18</div>
-            </div>
+            </div>  
           </div>
 
           <div className='armor-stats'>

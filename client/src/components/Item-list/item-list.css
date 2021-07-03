@@ -25,6 +25,10 @@
     background-color: var(--core-color);
     color: #353733;
 }
+.hovered {
+    background-color: var(--core-color);
+    color: #353733;
+}
 ::-webkit-scrollbar {
    width: 0;
   }
@@ -40,6 +44,9 @@
     right: 96.5%;
 }
 .equipped:hover::before {
+    background-color: #353733;
+}
+.hovered.equipped::before {
     background-color: #353733;
 }
 
