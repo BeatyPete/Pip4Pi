@@ -4,6 +4,8 @@ import './item-list.css'
 
 import ZapSvg from '../images/zap'
 import CrosshairSvg from '../images/crosshair'
+import ShieldSvg from '../images/shield'
+import RadsSvg from '../images/rads'
 
 function ItemList({items}) {
 /* character stats like damage and armor value could be stored in global store */
@@ -123,6 +125,26 @@ function ItemList({items}) {
                                             ? <CrosshairSvg classes='stat-img'></CrosshairSvg>
                                             : damType.icon === 'energy'
                                             ? <ZapSvg classes='stat-img'></ZapSvg>
+                                            /* extra damage types can be added on next conditional */
+                                            : ''}
+                                            {damType.value}
+                                        </div>
+                                    ))}
+                                    </div>
+                                </li>
+                                : stat.statName === 'DMG Resist'
+                                ? <li>
+                                    <div>{stat.statName}</div>
+                                    <div>
+                                    {stat.damType.map((damType) => (
+                                        <div>
+                                            {/* conditional rendering for the damage icon */}
+                                            {damType.icon === 'physical'
+                                            ? <ShieldSvg classes='stat-img'></ShieldSvg>
+                                            : damType.icon === 'energy'
+                                            ? <ZapSvg classes='stat-img'></ZapSvg>
+                                            : damType.icon === 'radiation'
+                                            ? <RadsSvg classes='stat-img'></RadsSvg>
                                             /* extra damage types can be added on next conditional */
                                             : ''}
                                             {damType.value}

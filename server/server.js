@@ -18,8 +18,7 @@ const io = socketIo(server, {
 });
 
 const pushButton = new Gpio(18, 'in', 'rising')
-//pin 17 is taken for some reason
-// WARNING ! This is WIRINGPI pin numerotation !! please see https://fr.pinout.xyz/pinout/wiringpi#*
+// WARNING ! This below is WIRINGPI pin numerotation !! please see https://fr.pinout.xyz/pinout/wiringpi#*
 const mainClk = 2;
 const mainDt = 3;
 const subClk = 12;
