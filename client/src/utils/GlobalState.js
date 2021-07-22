@@ -8,27 +8,64 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     mainTab: 'STAT',
     currentHealth: 80,
-    itemSlots: [
+    weaponSlots: [
       {
         slotType: 'weapon',
         numInList: null,
-        damType: [
-          {
-              icon: 'physical',
-              value: 200
-          }
-        ]
+        damType: []
       },
       {
         slotType: 'grenade',
         numInList: null,
-        damType: [
-          {
-              icon: 'physical',
-              value: 200
-          }
-        ]
+        damType: []
+      }
+    ],
+    armorSlots: [
+      {
+        slotType: 'underarmor',
+        numInList: null,
+        resists: []
       },
+      {
+        slotType: 'helmet',
+        numInList: null,
+        resists: []
+      },
+      {
+        slotType: 'eyes',
+        numInList: null,
+        resists: []
+      },
+      {
+        slotType: 'mask',
+        numInList: null,
+        resists: []
+      },
+      {
+        slotType: 'chest',
+        numInList: null,
+        resists: []
+      },
+      {
+        slotType: 'l-arm',
+        numInList: null,
+        resists: []
+      },
+      {
+        slotType: 'r-arm',
+        numInList: null,
+        resists: []
+      },
+      {
+        slotType: 'l-leg',
+        numInList: null,
+        resists: []
+      },
+      {
+        slotType: 'r-leg',
+        numInList: null,
+        resists: []
+      }
     ]
   });
 

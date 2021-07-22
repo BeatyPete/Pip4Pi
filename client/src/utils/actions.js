@@ -1,1 +1,2 @@
 export const CHANGE_MAIN_TAB = "CHANGE_MAIN_TAB";
+export const EQUIP_WEAPON = "EQUIP_WEAPON";

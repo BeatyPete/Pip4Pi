@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import {socket} from '../../context/socket';
+import { useStoreContext } from "../../utils/GlobalState";
+import { EQUIP_WEAPON } from "../../utils/actions";
 import './item-list.css'
 
 import ZapSvg from '../images/zap'
@@ -7,10 +9,13 @@ import CrosshairSvg from '../images/crosshair'
 import ShieldSvg from '../images/shield'
 import RadsSvg from '../images/rads'
 
-function ItemList({items}) {
-/* character stats like damage and armor value could be stored in global store */
+function ItemList({items, sub}) {
+    const [state, dispatch] = useStoreContext();
+
     const [deets, setDeets] = useState(items[0])
     const [hoveredItem, setHoveredItem] = useState(0)
+
+    const { weaponSlots, armorSlots } = state;
 
     const hovered = useRef();
 
@@ -23,12 +28,14 @@ function ItemList({items}) {
         });
     }, [socket]);
 
+    /* cleanup for sockets otherwise they stack when changing subtabs */
     useEffect(() => {        
         return () => {
           socket.removeAllListeners("itemChange");
         }
     }, [])
 
+    /* scrolls hovered item into view and changes displayed details to current hover */
     useEffect(() => {
         if (items = []) {
             return
@@ -60,13 +67,39 @@ function ItemList({items}) {
     const equip = e => {
         const eventId = e.target.id
         const itemNum = eventId.split(' ')
-        console.log(itemNum[1])
+        let itemToEquip = items[itemNum[1]]
+        
+        /* dispatch({
+            type: EQUIP_WEAPON,
+            weaponSlots: currTab
+        }); */
     }
 
     const equipItem = () => {
         let eqippedItemArr = []
         let itemToEquip = items[hoveredItem]
         
+    }
+
+    const isEquipped = i => {
+        if(sub === 'WEAPONS') {
+            const equipped = (element) => element.numInList === i;
+            if (weaponSlots.some(equipped)) {
+                return 'equipped'
+            }
+            else {
+                return ''
+            }
+        }
+        if(sub === 'APPAREL') {
+            const equipped = (element) => element.numInList === i;
+            if (armorSlots.some(equipped)) {
+                return 'equipped'
+            }
+            else {
+                return ''
+            }
+        }
     }
 
     const isHovered = i => {
@@ -87,7 +120,7 @@ function ItemList({items}) {
                         i === hoveredItem 
                         ? <li
                             ref={hovered}
-                            className={`equipped ${isHovered(i)}`}
+                            className={`${isEquipped(i)} ${isHovered(i)}`}
                             onMouseEnter={showItemDeets}
                             onClick={equip}
                             key={`item ${i}`}
@@ -96,7 +129,7 @@ function ItemList({items}) {
                             {`${item.name} ${item.quantity > 1 ? `(${item.quantity})` : ""}`}
                         </li>
                         : <li
-                            className={`equipped ${isHovered(i)}`}
+                            className={`${isEquipped(i)} ${isHovered(i)}`}
                             onMouseEnter={showItemDeets}
                             onClick={equip}
                             key={`item ${i}`}

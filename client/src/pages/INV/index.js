@@ -58,13 +58,13 @@ function INV({mainTab, setMainTab}) {
         <SubTabs tabs={subs} sub={sub} setSub={setSub}></SubTabs>
       </header>
 
-      {sub === 'WEAPONS' && (<ItemList items={weapons}></ItemList>)}
-      {sub === 'APPAREL' && (<ItemList items={apparel}></ItemList>)}
-      {sub === 'AID' && (<ItemList items={aid}></ItemList>)}
-      {sub === 'MISC' && (<ItemList items={misc}></ItemList>)}
-      {sub === 'JUNK' && (<ItemList items={junk}></ItemList>)}
-      {sub === 'MODS' && (<ItemList items={mods}></ItemList>)}
-      {sub === 'AMMO' && (<ItemList items={ammo}></ItemList>)}
+      {sub === 'WEAPONS' && (<ItemList sub={sub} items={weapons}></ItemList>)}
+      {sub === 'APPAREL' && (<ItemList sub={sub} items={apparel}></ItemList>)}
+      {sub === 'AID' && (<ItemList sub={sub} items={aid}></ItemList>)}
+      {sub === 'MISC' && (<ItemList sub={sub} items={misc}></ItemList>)}
+      {sub === 'JUNK' && (<ItemList sub={sub} items={junk}></ItemList>)}
+      {sub === 'MODS' && (<ItemList sub={sub} items={mods}></ItemList>)}
+      {sub === 'AMMO' && (<ItemList sub={sub} items={ammo}></ItemList>)}
 
       <footer className='large-text'>
         <div className='backing'>
