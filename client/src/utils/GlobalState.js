@@ -10,59 +10,59 @@ const StoreProvider = ({ value = [], ...props }) => {
     currentHealth: 80,
     weaponSlots: [
       {
-        slotType: 'weapon',
+        slotType: ['weapon'],
         numInList: null,
         damType: []
       },
       {
-        slotType: 'grenade',
-        numInList: null,
+        slotType: ['grenade'],
+        numInList: 5,
         damType: []
       }
     ],
     armorSlots: [
       {
-        slotType: 'underarmor',
+        slotType: ['underarmor'],
+        numInList: 6,
+        resists: []
+      },
+      {
+        slotType: ['helmet'],
         numInList: null,
         resists: []
       },
       {
-        slotType: 'helmet',
+        slotType: ['eyes'],
         numInList: null,
         resists: []
       },
       {
-        slotType: 'eyes',
+        slotType: ['mask'],
         numInList: null,
         resists: []
       },
       {
-        slotType: 'mask',
+        slotType: ['chest'],
         numInList: null,
         resists: []
       },
       {
-        slotType: 'chest',
+        slotType: ['l-arm'],
         numInList: null,
         resists: []
       },
       {
-        slotType: 'l-arm',
+        slotType: ['r-arm'],
         numInList: null,
         resists: []
       },
       {
-        slotType: 'r-arm',
+        slotType: ['l-leg'],
         numInList: null,
         resists: []
       },
       {
-        slotType: 'l-leg',
-        numInList: null,
-        resists: []
-      },
-      {
-        slotType: 'r-leg',
+        slotType: ['r-leg'],
         numInList: null,
         resists: []
       }

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import {socket} from '../../context/socket';
 import { useStoreContext } from "../../utils/GlobalState";
-import { EQUIP_WEAPON } from "../../utils/actions";
+import { CHANGE_WEAPONS, CHANGE_ARMOR, CHANGE_WEAPON } from "../../utils/actions";
 import './item-list.css'
 
 import ZapSvg from '../images/zap'
@@ -24,7 +24,7 @@ function ItemList({items, sub}) {
           changeItemHover(data)
         });
         socket.on('select', function (data) { //get button status from client
-            equipItem()
+            /* equipItem() */
         });
     }, [socket]);
 
@@ -66,43 +66,68 @@ function ItemList({items, sub}) {
 
     const equip = e => {
         const eventId = e.target.id
-        const itemNum = eventId.split(' ')
-        let itemToEquip = items[itemNum[1]]
-        
+        const itemNum = parseInt(eventId.split(' ')[1])
+        const itemToEquip = items[itemNum]
+        if (sub === 'WEAPONS' || 'APPAREL') {
+            let currentlyEquipped
+            let dispatchType
+            switch (sub) {
+                case 'WEAPONS':
+                    currentlyEquipped = weaponSlots
+                    dispatchType = CHANGE_WEAPON
+                    break;
+                case 'APPAREL':
+                    currentlyEquipped = armorSlots
+                    dispatchType = CHANGE_ARMOR
+                    break;
+                default:
+                    break;
+            }
+            if (isEquipped(itemNum)) {
+                console.log('yup')
+            } else {
+                for (let i = 0; i < currentlyEquipped.length; i++) {
+                    const isSlotMatching = itemToEquip.type.some(v => currentlyEquipped[i].slotType.includes(v))
+                    if (isSlotMatching) {
+                        console.log(i)
+                        currentlyEquipped.splice(i, 1)
+                        i--
+                    }
+                }
+                
+            }
+            
+            console.log(currentlyEquipped)
+        }
         /* dispatch({
             type: EQUIP_WEAPON,
             weaponSlots: currTab
         }); */
     }
 
-    const equipItem = () => {
-        let eqippedItemArr = []
-        let itemToEquip = items[hoveredItem]
-        
-    }
-
-    const isEquipped = i => {
-        if(sub === 'WEAPONS') {
-            const equipped = (element) => element.numInList === i;
-            if (weaponSlots.some(equipped)) {
+    const addEquippedClass = i => {
+        if(sub === 'WEAPONS' || 'APPAREL') {
+            if (isEquipped(i)) {
                 return 'equipped'
             }
             else {
                 return ''
             }
-        }
-        if(sub === 'APPAREL') {
-            const equipped = (element) => element.numInList === i;
-            if (armorSlots.some(equipped)) {
-                return 'equipped'
-            }
-            else {
-                return ''
-            }
-        }
+        } else return ''
     }
 
-    const isHovered = i => {
+    const isEquipped = (i) => {
+        const equipped = (element) => element.numInList === i;
+        let equipArr
+        if (sub === 'WEAPONS') {
+            equipArr = weaponSlots
+        } else if (sub === 'APPAREL') {
+            equipArr = armorSlots
+        }
+        return equipArr.some(equipped)
+    }
+
+    const addHoveredClass = i => {
         if (i === hoveredItem) {
             return 'hovered'
         } else {
@@ -120,7 +145,7 @@ function ItemList({items, sub}) {
                         i === hoveredItem 
                         ? <li
                             ref={hovered}
-                            className={`${isEquipped(i)} ${isHovered(i)}`}
+                            className={`${addEquippedClass(i)} ${addHoveredClass(i)}`}
                             onMouseEnter={showItemDeets}
                             onClick={equip}
                             key={`item ${i}`}
@@ -129,7 +154,7 @@ function ItemList({items, sub}) {
                             {`${item.name} ${item.quantity > 1 ? `(${item.quantity})` : ""}`}
                         </li>
                         : <li
-                            className={`${isEquipped(i)} ${isHovered(i)}`}
+                            className={`${addEquippedClass(i)} ${addHoveredClass(i)}`}
                             onMouseEnter={showItemDeets}
                             onClick={equip}
                             key={`item ${i}`}

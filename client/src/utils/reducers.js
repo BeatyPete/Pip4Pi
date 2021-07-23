@@ -1,7 +1,8 @@
 import { useReducer } from "react";
 import {
   CHANGE_MAIN_TAB,
-  EQUIP_WEAPON
+  CHANGE_WEAPON,
+  CHANGE_ARMOR
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -11,10 +12,15 @@ export const reducer = (state, action) => {
         ...state,
         mainTab: action.mainTab,
       };
-    case EQUIP_WEAPON:
+    case CHANGE_WEAPON:
       return {
         ...state,
         weaponSlots: action.weaponSlots,
+      };
+    case CHANGE_ARMOR:
+      return {
+        ...state,
+        armorSlots: action.armorSlots,
       };
     default:
       return state;

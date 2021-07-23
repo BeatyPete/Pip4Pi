@@ -1,2 +1,3 @@
 export const CHANGE_MAIN_TAB = "CHANGE_MAIN_TAB";
-export const EQUIP_WEAPON = "EQUIP_WEAPON";
+export const CHANGE_WEAPON = "CHANGE_WEAPON";
+export const CHANGE_ARMOR = "CHANGE_ARMOR";
