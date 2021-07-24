@@ -70,17 +70,15 @@ function ItemList({items, sub}) {
         const itemToEquip = items[itemNum]
         if (sub === 'WEAPONS' || 'APPAREL') {
             let currentlyEquipped
-            let dispatchType
             switch (sub) {
                 case 'WEAPONS':
                     currentlyEquipped = weaponSlots
-                    dispatchType = CHANGE_WEAPON
                     break;
                 case 'APPAREL':
                     currentlyEquipped = armorSlots
-                    dispatchType = CHANGE_ARMOR
                     break;
                 default:
+                    currentlyEquipped = []
                     break;
             }
             if (isEquipped(itemNum)) {
@@ -94,10 +92,26 @@ function ItemList({items, sub}) {
                         i--
                     }
                 }
-                
-            }
-            
+                const itemToEquipFormatting = {
+                    slotType: itemToEquip.type,
+                    numInList: itemNum,
+                    stat: itemToEquip.stats[0].damType
+                  }
+                  console.log(itemToEquipFormatting)
+                currentlyEquipped.push(itemToEquipFormatting)
+            }   
             console.log(currentlyEquipped)
+            if (sub === 'WEAPONS') {
+                dispatch({
+                    type: CHANGE_WEAPON,
+                    weaponSlots: currentlyEquipped
+                });
+            } else if (sub === 'APPAREL') {
+                dispatch({
+                    type: CHANGE_ARMOR,
+                    armorSlots: currentlyEquipped
+                });
+            }
         }
         /* dispatch({
             type: EQUIP_WEAPON,
@@ -123,6 +137,8 @@ function ItemList({items, sub}) {
             equipArr = weaponSlots
         } else if (sub === 'APPAREL') {
             equipArr = armorSlots
+        } else {
+            equipArr = []
         }
         return equipArr.some(equipped)
     }
