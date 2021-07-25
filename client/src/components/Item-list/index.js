@@ -82,8 +82,10 @@ function ItemList({items, sub}) {
                     break;
             }
             if (isEquipped(itemNum)) {
-                console.log('yup')
+                const itemToUnequip = currentlyEquipped.findIndex((element) => element.numInList === itemNum);
+                currentlyEquipped.splice(itemToUnequip, 1)
             } else {
+                /* for loop unequips items that are of the same equipment type */
                 for (let i = 0; i < currentlyEquipped.length; i++) {
                     const isSlotMatching = itemToEquip.type.some(v => currentlyEquipped[i].slotType.includes(v))
                     if (isSlotMatching) {
@@ -96,8 +98,7 @@ function ItemList({items, sub}) {
                     slotType: itemToEquip.type,
                     numInList: itemNum,
                     stat: itemToEquip.stats[0].damType
-                  }
-                  console.log(sub)
+                }
                 currentlyEquipped.push(itemToEquipFormatting)
             }   
             console.log(currentlyEquipped)
@@ -122,7 +123,7 @@ function ItemList({items, sub}) {
     }
 
     const addEquippedClass = i => {
-        if(sub === 'WEAPONS' || 'APPAREL') {
+        if(sub === 'WEAPONS' || sub === 'APPAREL') {
             if (isEquipped(i)) {
                 return 'equipped'
             }
