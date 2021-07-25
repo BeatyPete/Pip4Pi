@@ -68,7 +68,7 @@ function ItemList({items, sub}) {
         const eventId = e.target.id
         const itemNum = parseInt(eventId.split(' ')[1])
         const itemToEquip = items[itemNum]
-        if (sub === 'WEAPONS' || 'APPAREL') {
+        if (sub === 'WEAPONS' || sub === 'APPAREL') {
             let currentlyEquipped
             switch (sub) {
                 case 'WEAPONS':
@@ -97,7 +97,7 @@ function ItemList({items, sub}) {
                     numInList: itemNum,
                     stat: itemToEquip.stats[0].damType
                   }
-                  console.log(itemToEquipFormatting)
+                  console.log(sub)
                 currentlyEquipped.push(itemToEquipFormatting)
             }   
             console.log(currentlyEquipped)
@@ -112,6 +112,8 @@ function ItemList({items, sub}) {
                     armorSlots: currentlyEquipped
                 });
             }
+        } else {
+            console.log('no')
         }
         /* dispatch({
             type: EQUIP_WEAPON,
