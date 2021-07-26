@@ -67,6 +67,12 @@
     padding: .3vw;
     margin-top: .5vw;
 }
+.item-details-container .blurb {
+    margin-bottom: -.4vw;
+    font-size: 1.1vw;
+    justify-content: center;
+    text-align: center;
+}
 
   @media screen and (min-width: 1650px) {
     .item-list ul {

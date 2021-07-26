@@ -187,6 +187,11 @@ function ItemList({items, sub}) {
                     {/* do not render stats if item array is empty */}
                     {deets &&
                     <ul className='small-text'>
+                        {deets.blurb &&
+                            <li className='blurb'>
+                                {deets.blurb}
+                            </li>
+                        }
                         {deets.stats.map((stat, i) => (
                             /* damage and damRes can hjave multiple values so it needs to be rendered differently */
                                 stat.statName === 'Damage'

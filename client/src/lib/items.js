@@ -366,7 +366,7 @@ const apparel = [
     {
         name: `Auto Stim Medium Metal Left Arm`,
         type: ['l-arm'],
-        blurb: 'Automatically use a Stimpack when hit while health is 25% or less, once every 60 seconds.',
+        blurb: 'Automatically use a Stimpak when hit while health is 25% or less, once every 60 seconds.',
         stats: [
             {
                 statName: 'DMG Resist',
@@ -1114,7 +1114,7 @@ const aid = [
                 value: 3
             },
             {
-                statName: 'REND',
+                statName: 'END',
                 value: 3
             },
             {
@@ -1131,7 +1131,170 @@ const aid = [
             }
         ]
     },
-    
+    {
+        name: 'Purified Water',
+        quantity: 4,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 40
+            },
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 20
+            }
+        ]
+    },
+    {
+        name: 'Rad-X',
+        quantity: 14,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'Rad Resist',
+                value: 100
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 40
+            }
+        ]
+    },
+    {
+        name: 'RadAway',
+        quantity: 20,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'Rads',
+                value: '-300'
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 80
+            }
+        ]
+    },
+    {
+        name: 'Salisbury Steak',
+        quantity: 2,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 30
+            },
+            {
+                statName: 'Rads',
+                value: 9
+            },
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 20
+            }
+        ]
+    },
+    {
+        name: 'Squirrel On A Stick',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 45
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 15
+            }
+        ]
+    },
+    {
+        name: 'Stimpak',
+        quantity: 12,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: '30%'
+            },
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 48
+            }
+        ]
+    },
+    {
+        name: 'Sugar Bombs',
+        quantity: 2,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 15
+            },
+            {
+                statName: 'Rads',
+                value: 7
+            },
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 1
+            }
+        ]
+    },
+    {
+        name: 'Yum Yum Deviled Eggs',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 15
+            },
+            {
+                statName: 'Rads',
+                value: 5
+            },
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 20
+            }
+        ]
+    }
 ]
 const misc = []
 const junk = []
