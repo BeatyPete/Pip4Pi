@@ -1299,6 +1299,161 @@ const aid = [
 const misc = []
 const junk = []
 const mods = []
-const ammo = []
+const ammo = [
+    {
+        name: '.308 Round',
+        quantity: 43,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 7
+            }
+        ]
+    },
+    {
+        name: '.38 Round',
+        quantity: 35,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 3
+            }
+        ]
+    },
+    {
+        name: '.45 Round',
+        quantity: 13,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 4
+            }
+        ]
+    },
+    {
+        name: '10mm Round',
+        quantity: 98,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 3
+            }
+        ]
+    },
+    {
+        name: '5.56 Round',
+        quantity: 43,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 5
+            }
+        ]
+    },
+    {
+        name: 'Fusion Cell',
+        quantity: 69,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 4
+            }
+        ]
+    },
+    {
+        name: 'Fusion Core',
+        quantity: 2,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Charge',
+                value: '100/100'
+            },
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 200
+            }
+        ]
+    },
+    {
+        name: 'Gamma Round',
+        quantity: 21,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 10
+            }
+        ]
+    },
+    {
+        name: 'Plasma Cartridge',
+        quantity: 18,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 6
+            }
+        ]
+    },
+    {
+        name: 'Shotgun Shell',
+        quantity: 5,
+        type: ['bullet'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0
+            },
+            {
+                statName: 'Value',
+                value: 5
+            }
+        ]
+    }
+]
 
 module.exports = {weapons, apparel, aid, misc, junk, mods, ammo};
