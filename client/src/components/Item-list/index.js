@@ -70,12 +70,15 @@ function ItemList({items, sub}) {
         const itemToEquip = items[itemNum]
         if (sub === 'WEAPONS' || sub === 'APPAREL') {
             let currentlyEquipped
+            let dispatchType
             switch (sub) {
                 case 'WEAPONS':
                     currentlyEquipped = weaponSlots
+                    dispatchType = CHANGE_WEAPON
                     break;
                 case 'APPAREL':
                     currentlyEquipped = armorSlots
+                    dispatchType = CHANGE_ARMOR
                     break;
                 default:
                     currentlyEquipped = []
@@ -100,26 +103,15 @@ function ItemList({items, sub}) {
                     stat: itemToEquip.stats[0].damType
                 }
                 currentlyEquipped.push(itemToEquipFormatting)
-            }   
-            console.log(currentlyEquipped)
-            if (sub === 'WEAPONS') {
-                dispatch({
-                    type: CHANGE_WEAPON,
-                    weaponSlots: currentlyEquipped
-                });
-            } else if (sub === 'APPAREL') {
-                dispatch({
-                    type: CHANGE_ARMOR,
-                    armorSlots: currentlyEquipped
-                });
             }
+            localStorage.setItem(dispatchType, JSON.stringify(currentlyEquipped));
+            dispatch({
+                type: dispatchType,
+                slots: currentlyEquipped
+            });
         } else {
             console.log('no')
         }
-        /* dispatch({
-            type: EQUIP_WEAPON,
-            weaponSlots: currTab
-        }); */
     }
 
     const addEquippedClass = i => {
@@ -136,12 +128,16 @@ function ItemList({items, sub}) {
     const isEquipped = (i) => {
         const equipped = (element) => element.numInList === i;
         let equipArr
-        if (sub === 'WEAPONS') {
-            equipArr = weaponSlots
-        } else if (sub === 'APPAREL') {
-            equipArr = armorSlots
-        } else {
-            equipArr = []
+        switch (sub) {
+            case 'WEAPONS':
+                equipArr = weaponSlots
+                break;
+            case 'APPAREL':
+                equipArr = armorSlots
+                break;
+            default:
+                equipArr = []
+                break;
         }
         return equipArr.some(equipped)
     }

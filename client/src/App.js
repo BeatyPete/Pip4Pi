@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {socket} from './context/socket';
 import { useStoreContext } from "./utils/GlobalState";
-import { CHANGE_MAIN_TAB } from "./utils/actions";
+import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR } from "./utils/actions";
 
 import STAT from "./pages/STAT";
 import INV from "./pages/INV";
@@ -13,6 +13,19 @@ function App() {
   const [state, dispatch] = useStoreContext();
   const [currTab, setCurrTab] = useState('STAT')
   const { mainTab } = state;
+
+  useEffect(() => {
+    var weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
+    var armorSlots = JSON.parse(localStorage.getItem(CHANGE_ARMOR)) || [];
+    dispatch({
+      type: CHANGE_WEAPON,
+      slots: weaponSlots
+    });
+    dispatch({
+      type: CHANGE_ARMOR,
+      slots: armorSlots
+    });
+  }, []);
 
   useEffect(() => {
     socket.on('mainChange', function (data) { //get button status from client

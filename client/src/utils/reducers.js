@@ -15,12 +15,12 @@ export const reducer = (state, action) => {
     case CHANGE_WEAPON:
       return {
         ...state,
-        weaponSlots: action.weaponSlots,
+        weaponSlots: action.slots,
       };
     case CHANGE_ARMOR:
       return {
         ...state,
-        armorSlots: action.armorSlots,
+        armorSlots: action.slots,
       };
     default:
       return state;
