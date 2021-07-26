@@ -175,6 +175,45 @@ const weapons = [
         ]
     },
     {
+        name: 'Gamma Gun',
+        type: ['weapon'],
+        stats: [
+            {
+                statName: 'Damage',
+                damType: [
+                    {
+                        icon: 'radiation',
+                        value: 141
+                    }
+                ]
+            },
+            {
+                statName: 'Ammo',
+                value: 'Gamma Round'
+            },
+            {
+                statName: 'Fire Rate',
+                value: 66
+            },
+            {
+                statName: 'Range',
+                value: 119
+            },
+            {
+                statName: 'Accuracy',
+                value: 69
+            },
+            {
+                statName: 'Weight',
+                value: 3.0
+            },
+            {
+                statName: 'Value',
+                value: 156
+            }
+        ]
+    },
+    {
         name: 'Suppressed Calibrated Poweful 10mm Pistol',
         type: ['weapon'],
         stats: [
@@ -643,425 +682,456 @@ const apparel = [
 ]
 const aid = [
     {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
-    {
-        name: 'Cryo Mine',
-        type: ['grenade'],
-        stats: []
-    },
+        name: 'Addictol',
+        quantity: 1,
+        type: ['stinky'],
+        blurb: 'Cures Illness',
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 75
+            }
+        ]
+    },
+    {
+        name: 'Buffout',
+        quantity: 11,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'STR',
+                value: 2
+            },
+            {
+                statName: 'END',
+                value: 2
+            },
+            {
+                statName: 'Max HP',
+                value: 50
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 45
+            }
+        ]
+    },
+    {
+        name: 'Dandy Boy Apples',
+        quantity: 2,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 10
+            },
+            {
+                statName: 'Rads',
+                value: 3
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 75
+            }
+        ]
+    },
+    {
+        name: 'Day Tripper',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'LCK',
+                value: 3
+            },
+            {
+                statName: 'CHR',
+                value: 3
+            },
+            {
+                statName: 'STR',
+                value: -2
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 40
+            }
+        ]
+    },
+    {
+        name: 'Fancy Lad Snack Cakes',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 10
+            },
+            {
+                statName: 'Rads',
+                value: 4
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 18
+            }
+        ]
+    },
+    {
+        name: 'Herbal Anodyne',
+        quantity: 1,
+        blurb: 'Resists Insomnia & Weakness',
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 20
+            }
+        ]
+    },
+    {
+        name: 'Iguana On A Stick',
+        quantity: 2,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 40
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 33
+            }
+        ]
+    },
+    {
+        name: 'InstaMash',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 20
+            },
+            {
+                statName: 'Rads',
+                value: 7
+            },
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 20
+            }
+        ]
+    },
+    {
+        name: 'Jet',
+        quantity: 9,
+        type: ['stinky'],
+        blurb: 'Slows time for 10 seconds.',
+        stats: [        
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 50
+            }
+        ]
+    },
+    {
+        name: 'Med-X',
+        quantity: 11,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'DMG Resist',
+                damType: [
+                    {
+                        icon: null,
+                        value: 25
+                    }
+                ]
+            },
+            {
+                statName: 'Poison Resist',
+                value: 250
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 50
+            }
+        ]
+    },
+    {
+        name: 'Mentats',
+        quantity: 9,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'INT',
+                value: 2
+            },
+            {
+                statName: 'PER',
+                value: 2
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 50
+            }
+        ]
+    },
+    {
+        name: 'Noodle Cup',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 40
+            },
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 20
+            }
+        ]
+    },
+    {
+        name: 'Nuka Cherry',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 50
+            },
+            {
+                statName: 'Rads',
+                value: 5
+            },
+            {
+                statName: 'AP',
+                value: 25
+            },
+            {
+                statName: 'Weight',
+                value: 1
+            },
+            {
+                statName: 'Value',
+                value: 40
+            }
+        ]
+    },
+    {
+        name: 'Nuka Cola',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 20
+            },
+            {
+                statName: 'Rads',
+                value: 5
+            },
+            {
+                statName: 'AP',
+                value: 10
+            },
+            {
+                statName: 'Weight',
+                value: 1
+            },
+            {
+                statName: 'Value',
+                value: 20
+            }
+        ]
+    },
+    {
+        name: 'Orange Mentats',
+        quantity: 1,
+        type: ['stinky'],
+        blurb: '+10% VATS Accuracy',
+        stats: [
+            {
+                statName: 'PER',
+                value: 5
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 60
+            }
+        ]
+    },
+    {
+        name: `Pork n' Beans`,
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 20
+            },
+            {
+                statName: 'Rads',
+                value: 6
+            },
+            {
+                statName: 'Weight',
+                value: 0.5
+            },
+            {
+                statName: 'Value',
+                value: 10
+            }
+        ]
+    },
+    {
+        name: 'Potato Crisps',
+        quantity: 1,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'HP',
+                value: 10
+            },
+            {
+                statName: 'Rads',
+                value: 7
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 7
+            }
+        ]
+    },
+    {
+        name: 'Psycho',
+        quantity: 6,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'Damage',
+                damType: [
+                    {
+                        icon: null,
+                        value: '25%'
+                    }
+                ]
+            },
+            {
+                statName: 'DMG Resist',
+                damType: [
+                    {
+                        icon: null,
+                        value: 25
+                    }
+                ]
+            },
+            
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 50
+            }
+        ]
+    },
+    {
+        name: 'Psychobuff',
+        quantity: 5,
+        type: ['stinky'],
+        stats: [
+            {
+                statName: 'Damage',
+                damType: [
+                    {
+                        icon: null,
+                        value: '25%'
+                    }
+                ]
+            },
+            {
+                statName: 'STR',
+                value: 3
+            },
+            {
+                statName: 'REND',
+                value: 3
+            },
+            {
+                statName: 'Max HP',
+                value: 65
+            },
+            {
+                statName: 'Weight',
+                value: 0.1
+            },
+            {
+                statName: 'Value',
+                value: 70
+            }
+        ]
+    },
+    
 ]
 const misc = []
 const junk = []

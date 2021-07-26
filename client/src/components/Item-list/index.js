@@ -8,6 +8,8 @@ import ZapSvg from '../images/zap'
 import CrosshairSvg from '../images/crosshair'
 import ShieldSvg from '../images/shield'
 import RadsSvg from '../images/rads'
+import AmmoSvg from '../images/ammo';
+import ammoSvg from '../images/ammo';
 
 function ItemList({items, sub}) {
     const [state, dispatch] = useStoreContext();
@@ -198,6 +200,8 @@ function ItemList({items, sub}) {
                                             ? <CrosshairSvg classes='stat-img'></CrosshairSvg>
                                             : damType.icon === 'energy'
                                             ? <ZapSvg classes='stat-img'></ZapSvg>
+                                            : damType.icon === 'radiation'
+                                            ? <RadsSvg classes='stat-img'></RadsSvg>
                                             /* extra damage types can be added on next conditional */
                                             : ''}
                                             {damType.value}
@@ -223,6 +227,13 @@ function ItemList({items, sub}) {
                                             {damType.value}
                                         </div>
                                     ))}
+                                    </div>
+                                </li>
+                                : stat.statName === 'Ammo'
+                                ? <li key={stat.name}>
+                                    <div>
+                                        <AmmoSvg classes='stat-img'></AmmoSvg>
+                                        {stat.value}
                                     </div>
                                 </li>
                                 : <li key={stat.name}>

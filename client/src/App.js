@@ -15,8 +15,8 @@ function App() {
   const { mainTab } = state;
 
   useEffect(() => {
-    var weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
-    var armorSlots = JSON.parse(localStorage.getItem(CHANGE_ARMOR)) || [];
+    const weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
+    const armorSlots = JSON.parse(localStorage.getItem(CHANGE_ARMOR)) || [];
     dispatch({
       type: CHANGE_WEAPON,
       slots: weaponSlots
