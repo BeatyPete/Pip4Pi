@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import {socket} from '../../context/socket';
 import { useStoreContext } from "../../utils/GlobalState";
-import { CHANGE_WEAPONS, CHANGE_ARMOR, CHANGE_WEAPON } from "../../utils/actions";
+import { CHANGE_ARMOR, CHANGE_WEAPON } from "../../utils/actions";
 import './item-list.css'
 
 import ZapSvg from '../images/zap'
@@ -26,7 +26,7 @@ function ItemList({items, sub}) {
           changeItemHover(data)
         });
         socket.on('select', function (data) { //get button status from client
-            /* equipItem() */
+            equip()
         });
     }, [socket]);
 
@@ -67,7 +67,12 @@ function ItemList({items, sub}) {
     }
 
     const equip = e => {
-        const eventId = e.target.id
+        let eventId
+        if (e) {
+            eventId = e.target.id
+        } else {
+            eventId = hovered.current.id
+        }
         const itemNum = parseInt(eventId.split(' ')[1])
         const itemToEquip = items[itemNum]
         if (sub === 'WEAPONS' || sub === 'APPAREL') {
