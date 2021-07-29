@@ -150,13 +150,13 @@ function ItemList({items, sub}) {
         return equipArr.some(equipped)
     }
 
-    const addHoveredClass = i => {
+    /* const addHoveredClass = i => {
         if (i === hoveredItem) {
             return 'hovered'
         } else {
             return ''
         }
-    }
+    } */
 
     return (
     <main className='flex-center'>
@@ -168,7 +168,7 @@ function ItemList({items, sub}) {
                         i === hoveredItem 
                         ? <li
                             ref={hovered}
-                            className={`${addEquippedClass(i)} ${addHoveredClass(i)}`}
+                            className={`${addEquippedClass(i)} hovered`}
                             onMouseEnter={showItemDeets}
                             onClick={equip}
                             key={`item ${i}`}
@@ -177,7 +177,7 @@ function ItemList({items, sub}) {
                             {`${item.name} ${item.quantity > 1 ? `(${item.quantity})` : ""}`}
                         </li>
                         : <li
-                            className={`${addEquippedClass(i)} ${addHoveredClass(i)}`}
+                            className={`${addEquippedClass(i)}`}
                             onMouseEnter={showItemDeets}
                             onClick={equip}
                             key={`item ${i}`}
