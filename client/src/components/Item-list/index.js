@@ -34,16 +34,16 @@ function ItemList({items, sub}) {
     useEffect(() => {        
         return () => {
           socket.removeAllListeners("itemChange");
+          socket.removeAllListeners("select");
         }
     }, [])
 
     /* scrolls hovered item into view and changes displayed details to current hover */
     useEffect(() => {
-        if (items = []) {
-            return
-        }
-        hovered.current.scrollIntoViewIfNeeded(false)
-        setDeets(items[hoveredItem])       
+        if (hovered.current) {                
+            hovered.current.scrollIntoViewIfNeeded(false)
+            setDeets(items[hoveredItem])
+        }   
     }, [hoveredItem]);
 
     const changeItemHover = rotation => {
@@ -70,8 +70,10 @@ function ItemList({items, sub}) {
         let eventId
         if (e) {
             eventId = e.target.id
-        } else {
+        } else if (hovered.current){
             eventId = hovered.current.id
+        } else {
+            return
         }
         const itemNum = parseInt(eventId.split(' ')[1])
         const itemToEquip = items[itemNum]
@@ -94,8 +96,7 @@ function ItemList({items, sub}) {
             if (isEquipped(itemNum)) {
                 const itemToUnequip = currentlyEquipped.findIndex((element) => element.numInList === itemNum);
                 currentlyEquipped.splice(itemToUnequip, 1)
-            } else {
-                /* for loop unequips items that are of the same equipment type */
+            } else {           
                 for (let i = 0; i < currentlyEquipped.length; i++) {
                     const isSlotMatching = itemToEquip.type.some(v => currentlyEquipped[i].slotType.includes(v))
                     if (isSlotMatching) {
