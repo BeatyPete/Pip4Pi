@@ -45,7 +45,8 @@
   .selected::before {
     content: "";
     position: absolute;
-    bottom: -.63vw;
+    /* bottom: -.63vw; */
+    bottom: -23%;
     left: -10%;
     height: 70%;
     width: 120%;

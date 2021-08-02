@@ -12,10 +12,15 @@ import GunSvg from '../../components/images/gun'
 import ZapSvg from '../../components/images/zap'
 import HelmetSvg from '../../components/images/helmet'
 import ShieldSvg from '../../components/images/shield'
+import CrosshairSvg from '../../components/images/crosshair';
+import RadsSvg from '../../components/images/rads';
+
+import { useStoreContext } from "../../utils/GlobalState";
 
 
 
 function INV({mainTab, setMainTab}) {
+  const [state, dispatch] = useStoreContext();
   const [sub, setSub] = useState('WEAPONS')
   
   const subs = [
@@ -49,6 +54,20 @@ function INV({mainTab, setMainTab}) {
     }
   ]
 
+  const { charStats, damage, damResist } = state;
+
+  const getHealthPercent = () => {
+    const healthPercent = Math.floor((charStats.currentHealth / charStats.maxHealth) * 100)
+    return `${healthPercent}%`
+  }
+
+  const noArmorEquipped = () => {
+    if (damResist.energy === 0 && damResist.radiation === 0 || damResist.physical > 0) {
+      return true
+    } else {
+      return false
+    }
+  }
   
 
     return (
@@ -69,34 +88,65 @@ function INV({mainTab, setMainTab}) {
       <footer className='large-text'>
         <div className='backing'>
           <WeightSvg classes='footer-lg-img'></WeightSvg>
-          159/165
+          {charStats.currentWeight}/{charStats.maxWeight}
         </div>
 
         <div className='backing'>
           <CapsSvg classes='footer-lg-img'></CapsSvg>
-          670
+          {charStats.caps}
         </div>
 
         {/* conditional footer section for weapons apparel and aid */}
         {sub === 'WEAPONS' 
           ? <div className='backing right-footer large-footer'>
               <GunSvg classes='footer-lg-img'></GunSvg>
-              <ZapSvg classes='stat-img'></ZapSvg>
-              91
+              {damage.physical > 0 &&
+                <div className='footer-stat'>
+                  <CrosshairSvg classes='stat-img'></CrosshairSvg>
+                  {damage.physical}
+                </div>
+              }
+              {damage.energy > 0 &&
+                <div className='footer-stat'>
+                  <ZapSvg classes='stat-img'></ZapSvg>
+                  {damage.energy}
+                </div>
+              }
+              {damage.radiation > 0 &&
+                <div className='footer-stat'>
+                  <RadsSvg classes='stat-img'></RadsSvg>
+                  {damage.radiation}
+                </div>
+              }
+              
             </div>
           : sub === 'APPAREL'
           ? <div className='backing right-footer large-footer'>
               <HelmetSvg classes='footer-lg-img'></HelmetSvg>
-              <ShieldSvg classes='stat-img'></ShieldSvg>
-              118
-              <ZapSvg classes='stat-img'></ZapSvg>
-              92
+              {noArmorEquipped() &&
+                <div className='footer-stat'>
+                  <ShieldSvg classes='stat-img'></ShieldSvg>
+                  {damResist.physical}
+                </div>
+              }
+              {damResist.energy > 0 &&
+                <div className='footer-stat'>
+                  <ZapSvg classes='stat-img'></ZapSvg>
+                  {damResist.energy}
+                </div>
+              }
+              {damResist.radiation > 0 &&
+                <div className='footer-stat'>
+                  <RadsSvg classes='stat-img'></RadsSvg>
+                  {damResist.radiation}
+                </div>
+              }
             </div>
           : sub === 'AID'
           ? <div className='backing xp-container large-footer'>
               HP
               <div id='hp-bar'>
-                <div id='hp-fill'></div>
+                <div style={{'width': getHealthPercent()}} id='hp-fill'></div>
               </div>
             </div>
           : <div className='backing right-footer large-footer'></div>

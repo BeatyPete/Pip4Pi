@@ -344,10 +344,6 @@ const apparel = [
                         value: 1
                     },
                     {
-                        icon: 'energy',
-                        value: 0
-                    },
-                    {
                         icon: 'radiation',
                         value: 15
                     }
@@ -631,10 +627,6 @@ const apparel = [
                     {
                         icon: 'physical',
                         value: 10
-                    },
-                    {
-                        icon: 'energy',
-                        value: 0
                     }
                 ]
             },

@@ -7,9 +7,47 @@ const { Provider } = StoreContext;
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     mainTab: 'STAT',
-    currentHealth: 80,
     weaponSlots: [],
-    armorSlots: []
+    armorSlots: [],
+    charStats: {
+      name: 'Sole Survivor',
+      currentHealth: 90,
+      maxHealth: 90,
+      currentAP: 70,
+      maxAP: 70,
+      currentLevel: 1,
+      levelFillPercent: '80%',
+      caps: 670,
+      currentWeight: 0,
+      maxWeight: 165
+    },
+    damage: {
+      physical: 18,
+      energy: 0,
+      radiation: 0
+    },
+    damResist:{ 
+      physical: 0,
+      energy: 0,
+      radiation: 0
+    },
+    limbs: {
+      head: "12%",
+      lArm: "63%",
+      rArm: "100%",
+      chest: "70%",
+      lLeg: "40%",
+      rLeg: "90%",
+    },
+    settings: {
+      width: '70vw',
+      height: '54vw',
+      positionX: '0px',
+      positionY: '0px',
+      r: 2,
+      g: 253,
+      b: 0
+    }
   });
 
   return <Provider value={[state, dispatch]} {...props} />;

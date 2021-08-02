@@ -12,9 +12,10 @@ import RADIO from "./pages/RADIO";
 function App() {
   const [state, dispatch] = useStoreContext();
   const [currTab, setCurrTab] = useState('STAT')
-  const { mainTab } = state;
+  const { mainTab, settings } = state;
 
   useEffect(() => {
+    document.documentElement.style.setProperty('--color', `${settings.r}, ${settings.g}, ${settings.b}`);
     const weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
     const armorSlots = JSON.parse(localStorage.getItem(CHANGE_ARMOR)) || [];
     dispatch({
@@ -55,14 +56,20 @@ function App() {
     setCurrTab(getNewTab)
   }
 
+  const displaySettings = {
+    transform: `translate(${settings.positionX}, ${settings.positionY})`,
+    width: settings.width,
+    height: settings.height
+  }
+
   return (
-    <>
+    <div style={displaySettings} className='master'>
       {mainTab === 'STAT' && (<STAT></STAT>)}
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}
       {mainTab === 'MAP' && (<MAP></MAP>)}
       {mainTab === 'RADIO' && (<RADIO></RADIO>)}
-    </>
+    </div>
   );
 }
 

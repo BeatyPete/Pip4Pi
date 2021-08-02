@@ -6,7 +6,10 @@ import Special from "../../components/stat-page/Special";
 import Perks from "../../components/stat-page/Perks";
 import './stat.css'
 
+import { useStoreContext } from "../../utils/GlobalState";
+
 function STAT({mainTab, setMainTab}) {
+  const [state, dispatch] = useStoreContext();
   const [sub, setSub] = useState('STATUS')
   /* const subs = ['STATUS', 'SPECIAL', 'PERKS'] */
   const subs = [
@@ -24,6 +27,8 @@ function STAT({mainTab, setMainTab}) {
     }
   ]
 
+  const { charStats } = state;
+
 
     return (
         <>
@@ -37,16 +42,16 @@ function STAT({mainTab, setMainTab}) {
       {sub === 'PERKS' && (<Perks></Perks>)}
 
       <footer className='large-text'>
-        <div className='backing'>HP 90/90</div>
+        <div className='backing'>HP {charStats.currentHealth}/{charStats.maxHealth}</div>
 
         <div className='backing xp-container large-footer'>
-          LEVEL 1
+          LEVEL {charStats.currentLevel}
           <div id='xp-bar'>
-            <div id='xp-fill'></div>
+            <div style={{"width":charStats.levelFillPercent}} id='xp-fill'></div>
           </div>
         </div>
 
-        <div className='backing right-footer'>AP 70/70</div>
+        <div className='backing right-footer'>AP {charStats.currentAP}/{charStats.maxAP}</div>
       </footer>
       </>
 )}

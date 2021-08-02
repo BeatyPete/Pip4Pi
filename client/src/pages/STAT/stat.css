@@ -13,8 +13,7 @@
   }
   #xp-fill {
     background: var(--core-color);
-      width: 25%;
-      height: 100%;
+    height: 100%;
   }
   .right-footer {
     justify-content: flex-end;

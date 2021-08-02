@@ -2,7 +2,9 @@ import { useReducer } from "react";
 import {
   CHANGE_MAIN_TAB,
   CHANGE_WEAPON,
-  CHANGE_ARMOR
+  CHANGE_ARMOR,
+  CHANGE_SETTINGS,
+  CHANGE_STATS
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -21,6 +23,16 @@ export const reducer = (state, action) => {
       return {
         ...state,
         armorSlots: action.slots,
+      };
+    case CHANGE_SETTINGS:
+      return {
+        ...state,
+        settings: action.settings,
+      };
+    case CHANGE_STATS:
+      return {
+        ...state,
+        charStats: action.charStats,
       };
     default:
       return state;

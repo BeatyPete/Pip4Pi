@@ -150,14 +150,6 @@ function ItemList({items, sub}) {
         return equipArr.some(equipped)
     }
 
-    /* const addHoveredClass = i => {
-        if (i === hoveredItem) {
-            return 'hovered'
-        } else {
-            return ''
-        }
-    } */
-
     return (
     <main className='flex-center'>
         <div className='inventory-grid'>

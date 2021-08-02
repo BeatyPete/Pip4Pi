@@ -41,12 +41,15 @@
 }
 
 body {
+  background-color: #353733;
+}
+
+.master {
   font-family: 'Roboto', sans-serif;;
   padding: 5vh 10vh;
-  height: 54vw;
+  /* width: 70vw;
+  height: 54vw; */
   overflow: hidden;
-  background-color: #353733;
-  width: 70vw;
   max-width: 1200px;
   max-height: 1000px;
 }
@@ -80,9 +83,12 @@ footer div {
   max-height: 2.1rem;
   margin-right: .5ch;
 }
+.footer-stat {
+  margin-left: 2%;
+}
 
 @media screen and (min-width: 1650px) {
-  body {
+  .master {
     margin: auto;
   }
   footer {
