@@ -149,9 +149,12 @@ function ItemList({items, sub}) {
                 let energy = 0
                 let radiation = 0
                 for (let i = 0; i < currentlyEquipped.length; i++) {
-                    physical = physical + currentlyEquipped[i].stat.physical
-                    energy = energy + currentlyEquipped[i].stat.energy
-                    radiation = radiation + currentlyEquipped[i].stat.radiation
+                    if (currentlyEquipped[i].stat) {
+                        physical = physical + currentlyEquipped[i].stat.physical
+                        energy = energy + currentlyEquipped[i].stat.energy
+                        radiation = radiation + currentlyEquipped[i].stat.radiation
+                    }
+                    
                 }
                 damageValues = {
                     physical: physical,
