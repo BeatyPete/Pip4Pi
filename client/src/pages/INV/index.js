@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import MainTabs from "../../components/Main-tabs";
 import SubTabs from "../../components/Sub-tabs";
 
@@ -17,12 +17,33 @@ import CrosshairSvg from '../../components/images/crosshair';
 import RadsSvg from '../../components/images/rads';
 
 import { useStoreContext } from "../../utils/GlobalState";
-
+import { CHANGE_STATS } from "../../utils/actions";
 
 
 function INV({mainTab, setMainTab}) {
   const [state, dispatch] = useStoreContext();
   const [sub, setSub] = useState('WEAPONS')
+
+  const { charStats, damage, damResist } = state;
+
+  useEffect(() => {
+    const fullItemList = weapons.concat(apparel, aid, misc, junk, mods, ammo);
+    let currentWeight = 0
+    for (let i = 0; i < fullItemList.length; i++) {
+      const weightLocation = fullItemList[i].stats.findIndex(stat => stat.statName === 'Weight')
+      let itemWeight = fullItemList[i].stats[weightLocation].value
+      if (fullItemList[i].quantity) {
+        itemWeight = itemWeight * fullItemList[i].quantity
+      }
+      currentWeight = Math.round(currentWeight + itemWeight)
+    }
+    let newStats = {...charStats}
+    newStats.currentWeight = currentWeight
+    dispatch({
+      type: CHANGE_STATS,
+      charStats: newStats
+    });
+  }, []);
   
   const subs = [
     {
@@ -55,21 +76,10 @@ function INV({mainTab, setMainTab}) {
     }
   ]
 
-  const { charStats, damage, damResist } = state;
-
   const getHealthPercent = () => {
     const healthPercent = Math.floor((charStats.currentHealth / charStats.maxHealth) * 100)
     return `${healthPercent}%`
   }
-
-  const noArmorEquipped = () => {
-    if (damResist.energy === 0 && damResist.radiation === 0 || damResist.physical > 0) {
-      return true
-    } else {
-      return false
-    }
-  }
-  
 
     return (
     <>

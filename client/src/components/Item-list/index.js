@@ -153,8 +153,7 @@ function ItemList({items, sub}) {
                         physical = physical + currentlyEquipped[i].stat.physical
                         energy = energy + currentlyEquipped[i].stat.energy
                         radiation = radiation + currentlyEquipped[i].stat.radiation
-                    }
-                    
+                    }                   
                 }
                 damageValues = {
                     physical: physical,

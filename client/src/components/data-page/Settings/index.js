@@ -1,16 +1,56 @@
+import {useState} from 'react'
 /* import './status.css' */
+import { useStoreContext } from "../../../utils/GlobalState";
+import { CHANGE_ARMOR, CHANGE_WEAPON, CHANGE_DAMAGE, CHANGE_RESISTANCE } from "../../../utils/actions";
 
 function Settings() {
-    const colorChange = e => {
-        let hex = (e.target.value)
-        const rgb = ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
-        let values = `${rgb[0]}, ${rgb[1]}, ${rgb[2]}`
-        document.documentElement.style.setProperty('--color', values);
-    }
+    const [state, dispatch] = useStoreContext();
+
+    const { charStats, settings, limbs } = state;
 
     return (
     <main>
-        <input style={{ width: '9vw', height: '9vw' }} type="color" onChange={colorChange}></input>
+        <section>
+            <h1>Character</h1>
+            <ul>
+                <li>
+                    <div>Name:</div>
+                    <input maxlength='20' minLength='1' placeholder={charStats.name}></input>
+                </li>
+                <li>
+                    <div>Set Level:</div>
+                    <div>{charStats.currentLevel}</div>
+                </li>
+                <li>
+                    <div>Set Level Percentage:</div>
+                    <div>{charStats.levelFillPercent}</div>
+                </li>
+                <li>
+                    <div>Max Health:</div>
+                    <div>{charStats.maxHealth}</div>
+                </li>
+                <li>
+                    <div>Current Health:</div>
+                    <div>{charStats.currentHealth}</div>
+                </li>
+                <li>
+                    <div>Max AP:</div>
+                    <div>{charStats.maxAP}</div>
+                </li>
+                <li>
+                    <div>Current AP:</div>
+                    <div>{charStats.currentAP}</div>
+                </li>
+                <li>
+                    <div>Set Caps:</div>
+                    <div>{charStats.caps}</div>
+                </li>
+                <li>
+                    <div>Max Weight:</div>
+                    <div>{charStats.maxWeight}</div>
+                </li>
+            </ul>
+        </section>
     </main>
 )}
 
