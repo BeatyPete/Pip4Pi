@@ -1,5 +1,7 @@
 import './status.css'
 
+import DamageList from '../../damageList'
+
 import GunSvg from '../../images/gun'
 import ZapSvg from '../../images/zap'
 import ShieldSvg from '../../images/shield'
@@ -70,40 +72,12 @@ function Status() {
         <section className='equip-stats large-text'>
           <div className='weapon-stats'>
             <GunSvg classes='backing equip-img'></GunSvg>
-            {damage.physical > 0 && 
-            < div className='backing stat-info'>
-              <CrosshairSvg classes='stat-img'></CrosshairSvg>
-              <div>{damage.physical}</div>
-            </div>} 
-            {damage.energy > 0 && 
-            < div className='backing stat-info'>
-              <ZapSvg classes='stat-img'></ZapSvg>
-              <div>{damage.energy}</div>
-            </div>} 
-            {damage.radiation > 0 && 
-            < div className='backing stat-info'>
-              <CrosshairSvg classes='stat-img'></CrosshairSvg>
-              <div>{damage.radiation}</div>
-            </div>} 
+            <DamageList damageValues={damage}></DamageList>
           </div>
 
           <div className='armor-stats'>
             <HelmetSvg classes='backing equip-img'></HelmetSvg>
-            {noArmorEquipped() &&
-            <div className='backing stat-info'>
-              <ShieldSvg classes='stat-img'></ShieldSvg>
-              <div>{damResist.physical}</div>
-            </div>}
-            {damResist.energy > 0 &&
-            <div className='backing stat-info'>
-              <ZapSvg classes='stat-img'></ZapSvg>
-              <div>{damResist.energy}</div>
-            </div>}
-            {damResist.radiation > 0 &&
-            <div className='backing stat-info'>
-              <RadsSvg classes='stat-img'></RadsSvg>
-              <div>{damResist.radiation}</div>
-            </div>}
+            <DamageList damageValues={damResist} isDamResist='true'></DamageList>
           </div>
         </section>
 

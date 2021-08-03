@@ -6,12 +6,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 200
-                    }
-                ]
+                damType: {
+                    physical: 200,
+                    energy: 0,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Fire Rate',
@@ -41,13 +40,12 @@ const weapons = [
         type: ['grenade'],
         stats: [
             {
-                statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 60
-                    }
-                ]
+                statName: 'Damage',           
+                damType: {
+                    physical: 60,
+                    energy: 0,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Fire Rate',
@@ -77,16 +75,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 85
-                    },
-                    {
-                        icon: 'energy',
-                        value: 20
-                    }
-                ]
+                damType: {
+                    physical: 85,
+                    energy: 20,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Speed',
@@ -109,12 +102,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 300
-                    }
-                ]
+                damType: {
+                    physical: 300,
+                    energy: 0,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Fire Rate',
@@ -145,12 +137,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 250
-                    }
-                ]
+                damType: {
+                    physical: 250,
+                    energy: 0,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Fire Rate',
@@ -180,12 +171,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'radiation',
-                        value: 141
-                    }
-                ]
+                damType: {
+                    physical: 0,
+                    energy: 0,
+                    radiation: 141
+                }
             },
             {
                 statName: 'Ammo',
@@ -219,12 +209,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 60
-                    }
-                ]
+                damType: {
+                    physical: 60,
+                    energy: 0,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Ammo',
@@ -258,12 +247,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 85
-                    }
-                ]
+                damType: {
+                    physical: 85,
+                    energy: 0,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Ammo',
@@ -297,12 +285,11 @@ const weapons = [
         stats: [
             {
                 statName: 'Damage',
-                damType: [
-                    {
-                        icon: 'energy',
-                        value: 91
-                    }
-                ]
+                damType: {
+                    physical: 0,
+                    energy: 91,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Ammo',
@@ -338,16 +325,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 1
-                    },
-                    {
-                        icon: 'radiation',
-                        value: 15
-                    }
-                ]
+                damType: {
+                    physical: 1,
+                    energy: 0,
+                    radiation: 15
+                }
             },
             {
                 statName: 'Weight',
@@ -366,16 +348,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 17
-                    },
-                    {
-                        icon: 'energy',
-                        value: 8
-                    }
-                ]
+                damType: {
+                    physical: 17,
+                    energy: 8,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -393,16 +370,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 9
-                    },
-                    {
-                        icon: 'energy',
-                        value: 11
-                    }
-                ]
+                damType: {
+                    physical: 9,
+                    energy: 11,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -420,16 +392,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 30
-                    },
-                    {
-                        icon: 'energy',
-                        value: 30
-                    }
-                ]
+                damType: {
+                    physical: 30,
+                    energy: 30,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -447,16 +414,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 9
-                    },
-                    {
-                        icon: 'energy',
-                        value: 9
-                    }
-                ]
+                damType: {
+                    physical: 9,
+                    energy: 9,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -474,16 +436,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 8
-                    },
-                    {
-                        icon: 'energy',
-                        value: 8
-                    }
-                ]
+                damType: {
+                    physical: 8,
+                    energy: 8,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -501,16 +458,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 12
-                    },
-                    {
-                        icon: 'energy',
-                        value: 12
-                    }
-                ]
+                damType: {
+                    physical: 12,
+                    energy: 12,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -528,16 +480,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 25
-                    },
-                    {
-                        icon: 'energy',
-                        value: 15
-                    }
-                ]
+                damType: {
+                    physical: 25,
+                    energy: 15,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -555,16 +502,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 15
-                    },
-                    {
-                        icon: 'energy',
-                        value: 8
-                    }
-                ]
+                damType: {
+                    physical: 15,
+                    energy: 8,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -582,16 +524,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 43
-                    },
-                    {
-                        icon: 'energy',
-                        value: 43
-                    }
-                ]
+                damType: {
+                    physical: 43,
+                    energy: 43,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -623,12 +560,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 10
-                    }
-                ]
+                damType: {
+                    physical: 10,
+                    energy: 0,
+                    radiation: 0
+                }
             },
             {
                 statName: 'Weight',
@@ -646,16 +582,11 @@ const apparel = [
         stats: [
             {
                 statName: 'DMG Resist',
-                damType: [
-                    {
-                        icon: 'physical',
-                        value: 2
-                    },
-                    {
-                        icon: 'energy',
-                        value: 5
-                    }
-                ]
+                damType: {
+                    physical: 2,
+                    energy: 5,
+                    radiation: 0
+                }
             },
             {
                 statName: 'PER',

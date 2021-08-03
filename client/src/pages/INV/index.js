@@ -3,6 +3,7 @@ import MainTabs from "../../components/Main-tabs";
 import SubTabs from "../../components/Sub-tabs";
 
 import ItemList from '../../components/Item-list'
+import DamageList from '../../components/damageList';
 import {weapons, apparel, aid, misc, junk, mods, ammo} from '../../lib/items'
 import './inv.css'
 
@@ -100,47 +101,13 @@ function INV({mainTab, setMainTab}) {
         {sub === 'WEAPONS' 
           ? <div className='backing right-footer large-footer'>
               <GunSvg classes='footer-lg-img'></GunSvg>
-              {damage.physical > 0 &&
-                <div className='footer-stat'>
-                  <CrosshairSvg classes='stat-img'></CrosshairSvg>
-                  {damage.physical}
-                </div>
-              }
-              {damage.energy > 0 &&
-                <div className='footer-stat'>
-                  <ZapSvg classes='stat-img'></ZapSvg>
-                  {damage.energy}
-                </div>
-              }
-              {damage.radiation > 0 &&
-                <div className='footer-stat'>
-                  <RadsSvg classes='stat-img'></RadsSvg>
-                  {damage.radiation}
-                </div>
-              }
+              <DamageList damageValues={damage} isInline='true'></DamageList>
               
             </div>
           : sub === 'APPAREL'
           ? <div className='backing right-footer large-footer'>
               <HelmetSvg classes='footer-lg-img'></HelmetSvg>
-              {noArmorEquipped() &&
-                <div className='footer-stat'>
-                  <ShieldSvg classes='stat-img'></ShieldSvg>
-                  {damResist.physical}
-                </div>
-              }
-              {damResist.energy > 0 &&
-                <div className='footer-stat'>
-                  <ZapSvg classes='stat-img'></ZapSvg>
-                  {damResist.energy}
-                </div>
-              }
-              {damResist.radiation > 0 &&
-                <div className='footer-stat'>
-                  <RadsSvg classes='stat-img'></RadsSvg>
-                  {damResist.radiation}
-                </div>
-              }
+              <DamageList damageValues={damResist} isInline='true' isDamResist='true'></DamageList>
             </div>
           : sub === 'AID'
           ? <div className='backing xp-container large-footer'>

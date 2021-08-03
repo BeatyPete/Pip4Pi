@@ -85,6 +85,9 @@ footer div {
 }
 .footer-stat {
   margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media screen and (min-width: 1650px) {

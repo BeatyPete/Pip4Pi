@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {socket} from './context/socket';
 import { useStoreContext } from "./utils/GlobalState";
-import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR } from "./utils/actions";
+import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR, CHANGE_DAMAGE, CHANGE_RESISTANCE } from "./utils/actions";
 
 import STAT from "./pages/STAT";
 import INV from "./pages/INV";
@@ -18,6 +18,8 @@ function App() {
     document.documentElement.style.setProperty('--color', `${settings.r}, ${settings.g}, ${settings.b}`);
     const weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
     const armorSlots = JSON.parse(localStorage.getItem(CHANGE_ARMOR)) || [];
+    const damage = JSON.parse(localStorage.getItem(CHANGE_DAMAGE))
+    const damResist = JSON.parse(localStorage.getItem(CHANGE_RESISTANCE));
     dispatch({
       type: CHANGE_WEAPON,
       slots: weaponSlots
@@ -26,6 +28,18 @@ function App() {
       type: CHANGE_ARMOR,
       slots: armorSlots
     });
+    if (damage) {
+      dispatch({
+        type: CHANGE_DAMAGE,
+        damage: damage
+      });
+    }
+    if (damResist) {
+      dispatch({
+        type: CHANGE_RESISTANCE,
+        damResist: damResist
+      });
+    }
   }, []);
 
   useEffect(() => {

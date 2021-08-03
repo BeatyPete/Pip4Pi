@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import {socket} from '../../context/socket';
 import { useStoreContext } from "../../utils/GlobalState";
-import { CHANGE_ARMOR, CHANGE_WEAPON } from "../../utils/actions";
+import { CHANGE_ARMOR, CHANGE_WEAPON, CHANGE_DAMAGE, CHANGE_RESISTANCE } from "../../utils/actions";
 import './item-list.css'
+
+import DamageList from '../damageList';
 
 import ZapSvg from '../images/zap'
 import CrosshairSvg from '../images/crosshair'
 import ShieldSvg from '../images/shield'
 import RadsSvg from '../images/rads'
 import AmmoSvg from '../images/ammo';
-import ammoSvg from '../images/ammo';
 
 function ItemList({items, sub}) {
     const [state, dispatch] = useStoreContext();
@@ -17,7 +18,7 @@ function ItemList({items, sub}) {
     const [deets, setDeets] = useState(items[0])
     const [hoveredItem, setHoveredItem] = useState(0)
 
-    const { weaponSlots, armorSlots } = state;
+    const { weaponSlots, armorSlots, damage, damResist } = state;
 
     const hovered = useRef();
 
@@ -100,7 +101,6 @@ function ItemList({items, sub}) {
                 for (let i = 0; i < currentlyEquipped.length; i++) {
                     const isSlotMatching = itemToEquip.type.some(v => currentlyEquipped[i].slotType.includes(v))
                     if (isSlotMatching) {
-                        console.log(i)
                         currentlyEquipped.splice(i, 1)
                         i--
                     }
@@ -112,6 +112,7 @@ function ItemList({items, sub}) {
                 }
                 currentlyEquipped.push(itemToEquipFormatting)
             }
+            setDamageValues(currentlyEquipped)
             localStorage.setItem(dispatchType, JSON.stringify(currentlyEquipped));
             dispatch({
                 type: dispatchType,
@@ -119,6 +120,52 @@ function ItemList({items, sub}) {
             });
         } else {
             console.log('no')
+        }
+    }
+
+    const setDamageValues = currentlyEquipped => {
+        let damageValues
+        switch (sub) {
+            case 'WEAPONS':
+                const equippedWeapon = currentlyEquipped.find(weapon => weapon.slotType[0] === 'weapon')                
+                if (equippedWeapon){
+                    damageValues = equippedWeapon.stat                 
+                } else {
+                    damageValues = {
+                        physical: 18,
+                        energy: 0,
+                        radiation: 0
+                    }
+                }
+                localStorage.setItem(CHANGE_DAMAGE, JSON.stringify( damageValues));     
+                dispatch({
+                    type: CHANGE_DAMAGE,
+                    damage: damageValues 
+                });    
+                
+                break;
+            case 'APPAREL':
+                let physical = 0
+                let energy = 0
+                let radiation = 0
+                for (let i = 0; i < currentlyEquipped.length; i++) {
+                    physical = physical + currentlyEquipped[i].stat.physical
+                    energy = energy + currentlyEquipped[i].stat.energy
+                    radiation = radiation + currentlyEquipped[i].stat.radiation
+                }
+                damageValues = {
+                    physical: physical,
+                    energy: energy,
+                    radiation: radiation
+                }
+                localStorage.setItem(CHANGE_RESISTANCE, JSON.stringify(damageValues));
+                dispatch({
+                    type: CHANGE_RESISTANCE,
+                    damResist: damageValues 
+                });  
+                break;
+            default:
+                break;
         }
     }
 
@@ -196,40 +243,14 @@ function ItemList({items, sub}) {
                                 ? <li>
                                     <div>{stat.statName}</div>
                                     <div>
-                                    {stat.damType.map((damType) => (
-                                        <div>
-                                            {/* conditional rendering for the damage icon */}
-                                            {damType.icon === 'physical'
-                                            ? <CrosshairSvg classes='stat-img'></CrosshairSvg>
-                                            : damType.icon === 'energy'
-                                            ? <ZapSvg classes='stat-img'></ZapSvg>
-                                            : damType.icon === 'radiation'
-                                            ? <RadsSvg classes='stat-img'></RadsSvg>
-                                            /* extra damage types can be added on next conditional */
-                                            : ''}
-                                            {damType.value}
-                                        </div>
-                                    ))}
+                                        <DamageList damageValues={stat.damType} isInline='true'></DamageList>
                                     </div>
                                 </li>
                                 : stat.statName === 'DMG Resist'
                                 ? <li>
                                     <div>{stat.statName}</div>
                                     <div>
-                                    {stat.damType.map((damType) => (
-                                        <div>
-                                            {/* conditional rendering for the damage icon */}
-                                            {damType.icon === 'physical'
-                                            ? <ShieldSvg classes='stat-img'></ShieldSvg>
-                                            : damType.icon === 'energy'
-                                            ? <ZapSvg classes='stat-img'></ZapSvg>
-                                            : damType.icon === 'radiation'
-                                            ? <RadsSvg classes='stat-img'></RadsSvg>
-                                            /* extra damage types can be added on next conditional */
-                                            : ''}
-                                            {damType.value}
-                                        </div>
-                                    ))}
+                                        <DamageList damageValues={stat.damType} isInline='true' isDamResist='true'></DamageList>
                                     </div>
                                 </li>
                                 : stat.statName === 'Ammo'

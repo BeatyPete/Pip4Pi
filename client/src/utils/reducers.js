@@ -4,7 +4,10 @@ import {
   CHANGE_WEAPON,
   CHANGE_ARMOR,
   CHANGE_SETTINGS,
-  CHANGE_STATS
+  CHANGE_STATS,
+  CHANGE_DAMAGE,
+  CHANGE_RESISTANCE,
+  CHANGE_LIMBS
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -33,6 +36,21 @@ export const reducer = (state, action) => {
       return {
         ...state,
         charStats: action.charStats,
+      };
+    case CHANGE_DAMAGE:
+      return {
+        ...state,
+        damage: action.damage,
+      };
+    case CHANGE_RESISTANCE:
+      return {
+        ...state,
+        damResist: action.damResist,
+      };
+    case CHANGE_LIMBS:
+      return {
+        ...state,
+        limbs: action.limbs,
       };
     default:
       return state;
