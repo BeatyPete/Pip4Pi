@@ -1,0 +1,40 @@
+.setting-list {
+    font-size: 1.2vw;
+    /* padding: 1.5vw 0vw; */
+    width: 50%;
+    height: 90%;
+}
+.setting-list ul {
+    padding-left: 2vw;
+}
+.setting-list ul li {
+    display: flex;
+    padding: .2vw 0;
+    justify-content: space-between;
+}
+.setting-list input {
+    background: none;
+    border: none;
+    font-size: 1vw;
+    text-align: center;
+    box-shadow: 0px 3px 0px var(--glow-color);
+    color: var(--core-color);
+}
+.setting-list input:focus {
+    outline: none;
+}
+.option-display {
+    width: 50%;
+    /* display: flex;
+    justify-content: center; */
+    font-size: 370%;
+}
+.option-display div {
+    padding: 0 6%;
+}
+.option-display button {
+    font-size: 95%;
+    background: none;
+    border: none;
+    width: 10%;
+}

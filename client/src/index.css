@@ -67,6 +67,14 @@ path {
   fill: var(--core-color);
 }
 
+.list-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  align-items: center;
+}
+.list-container ul {
+  list-style: none;
+}
 
 footer {
   display: grid;

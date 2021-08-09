@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {socket} from './context/socket';
 import { useStoreContext } from "./utils/GlobalState";
-import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR, CHANGE_DAMAGE, CHANGE_RESISTANCE } from "./utils/actions";
+import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR, CHANGE_DAMAGE, CHANGE_RESISTANCE, CHANGE_SETTINGS, CHANGE_LIMBS, CHANGE_STATS } from "./utils/actions";
 
 import STAT from "./pages/STAT";
 import INV from "./pages/INV";
@@ -15,11 +15,20 @@ function App() {
   const { mainTab, settings } = state;
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--color', `${settings.r}, ${settings.g}, ${settings.b}`);
     const weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
     const armorSlots = JSON.parse(localStorage.getItem(CHANGE_ARMOR)) || [];
     const damage = JSON.parse(localStorage.getItem(CHANGE_DAMAGE))
-    const damResist = JSON.parse(localStorage.getItem(CHANGE_RESISTANCE));
+    const damResist = JSON.parse(localStorage.getItem(CHANGE_RESISTANCE))
+    const displaySettings = JSON.parse(localStorage.getItem(CHANGE_SETTINGS));
+    const charStats = JSON.parse(localStorage.getItem(CHANGE_STATS));
+    const limbs = JSON.parse(localStorage.getItem(CHANGE_LIMBS));
+    if (displaySettings) {
+      document.documentElement.style.setProperty('--color', `${displaySettings.r}, ${displaySettings.g}, ${displaySettings.b}`);
+      dispatch({
+        type: CHANGE_SETTINGS,
+        settings: displaySettings 
+      });
+    }
     dispatch({
       type: CHANGE_WEAPON,
       slots: weaponSlots
@@ -28,6 +37,18 @@ function App() {
       type: CHANGE_ARMOR,
       slots: armorSlots
     });
+    if (charStats) {
+      dispatch({
+        type: CHANGE_STATS,
+        charStats: charStats
+      });
+    }
+    if (limbs) {
+      dispatch({
+        type: CHANGE_LIMBS,
+        limbs: limbs
+      });
+    }
     if (damage) {
       dispatch({
         type: CHANGE_DAMAGE,

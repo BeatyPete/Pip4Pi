@@ -32,12 +32,12 @@ const StoreProvider = ({ value = [], ...props }) => {
       radiation: 0
     },
     limbs: {
-      head: "12%",
-      lArm: "63%",
+      head: "100%",
+      lArm: "100%",
       rArm: "100%",
-      chest: "70%",
-      lLeg: "40%",
-      rLeg: "90%",
+      chest: "100%",
+      lLeg: "100%",
+      rLeg: "100%",
     },
     settings: {
       width: '70vw',

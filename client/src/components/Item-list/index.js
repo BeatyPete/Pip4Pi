@@ -119,6 +119,7 @@ function ItemList({items, sub}) {
                 slots: currentlyEquipped
             });
         } else {
+            /* where functions for slecting non apparel/weapons goes */
             console.log('no')
         }
     }
@@ -202,7 +203,7 @@ function ItemList({items, sub}) {
     return (
     <main className='flex-center'>
         <div className='inventory-grid'>
-            <section className='small-text item-list'>
+            <section className='small-text item-list list-container'>
                 <ul>
                     {items.map((item, i) => (
                         //conditional to render the li of hovered item with ref

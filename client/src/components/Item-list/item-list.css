@@ -7,14 +7,11 @@
 }
 .item-list {
     grid-column: span 2;
-    overflow-y: scroll;
-    overflow-x: hidden;
     display: flex;
     align-items: center;
 }
 .item-list ul {
     font-size: 2.1vw;
-    list-style: none;
     height: 95%;
     width: 100%;
 }
