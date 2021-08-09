@@ -40,7 +40,7 @@
   }
   .selected div {
     height: 100%;
-    background: #353733;
+    background: var(--screen-color);
   }
   .selected::before {
     content: "";
@@ -52,7 +52,7 @@
     width: 120%;
     border-top: 0.2vw var(--core-color) solid;
     border-right: 0.2vw var(--core-color) solid;
-    border-bottom: 0.4vw #353733 solid;
+    border-bottom: 0.4vw var(--screen-color) solid;
     border-left: 0.2vw var(--core-color) solid;
     box-sizing: border-box;
     z-index: -1;

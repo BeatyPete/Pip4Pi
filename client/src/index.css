@@ -7,6 +7,7 @@
   --core-color: rgba(var(--color));
   --glow-color: rgba(var(--color));
   --backing-color: rgba(var(--color), 22%);
+  --screen-color: #353733
 }
 @font-face {
   font-family: 'monofontoregular';
@@ -41,7 +42,7 @@
 }
 
 body {
-  background-color: #353733;
+  background-color: var(--screen-color);
 }
 
 .master {

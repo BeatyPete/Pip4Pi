@@ -24,11 +24,11 @@
 }
 .item-list li:hover {
     background-color: var(--core-color);
-    color: #353733;
+    color: var(--screen-color);
 }
 .hovered {
     background-color: var(--core-color);
-    color: #353733;
+    color: var(--screen-color);
 }
 ::-webkit-scrollbar {
    width: 0;
@@ -45,10 +45,10 @@
     right: 96.5%;
 }
 .equipped:hover::before {
-    background-color: #353733;
+    background-color: var(--screen-color);
 }
 .hovered.equipped::before {
-    background-color: #353733;
+    background-color: var(--screen-color);
 }
 
 .item-details-container {

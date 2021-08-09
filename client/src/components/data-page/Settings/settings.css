@@ -9,8 +9,15 @@
 }
 .setting-list ul li {
     display: flex;
-    padding: .2vw 0;
+    padding: 1%;
     justify-content: space-between;
+}
+.setting-list ul li:hover {
+    background-color: var(--core-color);
+    color: var(--screen-color);
+}
+.setting-list ul li:hover > input {
+    color: var(--screen-color);
 }
 .setting-list input {
     background: none;
@@ -23,10 +30,18 @@
 .setting-list input:focus {
     outline: none;
 }
+.setting-list button {
+    font-size: 142%;
+    padding: 1%;
+    background: var(--backing-color);
+    border: none;
+    color: var(--screen-color);
+}
+.setting-list button:hover {
+    background-color: var(--core-color);
+}
 .option-display {
     width: 50%;
-    /* display: flex;
-    justify-content: center; */
     font-size: 370%;
 }
 .option-display div {
