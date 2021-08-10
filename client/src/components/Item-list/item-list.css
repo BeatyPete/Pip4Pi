@@ -27,8 +27,8 @@
     color: var(--screen-color);
 }
 .hovered {
-    background-color: var(--core-color);
-    color: var(--screen-color);
+    background-color: var(--core-color) !important;
+    color: var(--screen-color) !important;
 }
 ::-webkit-scrollbar {
    width: 0;

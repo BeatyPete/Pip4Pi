@@ -16,7 +16,7 @@ function ItemList({items, sub}) {
     const [state, dispatch] = useStoreContext();
 
     const [deets, setDeets] = useState(items[0])
-    const [hoveredItem, setHoveredItem] = useState(0)
+    const [hoveredItem, setHoveredItem] = useState(-1)
 
     const { weaponSlots, armorSlots, damage, damResist } = state;
 
