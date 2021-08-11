@@ -16,10 +16,10 @@
     padding-right: 1.5ch;
   }
   .second-tabs {
-    opacity: 30%;
+    opacity: .3;
   }
   .third-tabs {
-    opacity: 15%;
+    opacity: .15;
   }
   .hidden-tabs {
     opacity: 0;
