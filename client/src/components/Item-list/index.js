@@ -243,27 +243,27 @@ function ItemList({items, sub}) {
                         {deets.stats.map((stat, i) => (
                             /* damage and damRes can hjave multiple values so it needs to be rendered differently */
                                 stat.statName === 'Damage'
-                                ? <li>
+                                ? <li key={`${stat.statName} ${i}`}>
                                     <div>{stat.statName}</div>
                                     <div>
                                         <DamageList damageValues={stat.damType} isInline='true'></DamageList>
                                     </div>
                                 </li>
                                 : stat.statName === 'DMG Resist'
-                                ? <li>
+                                ? <li key={`${stat.statName} ${i}`}>
                                     <div>{stat.statName}</div>
                                     <div>
                                         <DamageList damageValues={stat.damType} isInline='true' isDamResist='true'></DamageList>
                                     </div>
                                 </li>
                                 : stat.statName === 'Ammo'
-                                ? <li key={stat.name}>
+                                ? <li key={`${stat.statName} ${i}`}>
                                     <div>
                                         <AmmoSvg classes='stat-img'></AmmoSvg>
                                         {stat.value}
                                     </div>
                                 </li>
-                                : <li key={stat.name}>
+                                : <li key={`${stat.statName} ${i}`}>
                                     <div>{stat.statName}</div>
                                     <div>{stat.value}</div>
                                 </li>

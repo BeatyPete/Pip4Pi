@@ -276,7 +276,7 @@ function Settings() {
             <ul className='small-text'>
                 <li>
                     <div>Name:</div>
-                    <input maxlength='20' minLength='1' placeholder={charStats.name}></input>
+                    <input maxLength='20' minLength='1' placeholder={charStats.name}></input>
                 </li>
                 {characterList.map((option, i) => (
                     //conditional to render the li of hovered item with ref

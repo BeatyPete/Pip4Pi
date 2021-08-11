@@ -71,7 +71,7 @@ function SubTabs({tabs, sub, setSub}) {
           <ul style={{"right":pos}} className='small-text'>
             {tabs.map((tab, i) => (
           <li
-            class={setClass(i)}
+            className={setClass(i)}
             onClick={findSub}
             key={tab.name}
             >{tab.name}</li>
