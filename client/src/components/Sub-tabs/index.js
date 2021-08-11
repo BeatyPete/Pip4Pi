@@ -9,12 +9,12 @@ function SubTabs({tabs, sub, setSub}) {
     const audio = new Audio(sound);
 
 
-    useEffect(() => {
+    /* useEffect(() => {
       socket.on('subChange', function (data) { //get button status from client
         changeSubTab(data)
         
       });
-    }, [socket]);
+    }, [socket]); */
 
     useEffect(() => {
       let tabNum = tabs.findIndex(stuff => stuff.name === sub)
@@ -22,11 +22,11 @@ function SubTabs({tabs, sub, setSub}) {
     }, [sub]);
 
     // removes socket on unmount otherwise it will stack every change of main tab
-    useEffect(() => {        
+   /*  useEffect(() => {        
         return () => {
           socket.removeAllListeners("subChange");
         }
-    }, [])
+    }, []) */
 
     const changeSubTab = rotation => {     
       const getNewTab = sub => {

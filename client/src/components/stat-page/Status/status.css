@@ -30,7 +30,7 @@
   .vault-boy {
     display: flex;
     flex-direction: column;
-    opacity: 80%;
+    opacity: .8;
   }
   #vault-head {
     width: 6.7vw;

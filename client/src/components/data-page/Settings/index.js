@@ -11,22 +11,22 @@ function Settings() {
     const [hoveredItem, setHoveredItem] = useState(0)
     const hovered = useRef();
 
-    useEffect(() => {
+    /* useEffect(() => {
         socket.on('itemChange', function (data) { //get button status from client
           changeItemHover(data)
         });
         socket.on('select', function (data) { //get button status from client
             
         });
-    }, [socket]);
+    }, [socket]); */
 
     /* cleanup for sockets otherwise they stack when changing subtabs */
-    useEffect(() => {        
+    /* useEffect(() => {        
         return () => {
           socket.removeAllListeners("itemChange");
           socket.removeAllListeners("select");
         }
-    }, [])
+    }, []) */
 
     useEffect(() => {
         if (hovered.current) {                

@@ -63,11 +63,11 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
+/*   useEffect(() => {
     socket.on('mainChange', function (data) { //get button status from client
       changeMainTab(data)
     });
-  }, [socket]);
+  }, [socket]); */
 
   useEffect(() => {
     dispatch({

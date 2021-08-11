@@ -8,11 +8,11 @@ import {SocketContext, socket} from './context/socket';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SocketContext.Provider value={socket}>
+    {/* <SocketContext.Provider value={socket}> */}
     <StoreProvider>
       <App />
     </StoreProvider>
-    </SocketContext.Provider>
+    {/* </SocketContext.Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

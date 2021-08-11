@@ -22,22 +22,22 @@ function ItemList({items, sub}) {
 
     const hovered = useRef();
 
-    useEffect(() => {
+    /* useEffect(() => {
         socket.on('itemChange', function (data) { //get button status from client
           changeItemHover(data)
         });
         socket.on('select', function (data) { //get button status from client
             equip()
         });
-    }, [socket]);
+    }, [socket]); */
 
     /* cleanup for sockets otherwise they stack when changing subtabs */
-    useEffect(() => {        
+    /* useEffect(() => {        
         return () => {
           socket.removeAllListeners("itemChange");
           socket.removeAllListeners("select");
         }
-    }, [])
+    }, []) */
 
     /* scrolls hovered item into view and changes displayed details to current hover */
     useEffect(() => {
