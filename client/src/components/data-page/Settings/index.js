@@ -8,7 +8,8 @@ function Settings() {
     const [state, dispatch] = useStoreContext();
     const { charStats, settings, limbs } = state;
 
-    const [hoveredItem, setHoveredItem] = useState(0)
+    const [hoveredItem, setHoveredItem] = useState(-1)
+    const [name, setName] = useState(charStats.name)
     const hovered = useRef();
 
     useEffect(() => {
@@ -51,7 +52,7 @@ function Settings() {
             value: charSettings.levelFillPercent
         },
         {
-            title: 'Max Health::',
+            title: 'Max Health:',
             value: charSettings.maxHealth
         },
         {
@@ -140,6 +141,12 @@ function Settings() {
         });
     }, [displaySettings.r, displaySettings.g, displaySettings.b, displaySettings.width, displaySettings.height, displaySettings.positionX, displaySettings.positionY]);
 
+    useEffect(() => {
+        let newCharSettings = charSettings
+        newCharSettings.name = name
+        setCharacterSettings(newCharSettings)
+    }, [name]);
+
     const changeItemHover = rotation => {
         const getNewTab = hoveredItem => {
             let nextItem = hoveredItem + rotation
@@ -151,6 +158,9 @@ function Settings() {
             return nextItem
           }
           setHoveredItem(getNewTab)
+    }
+    const handleNameChange = e => {
+        setName(e.target.value)
     }
 
     const changeDisplayedOption = e => {
@@ -276,7 +286,7 @@ function Settings() {
             <ul className='small-text'>
                 <li>
                     <div>Name:</div>
-                    <input maxLength='20' minLength='1' placeholder={charStats.name}></input>
+                    <input maxLength='20' minLength='1' placeholder={charStats.name} onChange={handleNameChange}></input>
                 </li>
                 {characterList.map((option, i) => (
                     //conditional to render the li of hovered item with ref
