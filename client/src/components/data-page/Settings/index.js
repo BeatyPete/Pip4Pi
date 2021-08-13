@@ -10,6 +10,7 @@ function Settings() {
 
     const [hoveredItem, setHoveredItem] = useState(-1)
     const [name, setName] = useState(charStats.name)
+    const [isInput, setIsInput] = useState(false)
     const hovered = useRef();
 
     useEffect(() => {
@@ -142,10 +143,28 @@ function Settings() {
     }, [displaySettings.r, displaySettings.g, displaySettings.b, displaySettings.width, displaySettings.height, displaySettings.positionX, displaySettings.positionY]);
 
     useEffect(() => {
+        /* sets name from entering text */
         let newCharSettings = charSettings
         newCharSettings.name = name
         setCharacterSettings(newCharSettings)
     }, [name]);
+
+    const handleNameChange = e => {
+        setName(e.target.value)
+    }
+    const handleInputDisplay = e => {
+        setIsInput(true)
+    }
+    const handleInputValue = e => {
+        let value
+        const valueSplit = optionValue.split(/([0-9]+)/)
+        const valueType = valueSplit[2]
+        value = (e.target.value).toString().concat(valueType)
+        if (!e.target.value) {
+            value = optionValue
+        }
+        dispatchOptions(value)
+    }
 
     const changeItemHover = rotation => {
         const getNewTab = hoveredItem => {
@@ -159,11 +178,9 @@ function Settings() {
           }
           setHoveredItem(getNewTab)
     }
-    const handleNameChange = e => {
-        setName(e.target.value)
-    }
 
     const changeDisplayedOption = e => {
+        setIsInput(false)
         let stugg = e.target
         if (stugg.children.length < 1) {
             stugg = e.target.parentNode
@@ -364,7 +381,8 @@ function Settings() {
             {optionValue &&
                 <div className='flex-center'>
                     <button onClick={increaseOption} className='small-text'>-</button>
-                    <div>{optionValue}</div>
+                    {!isInput && <div onClick={handleInputDisplay}>{optionValue}</div>}
+                    {isInput && <input type="number" onChange={handleInputValue}></input>}
                     <button onClick={increaseOption} className='small-text'>+</button>
                 </div>
             }
