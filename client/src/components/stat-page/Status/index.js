@@ -1,4 +1,5 @@
 import './status.css'
+import {useState, useEffect} from 'react'
 
 import DamageList from '../../damageList'
 
@@ -18,6 +19,27 @@ import { useStoreContext } from "../../../utils/GlobalState";
 function Status() {
   const [state, dispatch] = useStoreContext();
   const { charStats, limbs, damage, damResist } = state;
+  const [limbState, setLimbState] = useState('healthy')
+
+  useEffect(() => {
+     if (parseInt(limbs.lLeg) < 1 && parseInt(limbs.rLeg) < 1) {
+       setLimbState('broken-legs')
+    }
+  }, [limbs]);
+
+  const healthStatus = () => {
+    switch (limbState) {
+      case 'healthy':
+        return 'healthy-head'
+        break;
+      case 'broken-legs':
+        return 'broken-legs-head'
+        break;
+      default:
+        return ''
+        break;
+    }
+  }
 
   const noArmorEquipped = () => {
     if (damResist.energy === 0 && damResist.radiation === 0 || damResist.physical > 0) {
@@ -47,9 +69,9 @@ function Status() {
             </div>
 
             <div className='vault-boy'>
-              <HeadAnim></HeadAnim>
-              <BodyAnim></BodyAnim>
-              {/* <LegsBrokeAnim></LegsBrokeAnim> */}
+              <HeadAnim animation={healthStatus()}></HeadAnim>
+              {limbState === 'healthy' && <BodyAnim></BodyAnim>}
+              {limbState === 'broken-legs' && <LegsBrokeAnim></LegsBrokeAnim>}
             </div>
 
             <div className='right-limbs'>

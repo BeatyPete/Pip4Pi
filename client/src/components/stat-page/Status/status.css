@@ -32,16 +32,17 @@
     flex-direction: column;
     opacity: .8;
   }
-  #vault-head {
+  .vault-head {
     width: 6.7vw;
     max-width: 7rem;
     position: relative;
     top: 8%;
     left: 24%;
   }
-  #vault-body {
+  .vault-body {
     width: 14vw;
     max-width: 14rem;
+    overflow: visible;
   }
   .right-limbs {
     display: grid;

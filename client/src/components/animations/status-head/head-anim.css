@@ -1,4 +1,4 @@
-#vault-head {
+.healthy-head {
   animation-duration: 1s; 
     animation-iteration-count: infinite; 
     animation-timing-function: steps(1);
@@ -42,3 +42,44 @@
       left: 24%;
   }
 }  
+
+.broken-legs-head {
+  animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broken-legs-headbob;
+}
+@keyframes broken-legs-headbob { 
+  0% { 
+    top: 6%;
+    left: 24%;
+  } 
+  14.3% {
+    top: 5.5%;
+    left: 25%;
+  }
+  28.6% {
+    top: 5.5%;
+    left: 26%;
+  }
+  42.9% {
+    top: 5.9%;
+    left: 25%;
+  }
+  57.2% {
+    top: 5.5%;
+    left: 25%;
+  }
+  71.5% {
+    top: 5.4%;
+    left: 25%;
+  }
+  85.8% {
+    top: 6%;
+    left: 25%;
+  }
+  100% {
+    top: 6%;
+    left: 24%;
+  }
+} 
