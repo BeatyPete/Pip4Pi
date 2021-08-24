@@ -91,10 +91,6 @@ function Settings() {
             value: limbSettings.rArm
         },
         {
-            title: 'Set Chest:',
-            value: limbSettings.chest
-        },
-        {
             title: 'Set Left Leg:',
             value: limbSettings.lLeg
         },
@@ -250,9 +246,6 @@ function Settings() {
                 break;
             case 'Set Right Arm:':
                 newLimbSettings.rArm = value
-                break;
-            case 'Set Chest:':
-                newLimbSettings.chest = value
                 break;
             case 'Set Left Leg:':
                 newLimbSettings.lLeg = value

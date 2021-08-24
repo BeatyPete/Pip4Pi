@@ -83,3 +83,48 @@
     left: 24%;
   }
 } 
+
+.broken-arms-head {
+  animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broken-arms-headbob;
+}
+@keyframes broken-arms-headbob { 
+  0% { 
+    top: 7.5%;
+    left: 24.5%;
+  } 
+  12.5% { 
+    top: 5.4%;
+    left: 23%;
+  } 
+  25% { 
+    top: 4.8%;
+    left: 23%;
+  } 
+  37.5% { 
+    top: 5.6%;
+    left: 23%;
+  } 
+  50% { 
+    top: 7%;
+    left: 22%;
+  } 
+  62.5% { 
+    top: 6%;
+    left: 23%;
+  } 
+  75% { 
+    top: 4.5%;
+    left: 23%;
+  } 
+  87.5% { 
+    top: 5.5%;
+    left: 23%;
+  } 
+  /* 100% {
+    top: 7.5%;
+    left: 24.5%;
+  } */
+}  
