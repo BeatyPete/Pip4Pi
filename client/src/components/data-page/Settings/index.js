@@ -18,7 +18,7 @@ function Settings() {
           changeItemHover(data)
         });
         socket.on('select', function (data) { //get button status from client
-            
+            click()
         });
     }, [socket]);
 
@@ -162,6 +162,13 @@ function Settings() {
         dispatchOptions(value)
     }
 
+    const click = () => {
+        console.log('heck')
+        if (hovered.current.textContent === 'Save Changes') {
+            saveChanges()
+        }
+    }
+
     const changeItemHover = rotation => {
         const getNewTab = hoveredItem => {
             let nextItem = hoveredItem + rotation
@@ -173,14 +180,25 @@ function Settings() {
             return nextItem
           }
           setHoveredItem(getNewTab)
+          changeDisplayedOption()
     }
 
     const changeDisplayedOption = e => {
         setIsInput(false)
-        let stugg = e.target
+        let stugg
+        if (e) {
+            stugg = e.target
+        } else if (hovered.current){
+            stugg = hovered.current
+        } else {
+            return
+        }
+        if (stugg.textContent === 'Save Changes') {
+            return
+        }
         if (stugg.children.length < 1) {
             stugg = e.target.parentNode
-        } 
+        }     
         const title = stugg.children[0].textContent
         const value = stugg.children[1].textContent
         setOptionValue(value)
