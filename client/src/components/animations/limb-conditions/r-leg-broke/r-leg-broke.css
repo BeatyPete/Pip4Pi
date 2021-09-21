@@ -1,0 +1,71 @@
+#five-frames > g > * { 
+    opacity: 0; 
+    animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+  }
+
+@keyframes five-frames-1 { 
+    0% { 
+      opacity: 1; 
+    } 
+    20% { 
+      opacity: 0; 
+    } 
+  }  
+  
+  #five-frames > g > :nth-child(1) { 
+    animation-name: five-frames-1; 
+  }  
+  
+  @keyframes five-frames-2 { 
+    20% { 
+      opacity: 1; 
+    } 
+    40% { 
+      opacity: 0; 
+    } 
+  }  
+  
+  #five-frames > g > :nth-child(2) { 
+    animation-name: five-frames-2; 
+  }  
+  
+  @keyframes five-frames-3 { 
+    40% { 
+      opacity: 1; 
+    } 
+    60% { 
+      opacity: 0; 
+    } 
+  }  
+  
+  #five-frames > g > :nth-child(3) {  
+    animation-name: five-frames-3; 
+  }
+
+  @keyframes five-frames-4 { 
+    60% { 
+      opacity: 1; 
+    } 
+    80% { 
+      opacity: 0; 
+    } 
+  }  
+
+  #five-frames > g > :nth-child(4) {  
+    animation-name: five-frames-4; 
+  }
+
+  @keyframes five-frames-5 { 
+    80% { 
+      opacity: 1; 
+    } 
+    100% { 
+      opacity: 0; 
+    } 
+  }  
+
+  #five-frames > g > :nth-child(5) {  
+    animation-name: five-frames-5; 
+  }
