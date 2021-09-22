@@ -35,6 +35,8 @@ function Status() {
   useEffect(() => {
     if (parseInt(limbs.head) < 1) {
       setHeadCondition('head-broken')
+    } else if (parseInt(limbs.head) > 0 && parseInt(limbs.lArm) < 1 || parseInt(limbs.rArm) < 1 || parseInt(limbs.lLeg) < 1 || parseInt(limbs.rLeg) < 1) {
+      setHeadCondition('sad')
     }
     if ( parseInt(limbs.lArm) > 0 && parseInt(limbs.rArm) > 0 && parseInt(limbs.lLeg) < 1 && parseInt(limbs.rLeg) < 1 ) {
        setLimbState('broken-legs')
