@@ -393,7 +393,7 @@ function Settings() {
                 <div className='flex-center'>
                     <button onClick={increaseOption} className='small-text'>-</button>
                     {!isInput && <div onClick={handleInputDisplay}>{optionValue}</div>}
-                    {isInput && <input type="number" onChange={handleInputValue}></input>}
+                    {isInput && <input type="tel" onChange={handleInputValue}></input>}
                     <button onClick={increaseOption} className='small-text'>+</button>
                 </div>
             }
