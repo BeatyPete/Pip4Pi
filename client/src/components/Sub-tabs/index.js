@@ -1,12 +1,11 @@
 import './sub-tabs.css'
 import {useState, useEffect} from 'react'
 import {socket} from '../../context/socket';
-import sound from '../../assets/audio/subtab-switch.mp3'
+/* import sound from '../../assets/audio/subtab-switch.mp3' */
 
 function SubTabs({tabs, sub, setSub}) {   
     const [pos, setPos] = useState(tabs[0].position)
-    const [currTab, setCurrTab] = useState(tabs[0].name)
-    const audio = new Audio(sound);
+    /* const audio = new Audio(sound); */
 
 
     /* useEffect(() => {
@@ -47,7 +46,7 @@ function SubTabs({tabs, sub, setSub}) {
       //changeSubTab(e)
       /* audio.play(); */
         let selected = e.target.innerText
-        setSub(e.target.innerText)
+        setSub(selected)
         //const tabNum = tabs.findIndex(stuff => stuff.name === selected)
         //setPos(tabs[tabNum].position)
         /* console.log(tabNum) */
