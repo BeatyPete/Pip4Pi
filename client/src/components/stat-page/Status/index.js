@@ -75,53 +75,39 @@ function Status() {
     switch (limbState) {
       case 'healthy':
         return 'healthy-head'
-        break;
       case 'l-arm-broke':
         return 'healthy-head'
-        break;
       case 'r-arm-broke':
         return 'healthy-head'
-        break;
       case 'broken-arms':
         return 'healthy-head'
-        break; 
       case 'broken-arms-lLeg':
-        return 'broke-arms-lLeg-head'
-        break;  
+        return 'broke-arms-lLeg-head'  
       case 'broken-arms-rLeg':
         /* this one could use its own anim */
-        return 'broke-arms-lLeg-head'
-        break;   
+        return 'broke-arms-lLeg-head'  
       case 'r-leg-broke':
-        return 'broke-rLeg-head'
-        break; 
+        return 'broke-rLeg-head' 
       case 'l-leg-broke':
         return 'broke-lLeg-head'
-        break;
+      case 'broken-legs':
+        return 'broken-legs-head'
       case 'broken-legs-lArm':
         return 'broken-legs-lArm-head'
-        break;
       case 'broken-legs-rArm':
-        return 'broken-legs-lArm-head'
-        break;
+        return 'broken-legs-lArm-head' 
       case 'broken-body':
-        return 'broke-body-head'
-        break;
+        return 'broke-body-head'    
       case 'lArm-lLeg-broke':
-        return 'broke-lArm-lLeg-head'
-        break;
+        return 'broke-lArm-lLeg-head'    
       case 'rArm-lLeg-broke':
-        return 'broke-rArm-lLeg-head'
-        break;
+        return 'broke-rArm-lLeg-head'     
       case 'lArm-rLeg-broke':
-        return 'broke-lArm-rLeg-head'
-        break;
+        return 'broke-lArm-rLeg-head'        
       case 'rArm-rLeg-broke':
-        return 'broke-rArm-rLeg-head'
-        break;
+        return 'broke-rArm-rLeg-head'    
       default:
-        return ''
-        break;
+        return ''      
     }
   }
 
