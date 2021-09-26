@@ -35,7 +35,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       head: "100%",
       lArm: "100%",
       rArm: "100%",
-      chest: "100%",
+      /* chest: "100%", */ 
       lLeg: "100%",
       rLeg: "100%",
     },

@@ -8,15 +8,23 @@ function Settings() {
     const [state, dispatch] = useStoreContext();
     const { charStats, settings, limbs } = state;
 
-    const [hoveredItem, setHoveredItem] = useState(0)
+    const [hoveredItem, setHoveredItem] = useState(-1)
+    const [name, setName] = useState(charStats.name)
+    const [isInput, setIsInput] = useState(false)
+    const [clickState, setClickState] = useState(false)
     const hovered = useRef();
+    const option = useRef();
 
     useEffect(() => {
         socket.on('itemChange', function (data) { //get button status from client
-          changeItemHover(data)
+          if (!option.current) {
+            changeItemHover(data)
+          } else if (option.current) {
+            increaseOption(data)
+          }
         });
         socket.on('select', function (data) { //get button status from client
-            
+            click()
         });
     }, [socket]);
 
@@ -51,7 +59,7 @@ function Settings() {
             value: charSettings.levelFillPercent
         },
         {
-            title: 'Max Health::',
+            title: 'Max Health:',
             value: charSettings.maxHealth
         },
         {
@@ -87,10 +95,6 @@ function Settings() {
         {
             title: 'Set Right Arm:',
             value: limbSettings.rArm
-        },
-        {
-            title: 'Set Chest:',
-            value: limbSettings.chest
         },
         {
             title: 'Set Left Leg:',
@@ -133,12 +137,48 @@ function Settings() {
     ]
 
     useEffect(() => {
-        document.documentElement.style.setProperty('--color', `${displaySettings.r}, ${displaySettings.g}, ${displaySettings.b}`);
-        dispatch({
-            type: CHANGE_SETTINGS,
-            settings: displaySettings
-        });
-    }, [displaySettings.r, displaySettings.g, displaySettings.b, displaySettings.width, displaySettings.height, displaySettings.positionX, displaySettings.positionY]);
+        /* sets name from entering text */
+        let newCharSettings = charSettings
+        newCharSettings.name = name
+        setCharacterSettings(newCharSettings)
+    }, [name]);
+
+    useEffect(() => {
+        if(option.current) {
+            let optionTitleLocation = option.current.id
+            dispatchOptions(optionValue, optionTitleLocation)
+        }
+    }, [optionValue]);
+
+    const handleNameChange = e => {
+        setName(e.target.value)
+    }
+    const handleInputDisplay = e => {
+        setIsInput(true)
+    }
+    const handleInputValue = e => {
+        let value
+        const valueSplit = optionValue.split(/([0-9]+)/)
+        const valueType = valueSplit[2]
+        value = (e.target.value).toString().concat(valueType)
+        if (!e.target.value) {
+            value = optionValue
+        }
+        dispatchOptions(value, optionTitle)
+    }
+
+    const click = () => {
+        if (hovered.current.textContent === 'Save Changes') {
+            saveChanges()
+            return
+        }
+        if (!option.current) {
+            setClickState(true)
+        } else if (option.current) {
+            setClickState(false)
+        }
+        
+    }
 
     const changeItemHover = rotation => {
         const getNewTab = hoveredItem => {
@@ -151,45 +191,68 @@ function Settings() {
             return nextItem
           }
           setHoveredItem(getNewTab)
+          changeDisplayedOption()
     }
 
     const changeDisplayedOption = e => {
-        let stugg = e.target
+        setIsInput(false)
+        let stugg
+        if (e) {
+            stugg = e.target
+        } else if (hovered.current){
+            stugg = hovered.current
+        } else {
+            return
+        }
+        if (stugg.textContent === 'Save Changes') {
+            return
+        }
         if (stugg.children.length < 1) {
             stugg = e.target.parentNode
-        } 
+        }     
         const title = stugg.children[0].textContent
         const value = stugg.children[1].textContent
         setOptionValue(value)
         setOptionTitle(title)
     }
     const increaseOption = e => {
-        const valueSplit = optionValue.split(/([0-9]+)/)
-        const negative = valueSplit[0]
-        const value = parseInt(negative.concat(valueSplit[1]))
-        const valueType = valueSplit[2]
-        let newValue
-        switch (e.target.textContent) {
-            case '+':
-                newValue = (value + 1).toString().concat(valueType)
-                break;
-            case '-':
-                newValue = (value - 1).toString().concat(valueType)
-                break;
         
-            default:
-                break;
+        const findValue = optionValue => {
+            const valueSplit = optionValue.split(/([0-9]+)/)
+            const negative = valueSplit[0]
+            const value = parseInt(negative.concat(valueSplit[1]))
+            const valueType = valueSplit[2]
+            let newValue
+            if (e.target) {
+                switch (e.target.textContent) {
+                    case '+':
+                        newValue = (value + 1).toString().concat(valueType)
+                        break;
+                    case '-':
+                        newValue = (value - 1).toString().concat(valueType)
+                        break;
+                
+                    default:
+                        break;
+                }
+            } else {
+                newValue = (value + e).toString().concat(valueType)
+            }
+            return newValue
         }
-
-        setOptionValue(newValue)
-        dispatchOptions(newValue)
+        setOptionValue(findValue)
+        if (!option.current) {
+            
+            dispatchOptions(findValue(optionValue), optionTitle)
+        }
+        
     }
 
-    const dispatchOptions = value => {
+    const dispatchOptions = (value, optionTitleLocation) => {
         let newCharSettings = charSettings
         let newDisplaySettings = displaySettings
         let newLimbSettings = limbSettings
-        switch (optionTitle) {
+        switch (optionTitleLocation) {
             case 'Set Level:':
                 newCharSettings.currentLevel = value
                 break;
@@ -223,9 +286,6 @@ function Settings() {
                 break;
             case 'Set Right Arm:':
                 newLimbSettings.rArm = value
-                break;
-            case 'Set Chest:':
-                newLimbSettings.chest = value
                 break;
             case 'Set Left Leg:':
                 newLimbSettings.lLeg = value
@@ -261,6 +321,13 @@ function Settings() {
         setCharacterSettings(newCharSettings)
         setDisplaySettings(newDisplaySettings)
         setLimbSettings(newLimbSettings)
+
+        document.documentElement.style.setProperty('--color', `${newDisplaySettings.r}, ${newDisplaySettings.g}, ${newDisplaySettings.b}`);
+        dispatch({
+            type: CHANGE_SETTINGS,
+            settings: newDisplaySettings
+        });
+        
     }
 
     const saveChanges = () => {
@@ -276,7 +343,7 @@ function Settings() {
             <ul className='small-text'>
                 <li>
                     <div>Name:</div>
-                    <input maxLength='20' minLength='1' placeholder={charStats.name}></input>
+                    <input maxLength='20' minLength='1' placeholder={charStats.name} onChange={handleNameChange}></input>
                 </li>
                 {characterList.map((option, i) => (
                     //conditional to render the li of hovered item with ref
@@ -352,11 +419,19 @@ function Settings() {
         
         <section className='option-display small-text'>
             {optionValue &&
-                <div className='flex-center'>
+                clickState ? <div className='flex-center' ref={option} id={optionTitle}>
+                    <button onClick={increaseOption} className='small-text hovered'>-</button>
+                        {!isInput && <div className='hovered' onClick={handleInputDisplay}>{optionValue}</div>}
+                        {isInput && <input type="number" onChange={handleInputValue}></input>}
+                    <button onClick={increaseOption} className='small-text hovered'>+</button>
+                </div> 
+                : optionValue ? <div className='flex-center'>
                     <button onClick={increaseOption} className='small-text'>-</button>
-                    <div>{optionValue}</div>
+                        {!isInput && <div onClick={handleInputDisplay}>{optionValue}</div>}
+                        {isInput && <input type="tel" onChange={handleInputValue}></input>}
                     <button onClick={increaseOption} className='small-text'>+</button>
                 </div>
+                : <div></div>
             }
         </section>
 

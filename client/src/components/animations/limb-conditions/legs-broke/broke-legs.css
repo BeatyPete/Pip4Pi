@@ -1,0 +1,97 @@
+#seven-frames > g > * { 
+    opacity: 0; 
+    animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+  }
+
+@keyframes seven-frames-1 { 
+    0% { 
+      opacity: 1; 
+    } 
+    14.3% { 
+      opacity: 0; 
+    } 
+  }  
+  
+  #seven-frames > g > :nth-child(1) { 
+    animation-name: seven-frames-1; 
+  }  
+  
+  @keyframes seven-frames-2 { 
+    14.3% { 
+      opacity: 1; 
+    } 
+    28.6% { 
+      opacity: 0; 
+    } 
+  }  
+  
+  #seven-frames > g > :nth-child(2) { 
+    animation-name: seven-frames-2; 
+  }  
+  
+  @keyframes seven-frames-3 { 
+    28.6% { 
+      opacity: 1; 
+    } 
+    42.9% { 
+      opacity: 0; 
+    } 
+  }  
+  
+  #seven-frames > g > :nth-child(3) {  
+    animation-name: seven-frames-3; 
+  }
+
+  @keyframes seven-frames-4 { 
+    42.9% { 
+      opacity: 1; 
+    } 
+    57.2% { 
+      opacity: 0; 
+    } 
+  }  
+
+  #seven-frames > g > :nth-child(4) {  
+    animation-name: seven-frames-4; 
+  }
+
+  @keyframes seven-frames-5 { 
+    57.2% { 
+      opacity: 1; 
+    } 
+    71.5% { 
+      opacity: 0; 
+    } 
+  }  
+
+  #seven-frames > g > :nth-child(5) {  
+    animation-name: seven-frames-5; 
+  }
+
+  @keyframes seven-frames-6 { 
+    71.5% { 
+      opacity: 1; 
+    } 
+    85.8% { 
+      opacity: 0; 
+    } 
+  }  
+
+  #seven-frames > g > :nth-child(6) {  
+    animation-name: seven-frames-6; 
+  }
+
+  @keyframes seven-frames-7 { 
+    85.8% { 
+      opacity: 1; 
+    } 
+    100% { 
+      opacity: 0; 
+    } 
+  }  
+
+  #seven-frames > g > :nth-child(7) {  
+    animation-name: seven-frames-7; 
+  }
