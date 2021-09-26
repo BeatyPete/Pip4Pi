@@ -1,6 +1,6 @@
 import './sub-tabs.css'
 import {useState, useEffect} from 'react'
-import {socket} from '../../context/socket';
+/* import {socket} from '../../context/socket'; */
 /* import sound from '../../assets/audio/subtab-switch.mp3' */
 
 function SubTabs({tabs, sub, setSub}) {   
@@ -27,7 +27,7 @@ function SubTabs({tabs, sub, setSub}) {
         }
     }, []) */
 
-    const changeSubTab = rotation => {     
+    /* const changeSubTab = rotation => {     
       const getNewTab = sub => {
         let tabNum = tabs.findIndex(stuff => stuff.name === sub)
         let newTabNum = tabNum + rotation
@@ -39,7 +39,7 @@ function SubTabs({tabs, sub, setSub}) {
         return tabs[newTabNum].name
       }
       setSub(getNewTab)
-    }
+    } */
 
     const findSub = e => {
       

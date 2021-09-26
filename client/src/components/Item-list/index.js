@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import {socket} from '../../context/socket';
+/* import {socket} from '../../context/socket'; */
 import { useStoreContext } from "../../utils/GlobalState";
 import { CHANGE_ARMOR, CHANGE_WEAPON, CHANGE_DAMAGE, CHANGE_RESISTANCE } from "../../utils/actions";
 import './item-list.css'
@@ -12,7 +12,7 @@ function ItemList({items, sub}) {
     const [state, dispatch] = useStoreContext();
 
     const [deets, setDeets] = useState()
-    const [hoveredItem, setHoveredItem] = useState(-1)
+    const [hoveredItem/* , setHoveredItem */] = useState(-1)
 
     const { weaponSlots, armorSlots } = state;
 
@@ -43,7 +43,7 @@ function ItemList({items, sub}) {
         }   
     }, [hoveredItem]);
 
-    const changeItemHover = rotation => {
+    /* const changeItemHover = rotation => {
         const getNewTab = hoveredItem => {
           let nextItem = hoveredItem + rotation
           if (nextItem < 0) {
@@ -54,7 +54,7 @@ function ItemList({items, sub}) {
           return nextItem
         }
         setHoveredItem(getNewTab)
-    }
+    } */
 
     const showItemDeets = e => {
         /* could alt use the e.target.textContent to search list for itemNum or show details based on which item has the class with greenbackground */

@@ -2,16 +2,16 @@ import {useState, useEffect, useRef} from 'react'
 import './settings.css'
 import { useStoreContext } from "../../../utils/GlobalState";
 import { CHANGE_SETTINGS, CHANGE_STATS, CHANGE_LIMBS } from "../../../utils/actions";
-import {socket} from '../../../context/socket';
+/* import {socket} from '../../../context/socket'; */
 
 function Settings() {
     const [state, dispatch] = useStoreContext();
     const { charStats, settings, limbs } = state;
 
-    const [hoveredItem, setHoveredItem] = useState(-1)
+    const [hoveredItem/* , setHoveredItem */] = useState(-1)
     const [name, setName] = useState(charStats.name)
     const [isInput, setIsInput] = useState(false)
-    const [clickState, setClickState] = useState(false)
+    const [clickState/* , setClickState */] = useState(false)
     const hovered = useRef();
     const option = useRef();
 
@@ -167,7 +167,7 @@ function Settings() {
         dispatchOptions(value, optionTitle)
     }
 
-    const click = () => {
+    /* const click = () => {
         if (hovered.current.textContent === 'Save Changes') {
             saveChanges()
             return
@@ -178,9 +178,9 @@ function Settings() {
             setClickState(false)
         }
         
-    }
+    } */
 
-    const changeItemHover = rotation => {
+    /* const changeItemHover = rotation => {
         const getNewTab = hoveredItem => {
             let nextItem = hoveredItem + rotation
             if (nextItem < 0) {
@@ -192,7 +192,7 @@ function Settings() {
           }
           setHoveredItem(getNewTab)
           changeDisplayedOption()
-    }
+    } */
 
     const changeDisplayedOption = e => {
         setIsInput(false)

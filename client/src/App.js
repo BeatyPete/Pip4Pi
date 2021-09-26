@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {socket} from './context/socket';
+/* import {socket} from './context/socket'; */
 import { useStoreContext } from "./utils/GlobalState";
 import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR, CHANGE_DAMAGE, CHANGE_RESISTANCE, CHANGE_SETTINGS, CHANGE_LIMBS, CHANGE_STATS } from "./utils/actions";
 
@@ -11,7 +11,7 @@ import RADIO from "./pages/RADIO";
 
 function App() {
   const [state, dispatch] = useStoreContext();
-  const [currTab, setCurrTab] = useState('STAT')
+  const [currTab/* , setCurrTab */] = useState('STAT')
   const { mainTab, settings } = state;
 
   useEffect(() => {
@@ -76,7 +76,7 @@ function App() {
     });
   }, [currTab]);
 
-  const changeMainTab = rotation => {
+  /* const changeMainTab = rotation => {
     const getNewTab = currTab => {
       const tabs = ['STAT', 'INV', 'DATA', 'MAP', 'RADIO']
       let tabNum = tabs.findIndex(stuff => stuff === currTab)
@@ -89,7 +89,7 @@ function App() {
       return tabs[newTabNum]
     }
     setCurrTab(getNewTab)
-  }
+  } */
 
   const displaySettings = {
     transform: `translate(${settings.positionX}, ${settings.positionY})`,
