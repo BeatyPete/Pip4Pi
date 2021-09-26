@@ -1,25 +1,23 @@
 {
   "files": {
-    "main.css": "/Pip4Pi/static/css/main.9709de4e.chunk.css",
-    "main.js": "/Pip4Pi/static/js/main.d52d333e.chunk.js",
-    "main.js.map": "/Pip4Pi/static/js/main.d52d333e.chunk.js.map",
-    "runtime-main.js": "/Pip4Pi/static/js/runtime-main.6a72772d.js",
-    "runtime-main.js.map": "/Pip4Pi/static/js/runtime-main.6a72772d.js.map",
-    "static/js/2.d3f19139.chunk.js": "/Pip4Pi/static/js/2.d3f19139.chunk.js",
-    "static/js/2.d3f19139.chunk.js.map": "/Pip4Pi/static/js/2.d3f19139.chunk.js.map",
-    "static/js/3.110b0b64.chunk.js": "/Pip4Pi/static/js/3.110b0b64.chunk.js",
-    "static/js/3.110b0b64.chunk.js.map": "/Pip4Pi/static/js/3.110b0b64.chunk.js.map",
+    "main.css": "/Pip4Pi/static/css/main.54038e58.chunk.css",
+    "main.js": "/Pip4Pi/static/js/main.b17b4447.chunk.js",
+    "main.js.map": "/Pip4Pi/static/js/main.b17b4447.chunk.js.map",
+    "runtime-main.js": "/Pip4Pi/static/js/runtime-main.6514ffbb.js",
+    "runtime-main.js.map": "/Pip4Pi/static/js/runtime-main.6514ffbb.js.map",
+    "static/js/2.abbb8da8.chunk.js": "/Pip4Pi/static/js/2.abbb8da8.chunk.js",
+    "static/js/2.abbb8da8.chunk.js.map": "/Pip4Pi/static/js/2.abbb8da8.chunk.js.map",
+    "static/js/3.a71924dd.chunk.js": "/Pip4Pi/static/js/3.a71924dd.chunk.js",
+    "static/js/3.a71924dd.chunk.js.map": "/Pip4Pi/static/js/3.a71924dd.chunk.js.map",
     "index.html": "/Pip4Pi/index.html",
-    "static/css/main.9709de4e.chunk.css.map": "/Pip4Pi/static/css/main.9709de4e.chunk.css.map",
-    "static/js/2.d3f19139.chunk.js.LICENSE.txt": "/Pip4Pi/static/js/2.d3f19139.chunk.js.LICENSE.txt",
-    "static/media/maintab-switch.6381d0cb.mp3": "/Pip4Pi/static/media/maintab-switch.6381d0cb.mp3",
-    "static/media/index.css": "/Pip4Pi/static/media/monofonto-webfont.e90fd2ae.woff2",
-    "static/media/subtab-switch.392ece52.mp3": "/Pip4Pi/static/media/subtab-switch.392ece52.mp3"
+    "static/css/main.54038e58.chunk.css.map": "/Pip4Pi/static/css/main.54038e58.chunk.css.map",
+    "static/js/2.abbb8da8.chunk.js.LICENSE.txt": "/Pip4Pi/static/js/2.abbb8da8.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Pip4Pi/static/media/monofonto-webfont.e90fd2ae.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.6a72772d.js",
-    "static/js/2.d3f19139.chunk.js",
-    "static/css/main.9709de4e.chunk.css",
-    "static/js/main.d52d333e.chunk.js"
+    "static/js/runtime-main.6514ffbb.js",
+    "static/js/2.abbb8da8.chunk.js",
+    "static/css/main.54038e58.chunk.css",
+    "static/js/main.b17b4447.chunk.js"
   ]
 }
