@@ -15,7 +15,7 @@ import AmmoSvg from '../images/ammo';
 function ItemList({items, sub}) {
     const [state, dispatch] = useStoreContext();
 
-    const [deets, setDeets] = useState(items[0])
+    const [deets, setDeets] = useState()
     const [hoveredItem, setHoveredItem] = useState(-1)
 
     const { weaponSlots, armorSlots, damage, damResist } = state;

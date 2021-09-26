@@ -1,5 +1,5 @@
 .setting-list {
-    font-size: 1.2vw;
+    font-size: 1.6vw;
     /* padding: 1.5vw 0vw; */
     width: 50%;
     height: 90%;
@@ -19,16 +19,8 @@
 .setting-list ul li:hover > input {
     color: var(--screen-color);
 }
-.setting-list input {
-    background: none;
-    border: none;
+.setting-list input {  
     font-size: 1vw;
-    text-align: center;
-    box-shadow: 0px 3px 0px var(--glow-color);
-    color: var(--core-color);
-}
-.setting-list input:focus {
-    outline: none;
 }
 .setting-list button {
     font-size: 142%;
@@ -52,4 +44,8 @@
     background: none;
     border: none;
     width: 10%;
+}
+.option-display input{
+    font-size: 4vw;
+    width: 35%;
 }

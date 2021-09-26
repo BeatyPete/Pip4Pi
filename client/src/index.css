@@ -17,6 +17,17 @@
   font-style: normal;
 }
 
+input {
+  background: none;
+  border: none;
+  text-align: center;
+  border-bottom: 3px solid var(--glow-color);
+  color: var(--core-color);
+}
+input:focus {
+  outline: none;
+}
+
 #root {
   width: 100%;
   height: 100%;

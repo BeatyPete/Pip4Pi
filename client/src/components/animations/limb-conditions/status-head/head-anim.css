@@ -1,0 +1,334 @@
+.healthy-head {
+  animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: head-bob;
+}
+@keyframes head-bob { 
+  0% { 
+    top: 8%;
+    left: 24%;
+  } 
+  12.5% { 
+    top: 6%;
+    left: 23%;
+  } 
+  25% { 
+    top: 5%;
+    left: 22%; 
+  } 
+  37.5% { 
+    top: 6%;
+    left: 22%; 
+  } 
+  50% { 
+    top: 7.7%;
+    left: 21%; 
+  } 
+  62.5% { 
+    top: 6.4%;
+    left: 22%; 
+  } 
+  75% { 
+    top: 5%;
+    left: 23%;
+  } 
+  87.5% { 
+    top: 6%;
+    left: 23%;
+  } 
+  100% {
+      top: 8%;
+      left: 24%;
+  }
+}  
+
+.broken-legs-head {
+  animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broken-legs-headbob;
+}
+@keyframes broken-legs-headbob { 
+  0% { 
+    top: 6%;
+    left: 24%;
+  } 
+  14.3% {
+    top: 5.5%;
+    left: 25%;
+  }
+  28.6% {
+    top: 5.5%;
+    left: 26%;
+  }
+  42.9% {
+    top: 5.9%;
+    left: 25%;
+  }
+  57.2% {
+    top: 5.5%;
+    left: 25%;
+  }
+  71.5% {
+    top: 5.4%;
+    left: 25%;
+  }
+  85.8% {
+    top: 6%;
+    left: 25%;
+  }
+  100% {
+    top: 6%;
+    left: 24%;
+  }
+} 
+
+.broke-rLeg-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-rLeg-headbob;
+}
+@keyframes broke-rLeg-headbob { 
+  0% { 
+    transform: translate(-7%, -6%);
+  } 
+  20% {
+    transform: translate(-4%, -6%);
+  }
+  40% {
+    transform: translate(1%, -7%);
+  }
+  60% {
+    transform: translate(-3%, -9%);
+  }
+  80% {
+    transform: translate(-4%, -7%);
+  }
+  100% {
+    transform: translate(-7%, -6%);
+  }
+} 
+
+.broke-lLeg-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-lLeg-headbob;
+}
+@keyframes broke-lLeg-headbob { 
+  0% { 
+    transform: translate(-7%, -5%);
+  }
+  20% {
+    transform: translate(-4%, -5%);
+  }
+  40% {
+    transform: translate(-3%, -9%);
+  }
+  60% {
+    transform: translate(-2%, -9%);
+  }
+  80% {
+    transform: translate(-8%, -11%);
+  }
+  100% {
+    transform: translate(-7%, -5%);
+  }
+} 
+
+.broke-arms-lLeg-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-arms-lLeg-headbob;
+}
+@keyframes broke-arms-lLeg-headbob { 
+  0% { 
+    transform: translate(0%, -8%);
+  }
+  20% {
+    transform: translate(-3%, -10%);
+  }
+  40% {
+    transform: translate(-2%, -10%);
+  }
+  60% {
+    transform: translate(-1%, -10%);
+  }
+  80% {
+    transform: translate(1%, -8%);
+  }
+  100% {
+    transform: translate(0%, -8%);
+  }
+} 
+
+.broke-body-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-body-headbob;
+}
+@keyframes broke-body-headbob { 
+  0% { 
+    transform: translate(4%, -10%);
+  }
+  20% {
+    transform: translate(6%, -10%);
+  }
+  40% {
+    transform: translate(6%, -10%);
+  }
+  60% {
+    transform: translate(5%, -11%);
+  }
+  80% {
+    transform: translate(4%, -10%);
+  }
+  100% {
+    transform: translate(4%, -10%);
+  }
+} 
+
+.broken-legs-lArm-head {
+  animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broken-legs-lArm-headbob;
+}
+@keyframes broken-legs-lArm-headbob { 
+  0% { 
+    transform: translate(1%, -9%);
+  } 
+  14.3% {
+    transform: translate(3%, -8%);
+  }
+  28.6% {
+    transform: translate(5%, -9%);
+  }
+  42.9% {
+    transform: translate(2%, -10%);
+  }
+  57.2% {
+    transform: translate(3%, -10%);
+  }
+  71.5% {
+    transform: translate(3%, -10%);
+  }
+  85.8% {
+    transform: translate(3%, -10%);
+  }
+  100% {
+    transform: translate(1%, -9%);
+  }
+} 
+
+.broke-lArm-lLeg-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-lArm-lLeg-headbob;
+}
+@keyframes broke-lArm-lLeg-headbob { 
+  0% { 
+    transform: rotateZ(6deg) translate(-3%, -11%);
+  } 
+  20% {
+    transform: rotateZ(7deg) translate(-2%, -11%);
+  }
+  40% {
+    transform: rotateZ(9deg) translate(-2%, -11%);
+  }
+  60% {
+    transform: rotateZ(6deg) translate(-1%, -11%);
+  }
+  80% {
+    transform: rotateZ(4deg) translate(-4%, -11%);
+  }
+  100% {
+    transform: rotateZ(6deg) translate(-3%, -11%);
+  }
+}
+
+.broke-rArm-lLeg-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-rArm-lLeg-headbob;
+}
+@keyframes broke-rArm-lLeg-headbob { 
+  0% { 
+    transform: rotateZ(5deg) translate(-3%, -6%);
+  } 
+  20% {
+    transform: rotateZ(5deg) translate(-1%, -7%);
+  }
+  40% {
+    transform: rotateZ(3deg) translate(-3%, -7%)
+  }
+  60% {
+    transform: rotateZ(4deg) translate(-1%, -7%);
+  }
+  80% {
+    transform: rotateZ(2deg) translate(-5%, -9%);
+  }
+  100% {
+    transform: rotateZ(5deg) translate(-3%, -6%);
+  }
+}
+
+.broke-lArm-rLeg-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-lArm-rLeg-headbob;
+}
+@keyframes broke-lArm-rLeg-headbob { 
+  0% { 
+    transform: rotateZ(8deg) translate(-2%, -11%);
+  } 
+  20% {
+    transform: rotateZ(9deg) translate(0%, -11%);
+  }
+  40% {
+    transform: rotateZ(11deg) translate(1%, -11%);
+  }
+  60% {
+    transform: rotateZ(6deg) translate(-1%, -11%);
+  }
+  80% {
+    transform: rotateZ(4deg) translate(-6%, -11%);
+  }
+  100% {
+    transform: rotateZ(8deg) translate(-2%, -11%);
+  }
+}
+
+.broke-rArm-rLeg-head {
+  animation-duration: .66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+    animation-name: broke-rArm-rLeg-headbob;
+}
+@keyframes broke-rArm-rLeg-headbob { 
+  0% { 
+    transform: rotateZ(6deg) translate(-4%, -6%);
+  } 
+  20% {
+    transform: rotateZ(4deg) translate(0%, -6%);
+  }
+  40% {
+    transform: rotateZ(2deg) translate(-3%, -7%);
+  }
+  60% {
+    transform: rotateZ(1deg) translate(-4%, -7%);
+  }
+  80% {
+    transform: rotateZ(6deg) translate(-2%, -8%);
+  }
+  100% {
+    transform: rotateZ(6deg) translate(-4%, -6%);
+  }
+}
