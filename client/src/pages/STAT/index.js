@@ -9,9 +9,9 @@ import './stat.css'
 import { useStoreContext } from "../../utils/GlobalState";
 
 function STAT({mainTab, setMainTab}) {
-  const [state, dispatch] = useStoreContext();
+  const [state] = useStoreContext();
   const [sub, setSub] = useState('STATUS')
-  /* const subs = ['STATUS', 'SPECIAL', 'PERKS'] */
+
   const subs = [
     {
       name:'STATUS',

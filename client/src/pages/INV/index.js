@@ -10,11 +10,7 @@ import './inv.css'
 import WeightSvg from '../../components/images/weight'
 import CapsSvg from '../../components/images/caps'
 import GunSvg from '../../components/images/gun'
-import ZapSvg from '../../components/images/zap'
 import HelmetSvg from '../../components/images/helmet'
-import ShieldSvg from '../../components/images/shield'
-import CrosshairSvg from '../../components/images/crosshair';
-import RadsSvg from '../../components/images/rads';
 
 import { useStoreContext } from "../../utils/GlobalState";
 import { CHANGE_STATS } from "../../utils/actions";
