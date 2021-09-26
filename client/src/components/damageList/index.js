@@ -3,14 +3,12 @@ import ZapSvg from '../images/zap'
 import CrosshairSvg from '../images/crosshair'
 import ShieldSvg from '../images/shield'
 import RadsSvg from '../images/rads'
-import AmmoSvg from '../images/ammo';
-import ammoSvg from '../images/ammo';
 
 
 function DamageList({ damageValues, isInline, isDamResist }) {
 
     const noArmorEquipped = () => {
-        if (damageValues.energy === 0 && damageValues.radiation === 0 || damageValues.physical > 0) {
+        if ((damageValues.energy === 0 && damageValues.radiation === 0) || damageValues.physical > 0) {
           return true
         } else {
           return false

@@ -6,10 +6,6 @@ import './item-list.css'
 
 import DamageList from '../damageList';
 
-import ZapSvg from '../images/zap'
-import CrosshairSvg from '../images/crosshair'
-import ShieldSvg from '../images/shield'
-import RadsSvg from '../images/rads'
 import AmmoSvg from '../images/ammo';
 
 function ItemList({items, sub}) {
@@ -18,7 +14,7 @@ function ItemList({items, sub}) {
     const [deets, setDeets] = useState()
     const [hoveredItem, setHoveredItem] = useState(-1)
 
-    const { weaponSlots, armorSlots, damage, damResist } = state;
+    const { weaponSlots, armorSlots } = state;
 
     const hovered = useRef();
 

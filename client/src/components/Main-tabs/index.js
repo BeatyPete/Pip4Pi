@@ -1,12 +1,12 @@
 import './main-tabs.css'
 import { useStoreContext } from "../../utils/GlobalState";
 import { CHANGE_MAIN_TAB } from "../../utils/actions";
-import sound from '../../assets/audio/maintab-switch.mp3'
+/* import sound from '../../assets/audio/maintab-switch.mp3' */
 
 function MainTabs() {
     const [state, dispatch] = useStoreContext();
     const { mainTab } = state;
-    const audio = new Audio(sound);
+    /* const audio = new Audio(sound); */
     
 
     const changeTab = e =>{
