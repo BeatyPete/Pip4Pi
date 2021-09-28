@@ -52,6 +52,41 @@ input:focus {
   padding: .5vw;
 }
 
+.scanlines:before {
+  width: 100%;
+  height: .1vw;
+  z-index: 2147483649;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0.85;
+  animation: scanline 6s linear infinite;
+}
+.scanlines:after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2147483648;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.25) 51%);
+  background-size: 100% .2vw;
+  animation: scanlines 1s steps(60) infinite;
+}
+.scanlines:before, .scanlines:after {
+  display: block;
+  pointer-events: none;
+  content: "";
+  position: absolute;
+}
+@keyframes scanline {
+  0% {
+    transform: translate3d(0, 200000%, 0);
+  }
+}
+@keyframes scanlines {
+  0% {
+    background-position: 0 50%;
+  }
+}
+
 body {
   background-color: var(--screen-color);
 }
@@ -64,6 +99,11 @@ body {
   overflow: hidden;
   max-width: 1200px;
   max-height: 1000px;
+  box-shadow: inset 0px 0px 8vw 1vw black;
+  border-radius: 8px;
+}
+.master:before {
+  content: '';
 }
 
 header {
