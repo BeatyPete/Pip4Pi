@@ -11,7 +11,7 @@
     align-items: center;
 }
 .item-list ul {
-    font-size: 2.1vw;
+    font-size: 2.2vw;
     height: 95%;
     width: 100%;
 }
@@ -20,7 +20,7 @@
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    padding: .1em 0 .1em 1em;
+    padding: 0.3vw 0 .3vw 2vw;
 }
 .item-list li:hover {
     background-color: var(--core-color);
@@ -66,7 +66,7 @@
 }
 .item-details-container .blurb {
     margin-bottom: -.4vw;
-    font-size: 1.1vw;
+    font-size: 1.5vw;
     justify-content: center;
     text-align: center;
 }
@@ -77,5 +77,9 @@
     }
     .item-details-container {
         font-size: 2.2rem;
+    }
+    .item-details-container .blurb {
+        font-size: 1.3rem;
+
     }
   }

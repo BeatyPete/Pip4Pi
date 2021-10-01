@@ -61,7 +61,8 @@ input:focus {
   opacity: .5;
   background: linear-gradient(0deg, rgba(53,55,51,0) 0%, rgba(53,55,51,1) 25%, rgba(53,55,51,1) 75%, rgba(53,55,51,0) 100%);
   /* actual animation time is ~2s while time between animations is ~11s, combined here because cant delay between infinite anim */
-  animation: scanline 13s linear infinite;
+  animation: scanline 13s linear infinite 11s;
+  transform: translate3d(0, -110%, 0);
 }
 .scanlines:after {
   /* tiny screen lines */
@@ -96,16 +97,33 @@ body {
 .master {
   font-family: 'Roboto', sans-serif;;
   padding: 5vh 10vh;
-  /* width: 70vw;
-  height: 54vw; */
+  margin: auto;
   overflow: hidden;
   max-width: 1200px;
   max-height: 1000px;
   /* box-shadow: inset 0px 0px 8vw 1vw black; */
   border-radius: 8px;
+  animation: flicker-2 30s linear infinite 30s;
 }
-.master:before {
-  content: '';
+@keyframes flicker-2 {
+  0% {
+    opacity: 1;
+  }
+  .25% {
+    opacity: .2;
+  }
+  .5% {
+    opacity: 1;
+  }
+  .75% {
+    opacity: .2;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 header {
@@ -153,9 +171,6 @@ footer div {
 }
 
 @media screen and (min-width: 1650px) {
-  .master {
-    margin: auto;
-  }
   footer {
     font-size: 2.1rem;
   }
