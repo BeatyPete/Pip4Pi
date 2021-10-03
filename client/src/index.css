@@ -27,6 +27,16 @@ input {
 input:focus {
   outline: none;
 }
+/* these get rid of the arrows for input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 #root {
   width: 100%;
@@ -103,6 +113,8 @@ body {
   max-height: 1000px;
   /* box-shadow: inset 0px 0px 8vw 1vw black; */
   border-radius: 8px;
+}
+.flicker {
   animation: flicker-2 30s linear infinite 30s;
 }
 @keyframes flicker-2 {

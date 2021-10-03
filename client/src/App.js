@@ -97,8 +97,19 @@ function App() {
     height: settings.height
   }
 
+  const scanlineToggle = () => {
+    if (settings.scanlines) {
+      return 'scanlines'
+    } else {return ''}
+  }
+  const flickerToggle = () => {
+    if (settings.flicker) {
+      return 'flicker'
+    } else {return ''}
+  }
+
   return (
-    <div style={displaySettings} className='master'>
+    <div style={displaySettings} className={`master ${scanlineToggle()} ${flickerToggle()}`}>
       {mainTab === 'STAT' && (<STAT></STAT>)}
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}
