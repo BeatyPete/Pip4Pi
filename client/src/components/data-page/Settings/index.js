@@ -224,20 +224,20 @@ function Settings() {
         setOptionTitle(title)
     }
     const increaseOption = e => {
-        const isBoolean = ((optionValue === 'true' || e === 'true') || (optionValue === 'false' || e === 'false'));
-        if (isBoolean) {
-            let bool
-            if (optionValue === 'true' || e === 'true') {
-                bool = true
-            } else { 
-                bool = false 
-            }
-            bool = !bool;
-            setOptionValue(`${bool}`)
-            dispatchOptions(bool, optionTitle)
-            return
-        }
+        
         const findValue = optionValue => {
+            const isBoolean = (optionValue === 'true' || optionValue === 'false');
+            if (isBoolean) {
+                let bool
+                if (optionValue === 'true') {
+                    bool = true
+                } else { 
+                    bool = false 
+                }
+                bool = !bool;
+                return `${bool}`
+            }
+
             const valueSplit = optionValue.split(/([0-9]+)/)
             const negative = valueSplit[0]
             const value = parseInt(negative.concat(valueSplit[1]))
@@ -336,10 +336,12 @@ function Settings() {
                 newDisplaySettings.positionY = value
                 break;
             case 'Screen Flicker:':
+                if(value === 'true') { value = true } else { value = false }
                 if(typeof value != 'boolean') { value = false }
                 newDisplaySettings.flicker = value
                 break;
             case 'Scanlines:':
+                if(value === 'true') { value = true } else { value = false }
                 if(typeof value != 'boolean') { value = false }
                 newDisplaySettings.scanlines = value
                 break;
