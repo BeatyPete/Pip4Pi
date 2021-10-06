@@ -1,4 +1,4 @@
-function rArmArmorSvg() {
+function RPauldronSvg() {
     return (
         <svg className='armor-piece' id='r-pauldron' viewBox="0 0 63 92">
             <g>
@@ -7,4 +7,4 @@ function rArmArmorSvg() {
         </svg>
 )}
 
-export default rArmArmorSvg;
+export default RPauldronSvg;

@@ -10,7 +10,7 @@ import AmmoSvg from '../images/ammo';
 
 import Paperdoll from '../images/paper-doll/paper-doll';
 import ChestSvg from '../images/paper-doll/chest';
-import RArmArmorSvg from '../images/paper-doll/r-arm-piece';
+import RPauldronSvg from '../images/paper-doll/r-pauldron';
 import LPauldronSvg from '../images/paper-doll/l-pauldron';
 import RShinSvg from '../images/paper-doll/r-shin';
 import LShinSvg from '../images/paper-doll/l-shin';
@@ -241,7 +241,7 @@ function ItemList({items, sub}) {
                     
                     <Paperdoll></Paperdoll>
                     <ChestSvg></ChestSvg>
-                    <RArmArmorSvg></RArmArmorSvg>
+                    <RPauldronSvg></RPauldronSvg>
                     <LPauldronSvg></LPauldronSvg>
                     <RShinSvg></RShinSvg>
                     <LShinSvg></LShinSvg>
