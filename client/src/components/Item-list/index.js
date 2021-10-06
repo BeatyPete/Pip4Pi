@@ -8,6 +8,16 @@ import DamageList from '../damageList';
 
 import AmmoSvg from '../images/ammo';
 
+import Paperdoll from '../images/paper-doll/paper-doll';
+import ChestSvg from '../images/paper-doll/chest';
+import RArmArmorSvg from '../images/paper-doll/r-arm-piece';
+import LPauldronSvg from '../images/paper-doll/l-pauldron';
+import RShinSvg from '../images/paper-doll/r-shin';
+import LShinSvg from '../images/paper-doll/l-shin';
+import GogglesSvg from '../images/paper-doll/goggles';
+import DomeSvg from '../images/paper-doll/dome';
+import MaskSvg from '../images/paper-doll/mask';
+
 function ItemList({items, sub}) {
     const [state, dispatch] = useStoreContext();
 
@@ -227,7 +237,19 @@ function ItemList({items, sub}) {
                 </ul>
             </section>
             <section className='item-details-container'>
-                <div></div>
+                <div className='doll-container'>
+                    
+                    <Paperdoll></Paperdoll>
+                    <ChestSvg></ChestSvg>
+                    <RArmArmorSvg></RArmArmorSvg>
+                    <LPauldronSvg></LPauldronSvg>
+                    <RShinSvg></RShinSvg>
+                    <LShinSvg></LShinSvg>
+                    <GogglesSvg></GogglesSvg>
+                    <DomeSvg></DomeSvg>
+                    <MaskSvg></MaskSvg>
+                    
+                </div>
                     {/* do not render stats if item array is empty */}
                     {deets &&
                     <ul className='small-text'>
