@@ -206,6 +206,15 @@ function ItemList({items, sub}) {
         return equipArr.some(equipped)
     }
 
+    const armorDisplay = type => {
+        for (let i = 0; i < armorSlots.length; i++) {
+            const isSlotMatching = armorSlots[i].slotType.includes(type)
+            if (isSlotMatching) {
+                return true
+            }
+        }
+    }
+
     return (
     <main className='flex-center'>
         <div className='inventory-grid'>
@@ -238,17 +247,19 @@ function ItemList({items, sub}) {
             </section>
             <section className='item-details-container'>
                 <div className='doll-container'>
-                    
-                    <Paperdoll></Paperdoll>
-                    <ChestSvg></ChestSvg>
-                    <RPauldronSvg></RPauldronSvg>
-                    <LPauldronSvg></LPauldronSvg>
-                    <RShinSvg></RShinSvg>
-                    <LShinSvg></LShinSvg>
-                    <GogglesSvg></GogglesSvg>
-                    <DomeSvg></DomeSvg>
-                    <MaskSvg></MaskSvg>
-                    
+                    {sub === 'APPAREL' &&
+                        <>
+                            <Paperdoll></Paperdoll>
+                            {armorDisplay('chest') && <ChestSvg></ChestSvg>}
+                            {armorDisplay('r-arm') && <RPauldronSvg></RPauldronSvg>}
+                            {armorDisplay('l-arm') && <LPauldronSvg></LPauldronSvg>}
+                            {armorDisplay('r-leg') && <RShinSvg></RShinSvg>}
+                            {armorDisplay('l-leg') && <LShinSvg></LShinSvg>}
+                            {armorDisplay('eyes') && <GogglesSvg></GogglesSvg>}
+                            {armorDisplay('helmet') && <DomeSvg></DomeSvg>}
+                            {armorDisplay('mask') && <MaskSvg></MaskSvg>}
+                        </>
+                    }
                 </div>
                     {/* do not render stats if item array is empty */}
                     {deets &&
