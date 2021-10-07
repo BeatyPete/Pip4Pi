@@ -85,6 +85,18 @@
 .armor-piece {
     position: absolute; 
 }
+.doll-blink {
+    animation: doll-blink .7s linear infinite;
+  }
+  @keyframes doll-blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 #chestplate {
     transform: translate(-4%, 72%);
     width: 5vw;

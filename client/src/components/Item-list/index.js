@@ -215,6 +215,15 @@ function ItemList({items, sub}) {
         }
     }
 
+    const blink = type => {
+        if(deets) {
+            const isSlotMatching = deets.type.includes(type)
+            if (isSlotMatching) {
+                return 'doll-blink'
+            } else return ''
+        }
+    }
+
     return (
     <main className='flex-center'>
         <div className='inventory-grid'>
@@ -250,14 +259,14 @@ function ItemList({items, sub}) {
                     {sub === 'APPAREL' &&
                         <>
                             <Paperdoll></Paperdoll>
-                            {armorDisplay('chest') && <ChestSvg></ChestSvg>}
-                            {armorDisplay('r-arm') && <RPauldronSvg></RPauldronSvg>}
-                            {armorDisplay('l-arm') && <LPauldronSvg></LPauldronSvg>}
-                            {armorDisplay('r-leg') && <RShinSvg></RShinSvg>}
-                            {armorDisplay('l-leg') && <LShinSvg></LShinSvg>}
-                            {armorDisplay('eyes') && <GogglesSvg></GogglesSvg>}
-                            {armorDisplay('helmet') && <DomeSvg></DomeSvg>}
-                            {armorDisplay('mask') && <MaskSvg></MaskSvg>}
+                            {(armorDisplay('chest') || blink('chest')) && <ChestSvg blink={blink}></ChestSvg>}
+                            {(armorDisplay('r-arm') || blink('r-arm')) && <RPauldronSvg blink={blink}></RPauldronSvg>}
+                            {(armorDisplay('l-arm') || blink('l-arm')) && <LPauldronSvg blink={blink}></LPauldronSvg>}
+                            {(armorDisplay('r-leg') || blink('r-leg')) && <RShinSvg blink={blink}></RShinSvg>}
+                            {(armorDisplay('l-leg') || blink('l-leg')) && <LShinSvg blink={blink}></LShinSvg>}
+                            {(armorDisplay('eyes') || blink('eyes')) && <GogglesSvg blink={blink}></GogglesSvg>}
+                            {(armorDisplay('helmet') || blink('helmet')) && <DomeSvg blink={blink}></DomeSvg>}
+                            {(armorDisplay('mask') || blink('mask')) && <MaskSvg blink={blink}></MaskSvg>}
                         </>
                     }
                 </div>
