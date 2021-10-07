@@ -19,7 +19,16 @@ const StoreProvider = ({ value = [], ...props }) => {
       levelFillPercent: '80%',
       caps: 670,
       currentWeight: 0,
-      maxWeight: 165
+      maxWeight: 165,
+      special: {
+        Strenght: 2,
+        Perception: 4,
+        Endurance: 6,
+        Charisma: 8,
+        Intelligence: 10,
+        Agility: 12,
+        Luck: 14
+      }
     },
     damage: {
       physical: 18,
@@ -46,7 +55,9 @@ const StoreProvider = ({ value = [], ...props }) => {
       positionY: '0px',
       r: 2,
       g: 253,
-      b: 0
+      b: 1,
+      flicker: true,
+      scanlines: true
     }
   });
 

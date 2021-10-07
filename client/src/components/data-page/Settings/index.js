@@ -133,6 +133,14 @@ function Settings() {
         {
             title: 'Set Vertical Position:',
             value: displaySettings.positionY
+        },
+        {
+            title: 'Screen Flicker:',
+            value: `${displaySettings.flicker}`
+        },
+        {
+            title: 'Scanlines:',
+            value: `${displaySettings.scanlines}`
         }
     ]
 
@@ -218,6 +226,18 @@ function Settings() {
     const increaseOption = e => {
         
         const findValue = optionValue => {
+            const isBoolean = (optionValue === 'true' || optionValue === 'false');
+            if (isBoolean) {
+                let bool
+                if (optionValue === 'true') {
+                    bool = true
+                } else { 
+                    bool = false 
+                }
+                bool = !bool;
+                return `${bool}`
+            }
+
             const valueSplit = optionValue.split(/([0-9]+)/)
             const negative = valueSplit[0]
             const value = parseInt(negative.concat(valueSplit[1]))
@@ -314,6 +334,16 @@ function Settings() {
                 break;
             case 'Set Vertical Position:':
                 newDisplaySettings.positionY = value
+                break;
+            case 'Screen Flicker:':
+                if(value === 'true') { value = true } else { value = false }
+                if(typeof value != 'boolean') { value = false }
+                newDisplaySettings.flicker = value
+                break;
+            case 'Scanlines:':
+                if(value === 'true') { value = true } else { value = false }
+                if(typeof value != 'boolean') { value = false }
+                newDisplaySettings.scanlines = value
                 break;
             default:
                 break;
@@ -428,7 +458,7 @@ function Settings() {
                 : optionValue ? <div className='flex-center'>
                     <button onClick={increaseOption} className='small-text'>-</button>
                         {!isInput && <div onClick={handleInputDisplay}>{optionValue}</div>}
-                        {isInput && <input type="tel" onChange={handleInputValue}></input>}
+                        {isInput && <input type="number" onChange={handleInputValue}></input>}
                     <button onClick={increaseOption} className='small-text'>+</button>
                 </div>
                 : <div></div>

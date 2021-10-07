@@ -23,7 +23,7 @@
     font-size: 1vw;
 }
 .setting-list button {
-    font-size: 142%;
+    font-size: 2.3vw;
     padding: 1%;
     background: var(--backing-color);
     border: none;
@@ -34,13 +34,13 @@
 }
 .option-display {
     width: 50%;
-    font-size: 370%;
+    font-size: 4vw;
 }
 .option-display div {
     padding: 0 6%;
 }
 .option-display button {
-    font-size: 95%;
+    font-size: 3vw;
     background: none;
     border: none;
     width: 10%;

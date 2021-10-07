@@ -7,7 +7,7 @@
   --core-color: rgba(var(--color));
   --glow-color: rgba(var(--color));
   --backing-color: rgba(var(--color), 22%);
-  --screen-color: #353733
+  --screen-color: rgba(53,55,51)
 }
 @font-face {
   font-family: 'monofontoregular';
@@ -26,6 +26,16 @@ input {
 }
 input:focus {
   outline: none;
+}
+/* these get rid of the arrows for input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 #root {
@@ -52,18 +62,80 @@ input:focus {
   padding: .5vw;
 }
 
+.scanlines:before {
+  /* Large scanline */
+  width: 100%;
+  height: 6vw;
+  mix-blend-mode: darken;
+  z-index: 2147483649;
+  opacity: .5;
+  background: linear-gradient(0deg, rgba(53,55,51,0) 0%, rgba(53,55,51,1) 25%, rgba(53,55,51,1) 75%, rgba(53,55,51,0) 100%);
+  /* actual animation time is ~2s while time between animations is ~11s, combined here because cant delay between infinite anim */
+  animation: scanline 13s linear infinite 11s;
+  transform: translate3d(0, -110%, 0);
+}
+.scanlines:after {
+  /* tiny screen lines */
+  inset: 0;
+  z-index: 2147483648;
+  background: linear-gradient(to bottom, transparent 50%, rgba(53, 55, 51, 0.25) 51%);
+  background-size: 100% .2vw;
+}
+.scanlines:before, .scanlines:after {
+  display: block;
+  pointer-events: none;
+  content: "";
+  position: absolute;
+}
+@keyframes scanline {
+  0% {
+    transform: translate3d(0, -110%, 0);
+  }
+  15% {
+    transform: translate3d(0, 100vh, 0);
+  }
+  100% {
+    transform: translate3d(0, 100vh, 0);
+  }
+}
+
 body {
   background-color: var(--screen-color);
+  overflow: hidden;
 }
 
 .master {
   font-family: 'Roboto', sans-serif;;
   padding: 5vh 10vh;
-  /* width: 70vw;
-  height: 54vw; */
+  margin: auto;
   overflow: hidden;
   max-width: 1200px;
   max-height: 1000px;
+  /* box-shadow: inset 0px 0px 8vw 1vw black; */
+  border-radius: 8px;
+}
+.flicker {
+  animation: flicker-2 30s linear infinite 30s;
+}
+@keyframes flicker-2 {
+  0% {
+    opacity: 1;
+  }
+  .25% {
+    opacity: .2;
+  }
+  .5% {
+    opacity: 1;
+  }
+  .75% {
+    opacity: .2;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 header {
@@ -111,9 +183,6 @@ footer div {
 }
 
 @media screen and (min-width: 1650px) {
-  .master {
-    margin: auto;
-  }
   footer {
     font-size: 2.1rem;
   }
