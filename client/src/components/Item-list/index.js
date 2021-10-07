@@ -8,6 +8,16 @@ import DamageList from '../damageList';
 
 import AmmoSvg from '../images/ammo';
 
+import Paperdoll from '../images/paper-doll/paper-doll';
+import ChestSvg from '../images/paper-doll/chest';
+import RPauldronSvg from '../images/paper-doll/r-pauldron';
+import LPauldronSvg from '../images/paper-doll/l-pauldron';
+import RShinSvg from '../images/paper-doll/r-shin';
+import LShinSvg from '../images/paper-doll/l-shin';
+import GogglesSvg from '../images/paper-doll/goggles';
+import DomeSvg from '../images/paper-doll/dome';
+import MaskSvg from '../images/paper-doll/mask';
+
 function ItemList({items, sub}) {
     const [state, dispatch] = useStoreContext();
 
@@ -196,6 +206,24 @@ function ItemList({items, sub}) {
         return equipArr.some(equipped)
     }
 
+    const armorDisplay = type => {
+        for (let i = 0; i < armorSlots.length; i++) {
+            const isSlotMatching = armorSlots[i].slotType.includes(type)
+            if (isSlotMatching) {
+                return true
+            }
+        }
+    }
+
+    const blink = type => {
+        if(deets) {
+            const isSlotMatching = deets.type.includes(type)
+            if (isSlotMatching) {
+                return 'doll-blink'
+            } else return ''
+        }
+    }
+
     return (
     <main className='flex-center'>
         <div className='inventory-grid'>
@@ -227,7 +255,21 @@ function ItemList({items, sub}) {
                 </ul>
             </section>
             <section className='item-details-container'>
-                <div></div>
+                <div className='doll-container'>
+                    {sub === 'APPAREL' &&
+                        <>
+                            <Paperdoll></Paperdoll>
+                            {(armorDisplay('chest') || blink('chest')) && <ChestSvg blink={blink}></ChestSvg>}
+                            {(armorDisplay('r-arm') || blink('r-arm')) && <RPauldronSvg blink={blink}></RPauldronSvg>}
+                            {(armorDisplay('l-arm') || blink('l-arm')) && <LPauldronSvg blink={blink}></LPauldronSvg>}
+                            {(armorDisplay('r-leg') || blink('r-leg')) && <RShinSvg blink={blink}></RShinSvg>}
+                            {(armorDisplay('l-leg') || blink('l-leg')) && <LShinSvg blink={blink}></LShinSvg>}
+                            {(armorDisplay('eyes') || blink('eyes')) && <GogglesSvg blink={blink}></GogglesSvg>}
+                            {(armorDisplay('helmet') || blink('helmet')) && <DomeSvg blink={blink}></DomeSvg>}
+                            {(armorDisplay('mask') || blink('mask')) && <MaskSvg blink={blink}></MaskSvg>}
+                        </>
+                    }
+                </div>
                     {/* do not render stats if item array is empty */}
                     {deets &&
                     <ul className='small-text'>
