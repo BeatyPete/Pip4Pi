@@ -1,7 +1,4 @@
-import {useState} from 'react'
 import MainTabs from "../../components/Main-tabs";
-import SubTabs from "../../components/Sub-tabs";
-/* import './stat.css' */
 
 function RADIO({mainTab, setMainTab}) {
 
@@ -11,7 +8,9 @@ function RADIO({mainTab, setMainTab}) {
         <MainTabs mainTab={mainTab} setMainTab={setMainTab}></MainTabs>
       </header>
 
-      <main>RADIO</main>
+      <main>
+        <button>Play music</button>
+      </main>
 
       <footer className='large-text backing'>
         <div style={{'opacity': 0}}>temp</div>

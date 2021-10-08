@@ -67,6 +67,10 @@ function App() {
     socket.on('mainChange', function (data) { //get button status from client
       changeMainTab(data)
     });
+    socket.emit('getMusic')
+    socket.on('music', function (data) { //get button status from client
+      console.log(data)
+    });
   }, [socket]);
 
   useEffect(() => {
