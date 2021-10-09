@@ -57,6 +57,11 @@ if (Gpio && Rotary) {
       socket.emit('select', value); //send button status to client
     });
   });
+
+  process.on('SIGINT', function () { //on ctrl+c
+    pushButton.unexport(); // Unexport Button GPIO to free resources 
+    process.exit(); //exit completely
+  });
 }
 io.on('connection', function (socket) {// WebSocket Connection
   socket.on('getMusic', function () {
@@ -69,7 +74,6 @@ io.on('connection', function (socket) {// WebSocket Connection
 const getMusic = () => {
   let music = []
   radios = [...fs.readdirSync('../client/src/lib/radio')];
-  let songs = []
   for (let i = 0; i < radios.length; i++) {
     newSongs = [...fs.readdirSync(`../client/src/lib/radio/${radios[i]}`)];
     let playlist = {
@@ -78,7 +82,6 @@ const getMusic = () => {
     }
     music.push(playlist)
   }
-  console.log(music)
   return music
 }
 
@@ -90,9 +93,4 @@ app.use(express.static('public'));
 
 server.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
-});
-
-process.on('SIGINT', function () { //on ctrl+c
-  pushButton.unexport(); // Unexport Button GPIO to free resources 
-  process.exit(); //exit completely
 });

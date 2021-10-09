@@ -13,6 +13,7 @@ function App() {
   const [state, dispatch] = useStoreContext();
   const [currTab, setCurrTab] = useState('STAT')
   const { mainTab, settings } = state;
+  const [radioStations, setRadioStations] = useState([])
 
   useEffect(() => {
     const weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
@@ -70,6 +71,7 @@ function App() {
     socket.emit('getMusic')
     socket.on('music', function (data) { //get button status from client
       console.log(data)
+      setRadioStations(data)
     });
   }, [socket]);
 
@@ -118,7 +120,7 @@ function App() {
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}
       {mainTab === 'MAP' && (<MAP></MAP>)}
-      {mainTab === 'RADIO' && (<RADIO></RADIO>)}
+      {mainTab === 'RADIO' && (<RADIO radioStations={radioStations}></RADIO>)}
     </div>
   );
 }

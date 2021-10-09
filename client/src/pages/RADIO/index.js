@@ -1,6 +1,12 @@
 import MainTabs from "../../components/Main-tabs";
+import { useRef } from "react";
 
-function RADIO({mainTab, setMainTab}) {
+function RADIO({mainTab, setMainTab, radioStations}) {
+  const muzak = useRef(null)
+
+  const playRadio = () => {
+    muzak.current.play()
+  }
 
     return (
         <>
@@ -9,7 +15,23 @@ function RADIO({mainTab, setMainTab}) {
       </header>
 
       <main>
-        <button>Play music</button>
+        {/* <button>{radioStations[1].radio}</button> */}
+        <section className='small-text item-list list-container'>
+          <ul>
+            {radioStations.map((radioStation, i) => (
+              <li 
+              key={`radio ${i}`}
+              onClick={playRadio}
+              >
+                {radioStation.radio}
+              </li>
+            ))}
+          </ul>
+        </section>
+        <audio ref={muzak} src='./music/on-n-on.mp3'></audio>
+        <section className='visualizer'>
+          <div className='soundblock'></div>
+        </section>
       </main>
 
       <footer className='large-text backing'>
