@@ -9,7 +9,7 @@ function RADIO({mainTab, setMainTab, radioStations}) {
   }
 
     return (
-        <>
+      <>
       <header>
         <MainTabs mainTab={mainTab} setMainTab={setMainTab}></MainTabs>
       </header>
@@ -28,7 +28,7 @@ function RADIO({mainTab, setMainTab, radioStations}) {
             ))}
           </ul>
         </section>
-        <audio ref={muzak} src='./music/on-n-on.mp3'></audio>
+        <audio ref={muzak} src={require(`../../lib/radio/Normal/song1.mp3`).default}></audio>
         <section className='visualizer'>
           <div className='soundblock'></div>
         </section>
