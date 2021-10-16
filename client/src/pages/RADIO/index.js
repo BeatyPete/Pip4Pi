@@ -1,11 +1,47 @@
 import MainTabs from "../../components/Main-tabs";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 function RADIO({mainTab, setMainTab, radioStations}) {
-  const muzak = useRef(null)
+  const muzak = useRef()
 
-  const playRadio = () => {
-    muzak.current.play()
+  const [currRadio, setCurrRadio] = useState()
+  const [currSong, setCurrSong] = useState()
+  
+  useEffect(() => {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioContext();
+    let track = audioCtx.createMediaElementSource(muzak.current)
+    track.connect(audioCtx.destination);
+    muzak.current.onended = endedHandler;
+  }, []);
+  useEffect(() => {
+    if (currRadio) {
+        muzak.current.play()
+    }
+  }, [currRadio]);
+  
+  const endedHandler = () => {
+    console.log('done')
+  }
+
+  const playRadio = e => {  
+    let selectedRadio = e.target.textContent
+    if (currRadio !== selectedRadio) {
+      //set station
+      for (let i = 0; i < radioStations.length; i++) {
+        if (radioStations[i].radio === selectedRadio) {
+          setCurrRadio(selectedRadio)
+          const songList = radioStations[i].songs
+          const randomSong = songList[Math.floor(Math.random() * songList.length)]
+          setCurrSong(randomSong)
+          break
+        }
+      }
+    } else {
+      muzak.current.pause()
+      setCurrRadio('')
+      setCurrSong('')
+    }
   }
 
     return (
@@ -28,7 +64,7 @@ function RADIO({mainTab, setMainTab, radioStations}) {
             ))}
           </ul>
         </section>
-        <audio ref={muzak} src={require(`../../lib/radio/Normal/song1.mp3`).default}></audio>
+        <audio ref={muzak} src={currRadio && require(`../../lib/radio/${currRadio}/${currSong}`).default}></audio>
         <section className='visualizer'>
           <div className='soundblock'></div>
         </section>
