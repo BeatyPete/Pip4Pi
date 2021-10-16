@@ -1,29 +1,14 @@
 import MainTabs from "../../components/Main-tabs";
 import { useRef, useEffect, useState } from "react";
 
-function RADIO({mainTab, setMainTab, radioStations}) {
-  const muzak = useRef()
+function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak}) {
 
-  const [currRadio, setCurrRadio] = useState()
-  const [currSong, setCurrSong] = useState()
-  
-  useEffect(() => {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    const audioCtx = new AudioContext();
-    let track = audioCtx.createMediaElementSource(muzak.current)
-    track.connect(audioCtx.destination);
-    muzak.current.onended = endedHandler;
-  }, []);
   useEffect(() => {
     if (currRadio) {
         muzak.current.play()
     }
   }, [currRadio]);
   
-  const endedHandler = () => {
-    console.log('done')
-  }
-
   const playRadio = e => {  
     let selectedRadio = e.target.textContent
     if (currRadio !== selectedRadio) {
@@ -47,7 +32,7 @@ function RADIO({mainTab, setMainTab, radioStations}) {
     return (
       <>
       <header>
-        <MainTabs mainTab={mainTab} setMainTab={setMainTab}></MainTabs>
+        <MainTabs></MainTabs>
       </header>
 
       <main>
@@ -64,7 +49,7 @@ function RADIO({mainTab, setMainTab, radioStations}) {
             ))}
           </ul>
         </section>
-        <audio ref={muzak} src={currRadio && require(`../../lib/radio/${currRadio}/${currSong}`).default}></audio>
+        
         <section className='visualizer'>
           <div className='soundblock'></div>
         </section>

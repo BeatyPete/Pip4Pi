@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import {socket} from './context/socket';
 import { useStoreContext } from "./utils/GlobalState";
 import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR, CHANGE_DAMAGE, CHANGE_RESISTANCE, CHANGE_SETTINGS, CHANGE_LIMBS, CHANGE_STATS } from "./utils/actions";
@@ -114,13 +114,31 @@ function App() {
     } else {return ''}
   }
 
+  const muzak = useRef()
+
+  const [currRadio, setCurrRadio] = useState()
+  const [currSong, setCurrSong] = useState()
+
+  useEffect(() => {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioContext();
+    let track = audioCtx.createMediaElementSource(muzak.current)
+    track.connect(audioCtx.destination);
+    muzak.current.onended = endedHandler;
+  }, []);
+
+  const endedHandler = () => {
+    console.log('done')
+  }
+
   return (
     <div style={displaySettings} className={`master ${scanlineToggle()} ${flickerToggle()}`}>
+      <audio ref={muzak} src={currRadio && require(`./lib/radio/${currRadio}/${currSong}`).default}></audio>
       {mainTab === 'STAT' && (<STAT></STAT>)}
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}
       {mainTab === 'MAP' && (<MAP></MAP>)}
-      {mainTab === 'RADIO' && (<RADIO radioStations={radioStations}></RADIO>)}
+      {mainTab === 'RADIO' && (<RADIO radioStations={radioStations} currRadio={currRadio} setCurrRadio={setCurrRadio} setCurrSong={setCurrSong} muzak={muzak}></RADIO>)}
     </div>
   );
 }
