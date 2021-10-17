@@ -75,12 +75,27 @@ const getMusic = () => {
   let music = []
   radios = [...fs.readdirSync('../client/src/lib/radio')];
   for (let i = 0; i < radios.length; i++) {
-    newSongs = [...fs.readdirSync(`../client/src/lib/radio/${radios[i]}`)];
-    let playlist = {
-      radio: radios[i],
-      songs: newSongs
+    radioFolders = [...fs.readdirSync(`../client/src/lib/radio/${radios[i]}`)];
+    let songs
+    if (radioFolders.includes('songs')) {
+      const songFiles = [...fs.readdirSync(`../client/src/lib/radio/${radios[i]}/songs`)];
+      songs = songFiles.map(fileName => `songs/${fileName}`);
     }
-    music.push(playlist)
+    let host
+    if (radioFolders.includes('host')) {
+      const hostFiles = [...fs.readdirSync(`../client/src/lib/radio/${radios[i]}/host`)];
+      host = hostFiles.map(fileName => `host/${fileName}`);
+    }
+    /* if statement checks if currently read radio folder has no subfolders */
+    if (radioFolders.length > 0) {
+      let playlist = {
+        radio: radios[i],
+        songs: songs,
+        host: host
+      }
+      music.push(playlist)
+    }
+    
   }
   return music
 }

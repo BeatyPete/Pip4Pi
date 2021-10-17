@@ -118,27 +118,38 @@ function App() {
 
   const [currRadio, setCurrRadio] = useState()
   const [currSong, setCurrSong] = useState()
+  const [playlist, setPlaylist] = useState('stinke')
 
   useEffect(() => {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const audioCtx = new AudioContext();
     let track = audioCtx.createMediaElementSource(muzak.current)
     track.connect(audioCtx.destination);
-    muzak.current.onended = endedHandler;
   }, []);
 
+  useEffect(() => {
+    muzak.current.onended = endedHandler;
+  }, [playlist, currSong]);
   const endedHandler = () => {
-    console.log('done')
+    console.log(playlist)
+    let nextSong = currSong + 1
+    console.log(nextSong)
+    if (nextSong > (playlist.length - 1)) {
+      nextSong = 0
+    }
+    setCurrSong(nextSong)
+    muzak.current.play()
   }
+  
 
   return (
     <div style={displaySettings} className={`master ${scanlineToggle()} ${flickerToggle()}`}>
-      <audio ref={muzak} src={currRadio && require(`./lib/radio/${currRadio}/${currSong}`).default}></audio>
+      <audio ref={muzak} src={currRadio && require(`./lib/radio/${currRadio}/${playlist[currSong]}`).default}></audio>
       {mainTab === 'STAT' && (<STAT></STAT>)}
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}
       {mainTab === 'MAP' && (<MAP></MAP>)}
-      {mainTab === 'RADIO' && (<RADIO radioStations={radioStations} currRadio={currRadio} setCurrRadio={setCurrRadio} setCurrSong={setCurrSong} muzak={muzak}></RADIO>)}
+      {mainTab === 'RADIO' && (<RADIO radioStations={radioStations} currRadio={currRadio} setCurrRadio={setCurrRadio} setCurrSong={setCurrSong} muzak={muzak} setPlaylist={setPlaylist}></RADIO>)}
     </div>
   );
 }
