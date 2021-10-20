@@ -42,7 +42,7 @@
     max-width: 1rem;
     max-height: 1rem;
     bottom: 33.9%;
-    right: 96.5%;
+    left: 1.5%;
 }
 .equipped:hover::before {
     background-color: var(--screen-color);
