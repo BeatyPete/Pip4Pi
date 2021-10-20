@@ -31,13 +31,13 @@
     overflow: hidden;
 }
 .wave-container canvas:first-child {
-    animation: sound-scroll 3s linear infinite;
+    animation: sound-scroll 5s linear infinite;
     /*  animation-delay: -.7s; */
 }
 .wave-container canvas:last-child {
     transform: rotateZ(180deg);
-    animation: sound-scroll-2 3s linear infinite;
-    animation-delay: 1.5s;
+    animation: sound-scroll-2 5s linear infinite;
+    animation-delay: 2.5s;
 }
 .soundwaves {
     height: 70%;
