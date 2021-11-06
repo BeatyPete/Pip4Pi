@@ -8,10 +8,19 @@ function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak, set
 
   const [state] = useStoreContext();
   const { settings } = state;
+  
+  useEffect(() => {
+    if(!AudioContext) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+      let track = audioCtx.createMediaElementSource(muzak.current)
+      track.connect(audioCtx.destination);
+    }
+  }, []);
 
   useEffect(() => {
     if (currRadio) {
-        muzak.current.play()
+      muzak.current.play()
     }
   }, [currRadio]);
   

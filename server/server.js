@@ -8,7 +8,7 @@ const app = express();
 
 try {
   var Gpio = require('onoff').Gpio;
-  const Rotary = require('raspberrypi-rotary-encoder');
+  var Rotary = require('raspberrypi-rotary-encoder');
 } catch (er) {
   Gpio = null
   Rotary = null

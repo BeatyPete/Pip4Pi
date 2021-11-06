@@ -120,12 +120,6 @@ function App() {
   const [currSong, setCurrSong] = useState()
   const [playlist, setPlaylist] = useState('stinke')
 
-  useEffect(() => {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    const audioCtx = new AudioContext();
-    let track = audioCtx.createMediaElementSource(muzak.current)
-    track.connect(audioCtx.destination);
-  }, []);
 
   useEffect(() => {
     muzak.current.onended = endedHandler;
