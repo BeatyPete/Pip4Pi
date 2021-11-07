@@ -70,7 +70,6 @@ function App() {
     });
     socket.emit('getMusic')
     socket.on('music', function (data) { //get button status from client
-      console.log(data)
       setRadioStations(data)
     });
   }, [socket]);
@@ -118,16 +117,14 @@ function App() {
 
   const [currRadio, setCurrRadio] = useState()
   const [currSong, setCurrSong] = useState()
-  const [playlist, setPlaylist] = useState('stinke')
+  const [playlist, setPlaylist] = useState()
 
 
   useEffect(() => {
     muzak.current.onended = endedHandler;
   }, [playlist, currSong]);
   const endedHandler = () => {
-    console.log(playlist)
     let nextSong = currSong + 1
-    console.log(nextSong)
     if (nextSong > (playlist.length - 1)) {
       nextSong = 0
     }
@@ -138,7 +135,7 @@ function App() {
 
   return (
     <div style={displaySettings} className={`master ${scanlineToggle()} ${flickerToggle()}`}>
-      <audio ref={muzak} src={currRadio && require(`./lib/radio/${currRadio}/${playlist[currSong]}`).default}></audio>
+      <audio id={currRadio} ref={muzak} src={currRadio && require(`./lib/radio/${currRadio}/${playlist[currSong]}`).default}></audio>
       {mainTab === 'STAT' && (<STAT></STAT>)}
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}

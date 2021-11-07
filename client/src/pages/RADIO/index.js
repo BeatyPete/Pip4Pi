@@ -1,5 +1,6 @@
 import MainTabs from "../../components/Main-tabs";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import {socket} from '../../context/socket';
 import './radio.css'
 import GraphSvg from "../../components/images/graph";
 import { useStoreContext } from "../../utils/GlobalState";
@@ -8,6 +9,23 @@ function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak, set
 
   const [state] = useStoreContext();
   const { settings } = state;
+  const [hoveredItem, setHoveredItem] = useState(-1)
+  const hovered = useRef();
+
+  useEffect(() => {
+    socket.on('itemChange', function (data) { //get button status from client
+      changeItemHover(data)
+    });
+    socket.on('select', function (data) { //get button status from client
+        playRadio()
+    });
+  }, [socket]);
+  useEffect(() => {        
+    return () => {
+      socket.removeAllListeners("itemChange");
+      socket.removeAllListeners("select");
+    }
+  }, [])
   
   useEffect(() => {
     if(!AudioContext) {
@@ -23,48 +41,71 @@ function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak, set
       muzak.current.play()
     }
   }, [currRadio]);
-  
-  const playRadio = e => {  
-    let selectedRadio = e.target.textContent
-    if (currRadio !== selectedRadio) {
-      //set station
-      for (let i = 0; i < radioStations.length; i++) {
-        if (radioStations[i].radio === selectedRadio) {
-          setCurrRadio(selectedRadio)
-          const songList = [...radioStations[i].songs]
-          let newPlaylist = shuffle(songList)
-          const hostAudio = radioStations[i].host
-          let numSongs = songList.length
-          if (hostAudio) {
-            const hostList = shuffle(hostAudio)
-            let totalIncrease = 0
-            let timesPassed = 0
-            for (let i = 0; totalIncrease < numSongs; i++) {
-              if ( i > (hostList.length-1)) {
-                i = 0
-              }
-              /* min and max determine frequency of host audio */
-              let min = 1
-              if (timesPassed === 0) { min = 0 }
-              const max = 3
-              const increase = Math.floor(Math.random() * (max - min + 1)) + min
-              newPlaylist.splice((increase + totalIncrease + timesPassed), 0, hostList[i])
-              totalIncrease = totalIncrease + increase
-              timesPassed++
-            }
-               
-          }
-          setPlaylist([...newPlaylist])
-          setCurrSong(0)
-          break
-        }
+
+  const changeItemHover = rotation => {
+    const getNewTab = hoveredItem => {
+      let nextItem = hoveredItem + rotation
+      if (nextItem < 0) {
+        nextItem = 0
+      } else if (nextItem > radioStations.length - 1) {
+        nextItem = radioStations.length - 1
       }
-    } else {
-      muzak.current.pause()
-      setCurrRadio('')
-      setCurrSong('')
+      return nextItem
     }
+    setHoveredItem(getNewTab)
   }
+  
+const playRadio = e => {  
+  let selectedRadio
+  if (e) {
+    selectedRadio = e.target.textContent
+  } else if (hovered.current){
+    selectedRadio = hovered.current.textContent
+  } else {
+      return
+  }
+  //muzak.current.id is being used instead of currRadio to simplify the socketio press
+  if (muzak.current.id !== selectedRadio) {
+    //set station
+    for (let i = 0; i < radioStations.length; i++) {
+      if (radioStations[i].radio === selectedRadio) {
+        //setCurrRadio(selectedRadio)
+        const songList = [...radioStations[i].songs]
+        let newPlaylist = shuffle(songList)
+        const hostAudio = radioStations[i].host
+        let numSongs = songList.length
+        if (hostAudio) {
+          const hostList = shuffle(hostAudio)
+          let totalIncrease = 0
+          let timesPassed = 0
+          for (let i = 0; totalIncrease < numSongs; i++) {
+            if ( i > (hostList.length-1)) {
+              i = 0
+            }
+            //min and max determine frequency of host audio
+            let min = 1
+            if (timesPassed === 0) { min = 0 }
+            const max = 3
+            const increase = Math.floor(Math.random() * (max - min + 1)) + min
+            newPlaylist.splice((increase + totalIncrease + timesPassed), 0, hostList[i])
+            totalIncrease = totalIncrease + increase
+            timesPassed++
+          }
+             
+        }
+        setCurrRadio('')
+        setPlaylist([...newPlaylist])
+        setCurrSong(0)
+        setCurrRadio(selectedRadio)
+        break
+      }
+    }
+  } else {
+    muzak.current.pause()
+    setCurrRadio('')
+    setCurrSong('')
+  }
+}
 
   function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
@@ -126,6 +167,11 @@ function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak, set
       return 'equipped'
     } else {return ''}
   }
+  const isHovered= i => {
+    if (i === hoveredItem) {
+      return 'hovered'
+    } else {return ''}
+  }
 
     return (
       <>
@@ -139,7 +185,8 @@ function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak, set
             <ul>
               {radioStations.map((radioStation, i) => (
                 <li 
-                className={`${addSelectedClass(i)}`}
+                ref={i === hoveredItem ? hovered: null}
+                className={`${addSelectedClass(i)} ${isHovered(i)}`}
                 key={`radio ${i}`}
                 onClick={playRadio}
                 >
