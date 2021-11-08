@@ -180,7 +180,6 @@ const playRadio = e => {
       </header>
 
       <main className='radio-page'>
-        {/* <div> */}
           <section className='small-text item-list list-container radio-list'>
             <ul>
               {radioStations.map((radioStation, i) => (
@@ -205,7 +204,6 @@ const playRadio = e => {
               <canvas ref={waves2} width='450' height='150' className='soundwaves'></canvas>
             </div>
           </section>
-        {/* </div> */}
       </main>
 
       <footer className='large-text backing'>
