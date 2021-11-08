@@ -383,8 +383,8 @@ function Settings() {
                 </li>
                 {characterList.map((option, i) => (
                     <li
-                        ref={isHovered(i) ? hovered: null}
-                        className={isHovered(i)}
+                        ref={isHovered(i, 0) ? hovered: null}
+                        className={isHovered(i, 0)}
                         onMouseEnter={changeDisplayedOption}
                         key={`option ${i}`}
                     >
@@ -412,7 +412,7 @@ function Settings() {
                 {displayList.map((option, i) => (
                     <li
                         ref={isHovered(i, (characterList.length + limbList.length)) ? hovered: null}
-                        className={isHovered(i, characterList.length)}
+                        className={isHovered(i, (characterList.length + limbList.length))}
                         onMouseEnter={changeDisplayedOption}
                         key={`option ${i}`}
                     >
