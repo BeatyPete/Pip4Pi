@@ -205,6 +205,11 @@ function ItemList({items, sub}) {
         }
         return equipArr.some(equipped)
     }
+    const isHovered = i => {
+        if (i === hoveredItem) {
+          return 'hovered'
+        } else {return ''}
+      }
 
     const armorDisplay = type => {
         for (let i = 0; i < armorSlots.length; i++) {
@@ -230,20 +235,9 @@ function ItemList({items, sub}) {
             <section className='small-text item-list list-container'>
                 <ul>
                     {items.map((item, i) => (
-                        //conditional to render the li of hovered item with ref
-                        i === hoveredItem 
-                        ? <li
-                            ref={hovered}
-                            className={`${addEquippedClass(i)} hovered`}
-                            onMouseEnter={showItemDeets}
-                            onClick={equip}
-                            key={`item ${i}`}
-                            id={`item ${i}`}
-                        >
-                            {`${item.name} ${item.quantity > 1 ? `(${item.quantity})` : ""}`}
-                        </li>
-                        : <li
-                            className={`${addEquippedClass(i)}`}
+                        <li
+                            ref={isHovered(i) ? hovered: null}
+                            className={`${addEquippedClass(i)} ${isHovered(i)}`}
                             onMouseEnter={showItemDeets}
                             onClick={equip}
                             key={`item ${i}`}
@@ -279,33 +273,35 @@ function ItemList({items, sub}) {
                             </li>
                         }
                         {deets.stats.map((stat, i) => (
-                            /* damage and damRes can hjave multiple values so it needs to be rendered differently */
-                                stat.statName === 'Damage'
-                                ? <li key={`${stat.statName} ${i}`}>
-                                    <div>{stat.statName}</div>
-                                    <div>
-                                        <DamageList damageValues={stat.damType} isInline='true'></DamageList>
-                                    </div>
-                                </li>
-                                : stat.statName === 'DMG Resist'
-                                ? <li key={`${stat.statName} ${i}`}>
-                                    <div>{stat.statName}</div>
-                                    <div>
-                                        <DamageList damageValues={stat.damType} isInline='true' isDamResist='true'></DamageList>
-                                    </div>
-                                </li>
-                                : stat.statName === 'Ammo'
-                                ? <li key={`${stat.statName} ${i}`}>
-                                    <div>
-                                        <AmmoSvg classes='stat-img'></AmmoSvg>
-                                        {stat.value}
-                                    </div>
-                                </li>
-                                : <li key={`${stat.statName} ${i}`}>
-                                    <div>{stat.statName}</div>
-                                    <div>{stat.value}</div>
-                                </li>
-                                
+                            <li key={`${stat.statName} ${i}`}>
+                                {
+                                    stat.statName === 'Damage'
+                                    ? <>
+                                        <div>{stat.statName}</div>
+                                        <div>
+                                            <DamageList damageValues={stat.damType} isInline='true'></DamageList>
+                                        </div>
+                                    </>
+                                    : stat.statName === 'DMG Resist'
+                                    ? <>
+                                        <div>{stat.statName}</div>
+                                        <div>
+                                            <DamageList damageValues={stat.damType} isInline='true' isDamResist='true'></DamageList>
+                                        </div>
+                                    </>
+                                    : stat.statName === 'Ammo' 
+                                    ? <>
+                                        <div>
+                                            <AmmoSvg classes='stat-img'></AmmoSvg>
+                                            {stat.value}
+                                        </div>
+                                    </>
+                                    : <>
+                                        <div>{stat.statName}</div>
+                                        <div>{stat.value}</div>
+                                    </>
+                                }
+                            </li>
                         ))}
                     </ul> }
             </section>

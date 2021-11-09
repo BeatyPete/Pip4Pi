@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import {socket} from './context/socket';
 import { useStoreContext } from "./utils/GlobalState";
 import { CHANGE_MAIN_TAB, CHANGE_WEAPON, CHANGE_ARMOR, CHANGE_DAMAGE, CHANGE_RESISTANCE, CHANGE_SETTINGS, CHANGE_LIMBS, CHANGE_STATS } from "./utils/actions";
@@ -13,6 +13,7 @@ function App() {
   const [state, dispatch] = useStoreContext();
   const [currTab, setCurrTab] = useState('STAT')
   const { mainTab, settings } = state;
+  const [radioStations, setRadioStations] = useState([])
 
   useEffect(() => {
     const weaponSlots = JSON.parse(localStorage.getItem(CHANGE_WEAPON)) || [];
@@ -67,6 +68,10 @@ function App() {
     socket.on('mainChange', function (data) { //get button status from client
       changeMainTab(data)
     });
+    socket.emit('getMusic')
+    socket.on('music', function (data) { //get button status from client
+      setRadioStations(data)
+    });
   }, [socket]);
 
   useEffect(() => {
@@ -108,13 +113,34 @@ function App() {
     } else {return ''}
   }
 
+  const muzak = useRef()
+
+  const [currRadio, setCurrRadio] = useState()
+  const [currSong, setCurrSong] = useState()
+  const [playlist, setPlaylist] = useState()
+
+
+  useEffect(() => {
+    muzak.current.onended = endedHandler;
+  }, [playlist, currSong]);
+  const endedHandler = () => {
+    let nextSong = currSong + 1
+    if (nextSong > (playlist.length - 1)) {
+      nextSong = 0
+    }
+    setCurrSong(nextSong)
+    muzak.current.play()
+  }
+  
+
   return (
     <div style={displaySettings} className={`master ${scanlineToggle()} ${flickerToggle()}`}>
+      <audio id={currRadio} ref={muzak} src={currRadio && require(`./lib/radio/${currRadio}/${playlist[currSong]}`).default}></audio>
       {mainTab === 'STAT' && (<STAT></STAT>)}
       {mainTab === 'INV' && (<INV></INV>)}
       {mainTab === 'DATA' && (<DATA></DATA>)}
       {mainTab === 'MAP' && (<MAP></MAP>)}
-      {mainTab === 'RADIO' && (<RADIO></RADIO>)}
+      {mainTab === 'RADIO' && (<RADIO radioStations={radioStations} currRadio={currRadio} setCurrRadio={setCurrRadio} setCurrSong={setCurrSong} muzak={muzak} setPlaylist={setPlaylist}></RADIO>)}
     </div>
   );
 }
