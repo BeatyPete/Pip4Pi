@@ -62,7 +62,8 @@ function App() {
         damResist: damResist
       });
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); 
 
   useEffect(() => {
     socket.on('mainChange', function (data) { //get button status from client
@@ -72,6 +73,7 @@ function App() {
     socket.on('music', function (data) { //get button status from client
       setRadioStations(data)
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [socket]);
 
   useEffect(() => {
@@ -79,6 +81,7 @@ function App() {
       type: CHANGE_MAIN_TAB,
       mainTab: currTab
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currTab]);
 
   const changeMainTab = rotation => {
@@ -121,16 +124,17 @@ function App() {
 
 
   useEffect(() => {
+    const endedHandler = () => {
+      let nextSong = currSong + 1
+      if (nextSong > (playlist.length - 1)) {
+        nextSong = 0
+      }
+      setCurrSong(nextSong)
+      muzak.current.play()
+    }
     muzak.current.onended = endedHandler;
   }, [playlist, currSong]);
-  const endedHandler = () => {
-    let nextSong = currSong + 1
-    if (nextSong > (playlist.length - 1)) {
-      nextSong = 0
-    }
-    setCurrSong(nextSong)
-    muzak.current.play()
-  }
+  
   
 
   return (

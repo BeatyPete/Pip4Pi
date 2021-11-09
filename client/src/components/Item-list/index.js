@@ -35,6 +35,7 @@ function ItemList({items, sub}) {
         socket.on('select', function (data) { //get button status from client
             equip()
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket]);
 
     /* cleanup for sockets otherwise they stack when changing subtabs */
@@ -51,6 +52,7 @@ function ItemList({items, sub}) {
             hovered.current.scrollIntoViewIfNeeded(false)
             setDeets(items[hoveredItem])
         }   
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hoveredItem]);
 
     const changeItemHover = rotation => {

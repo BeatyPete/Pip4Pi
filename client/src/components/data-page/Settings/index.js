@@ -26,6 +26,7 @@ function Settings() {
         socket.on('select', function (data) { //get button status from client
             click()
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket]);
 
     /* cleanup for sockets otherwise they stack when changing subtabs */
@@ -149,6 +150,7 @@ function Settings() {
         let newCharSettings = charSettings
         newCharSettings.name = name
         setCharacterSettings(newCharSettings)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name]);
 
     useEffect(() => {
@@ -156,6 +158,7 @@ function Settings() {
             let optionTitleLocation = option.current.id
             dispatchOptions(optionValue, optionTitleLocation)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [optionValue]);
 
     const handleNameChange = e => {

@@ -19,6 +19,7 @@ function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak, set
     socket.on('select', function (data) { //get button status from client
         playRadio()
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [socket]);
   useEffect(() => {        
     return () => {
@@ -34,12 +35,14 @@ function RADIO({radioStations , currRadio, setCurrRadio, setCurrSong, muzak, set
       let track = audioCtx.createMediaElementSource(muzak.current)
       track.connect(audioCtx.destination);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (currRadio) {
       muzak.current.play()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currRadio]);
 
   const changeItemHover = rotation => {
@@ -159,6 +162,7 @@ const playRadio = e => {
     ctx.strokeStyle = `rgb(${settings.r}, ${settings.g}, ${settings.b})`;
     ctx.stroke();
     ctx2.drawImage(c, 0, 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addSelectedClass = i => {

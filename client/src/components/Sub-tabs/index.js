@@ -13,11 +13,13 @@ function SubTabs({tabs, sub, setSub}) {
         changeSubTab(data)
         
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket]);
 
     useEffect(() => {
       let tabNum = tabs.findIndex(stuff => stuff.name === sub)
       setPos(tabs[tabNum].position)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sub]);
 
     // removes socket on unmount otherwise it will stack every change of main tab
