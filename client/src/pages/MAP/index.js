@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 import MainTabs from "../../components/Main-tabs";
-import SubTabs from "../../components/Sub-tabs";
-/* import './stat.css' */
+import placeholder from '../../assets/images/map.jpg'
 import {getDate, getTime} from '../../utils/getTime'
 
 function MAP({mainTab, setMainTab}) {
@@ -26,7 +25,9 @@ function MAP({mainTab, setMainTab}) {
         <MainTabs mainTab={mainTab} setMainTab={setMainTab}></MainTabs>
       </header>
 
-      <main>MAP</main>
+      <main>
+        <div style={{width:'100%', height: '100%', background: `url(${placeholder}) 0% 0% / cover no-repeat var(--core-color)`, backgroundBlendMode: 'multiply'}}></div>
+      </main>
 
       <footer className='large-text'>
         <div className='backing'>{date}</div>
