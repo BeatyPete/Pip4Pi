@@ -39,6 +39,7 @@ function INV({mainTab, setMainTab}) {
       type: CHANGE_STATS,
       charStats: newStats
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   const subs = [

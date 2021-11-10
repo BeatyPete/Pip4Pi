@@ -26,6 +26,7 @@ function Settings() {
         socket.on('select', function (data) { //get button status from client
             click()
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket]);
 
     /* cleanup for sockets otherwise they stack when changing subtabs */
@@ -149,6 +150,7 @@ function Settings() {
         let newCharSettings = charSettings
         newCharSettings.name = name
         setCharacterSettings(newCharSettings)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name]);
 
     useEffect(() => {
@@ -156,6 +158,7 @@ function Settings() {
             let optionTitleLocation = option.current.id
             dispatchOptions(optionValue, optionTitleLocation)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [optionValue]);
 
     const handleNameChange = e => {
@@ -366,6 +369,12 @@ function Settings() {
         localStorage.setItem(CHANGE_SETTINGS, JSON.stringify(displaySettings));
     }
 
+    const isHovered = (i, offset) => {
+        if (i + offset === hoveredItem) {
+          return 'hovered'
+        } else {return ''}
+      }
+
     return (
         <main className='flex-center'>
         <section className='list-container setting-list'>
@@ -376,70 +385,43 @@ function Settings() {
                     <input maxLength='20' minLength='1' placeholder={charStats.name} onChange={handleNameChange}></input>
                 </li>
                 {characterList.map((option, i) => (
-                    //conditional to render the li of hovered item with ref
-                    i === hoveredItem 
-                    ? <li
-                        ref={hovered}
-                        className='hovered'
+                    <li
+                        ref={isHovered(i, 0) ? hovered: null}
+                        className={isHovered(i, 0)}
                         onMouseEnter={changeDisplayedOption}
                         key={`option ${i}`}
                     >
                         <div>{option.title}</div>
                         <div>{option.value}</div>
-                    </li>
-                    : <li
-                        onMouseEnter={changeDisplayedOption}
-                        key={`option ${i}`}
-                    >
-                        <div>{option.title}</div>
-                        <div>{option.value}</div>
-                    </li>
+                    </li>             
                 ))}
             </ul>
             <h1 className='large-text'>Limbs</h1>
             <ul className='small-text'>
                 {limbList.map((option, i) => (
-                    //conditional to render the li of hovered item with ref
-                    (i + characterList.length) === hoveredItem 
-                    ? <li
-                        ref={hovered}
-                        className='hovered'
+                    <li
+                        ref={isHovered(i, characterList.length) ? hovered: null}
+                        className={isHovered(i, characterList.length)}
                         onMouseEnter={changeDisplayedOption}
                         key={`option ${i}`}
                     >
                         <div>{option.title}</div>
                         <div>{option.value}</div>
-                    </li>
-                    : <li
-                        onMouseEnter={changeDisplayedOption}
-                        key={`option ${i}`}
-                    >
-                        <div>{option.title}</div>
-                        <div>{option.value}</div>
-                    </li>
+                    </li>   
                 ))}
             </ul>
             <h1 className='large-text'>Display Settings</h1>
             <ul className='small-text'>
                 {displayList.map((option, i) => (
-                    //conditional to render the li of hovered item with ref
-                    (i + characterList.length + limbList.length) === hoveredItem 
-                    ? <li
-                        ref={hovered}
-                        className='hovered'
+                    <li
+                        ref={isHovered(i, (characterList.length + limbList.length)) ? hovered: null}
+                        className={isHovered(i, (characterList.length + limbList.length))}
                         onMouseEnter={changeDisplayedOption}
                         key={`option ${i}`}
                     >
                         <div>{option.title}</div>
                         <div>{option.value}</div>
-                    </li>
-                    : <li
-                        onMouseEnter={changeDisplayedOption}
-                        key={`option ${i}`}
-                    >
-                        <div>{option.title}</div>
-                        <div>{option.value}</div>
-                    </li>
+                    </li>  
                 ))}
             </ul>
             {(characterList.length + limbList.length + displayList.length) === hoveredItem? <button ref={hovered} className='hovered' onClick={saveChanges}>Save Changes</button>
