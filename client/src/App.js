@@ -17,8 +17,8 @@ function App() {
 
   useEffect(() => {
     let classical = []
-    let i = 0
-    while (i < 30) {
+    let i = 1
+    while (i < 31) {
       classical.push(`songs/song${i}.mp3`)
       i++
     }
