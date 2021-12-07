@@ -5,7 +5,7 @@
 .special-list ul li {
     display: flex;
     justify-content: space-between;
-    padding: 0.5vw 0.5vw 0.5vw 2vw;
+    padding: 0.3vw 0.3vw 0.5vw 2vw;
 }
 
 .special-desc {
@@ -22,7 +22,17 @@
 }
 .special-anim svg{
     width: 18vw;
+    max-width: 21rem;
 }
 .special-text {
     font-size: 2.2vw;
+}
+
+@media screen and (min-width: 1650px) {
+    .special-list {
+        font-size: 2.3rem;
+    }
+    .special-text {
+        font-size: 2.3rem;
+    }
 }
