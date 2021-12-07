@@ -233,7 +233,7 @@ function ItemList({items, sub}) {
 
     return (
     <main className='flex-center'>
-        <div className='inventory-grid'>
+        <div className='main-wrapper'>
             <section className='small-text item-list list-container'>
                 <ul>
                     {items.map((item, i) => (

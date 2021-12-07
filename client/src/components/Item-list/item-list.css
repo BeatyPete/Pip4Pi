@@ -6,52 +6,18 @@
     grid-gap: 4vw;
 }
 .item-list {
-    grid-column: span 2;
+    font-size: 2.2vw;
+    width: 65%;
     display: flex;
     align-items: center;
 }
 .item-list ul {
-    font-size: 2.2vw;
     height: 95%;
     width: 100%;
 }
-.item-list li {
-    text-overflow: ellipsis;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 0.3vw 0 .3vw 2vw;
-}
-.item-list li:hover {
-    background-color: var(--core-color);
-    color: var(--screen-color);
-}
-.hovered {
-    background-color: var(--core-color) !important;
-    color: var(--screen-color) !important;
-}
-::-webkit-scrollbar {
-   width: 0;
-  }
-.equipped::before {
-    content: '';
-    position: absolute;
-    background-color: var(--core-color);
-    width: 1vw;
-    height: 1vw;
-    max-width: 1rem;
-    max-height: 1rem;
-    bottom: 33.9%;
-    left: 1.5%;
-}
-.equipped:hover::before {
-    background-color: var(--screen-color);
-}
-.hovered.equipped::before {
-    background-color: var(--screen-color);
-}
 
 .item-details-container {
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
