@@ -1,0 +1,12 @@
+.perk-info {
+    width: 49%;
+}
+.perk-anim svg {
+    width: 23vw;
+}
+.perk-rank {
+    width: 3.5vw;
+}
+.perk-text {
+    font-size: 2vw;
+}
