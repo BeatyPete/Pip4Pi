@@ -21,6 +21,8 @@ function INV({mainTab, setMainTab}) {
   const [sub, setSub] = useState('WEAPONS')
 
   const { charStats, damage, damResist } = state;
+  const [maxWeight] = useState(200+(charStats.special.Strength*10))
+  const [maxHealth] = useState(80+(charStats.special.Endurance*5)+(charStats.currentLevel-1)*((charStats.special.Endurance/2)+2.5))
 
   useEffect(() => {
     const fullItemList = weapons.concat(apparel, aid, misc, junk, mods, ammo);
@@ -74,7 +76,7 @@ function INV({mainTab, setMainTab}) {
   ]
 
   const getHealthPercent = () => {
-    const healthPercent = Math.floor((charStats.currentHealth / charStats.maxHealth) * 100)
+    const healthPercent = Math.floor((charStats.currentHealth / maxHealth) * 100)
     return `${healthPercent}%`
   }
 
@@ -96,7 +98,7 @@ function INV({mainTab, setMainTab}) {
       <footer className='large-text'>
         <div className='backing'>
           <WeightSvg classes='footer-lg-img'></WeightSvg>
-          {charStats.currentWeight}/{charStats.maxWeight}
+          {charStats.currentWeight}/{maxWeight}
         </div>
 
         <div className='backing'>

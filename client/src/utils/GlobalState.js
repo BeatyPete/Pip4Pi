@@ -12,14 +12,11 @@ const StoreProvider = ({ value = [], ...props }) => {
     charStats: {
       name: 'Sole Survivor',
       currentHealth: 90,
-      maxHealth: 90,
       currentAP: 70,
-      maxAP: 70,
       currentLevel: 1,
       levelFillPercent: '80%',
       caps: 670,
       currentWeight: 0,
-      maxWeight: 165,
       special: {
         Strength: 1,
         Perception: 2,
