@@ -9,6 +9,12 @@ function Perks() {
     const [acquiredPerks] = useState([])
     const [hoveredPerk, setHoveredPerk] = useState(0)
 
+    const handlePerkInfo = e => {
+        const eventId = e.target.id
+        const perkNum = eventId.split(' ')
+        setHoveredPerk(perkNum[1])
+    }
+
     return (
       <main className='flex-center'>
            <div className='main-wrapper small-text'>
@@ -18,6 +24,8 @@ function Perks() {
                     <li 
                     /* ref={i === hoveredItem ? hovered: null} */
                     /* className={`${addSelectedClass(i)} ${isHovered(i)}`} */
+                    onMouseEnter={handlePerkInfo}
+                    id={`perks ${i}`}
                     key={`perks ${i}`}
                     >
                     

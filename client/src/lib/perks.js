@@ -1,27 +1,27 @@
 const perks = [
     {
-        name: 'Armorer',
-        description: 'Protect yourself from the dangers of the Wasteland with access to base level and Rank 1 armor mods.',
+        name: 'Iron Fist',
+        description: `Channel your chi to unleash devastating fury! Punching attacks do 20% more damage to your opponent.`,
         rank: 1,
-        maxRank: 4 
+        maxRank: 5 
     },
     {
-        name: 'Barbarian',
-        description: 'Protect yourself from the dangers of the Wasteland with access to base level and Rank 1 armor mods.',
-        rank: 2,
-        maxRank: 3 
+        name: 'Pickpocket',
+        description: `Your quick hands and sticky fingers make picking pockets 25% easier.`,
+        rank: 1,
+        maxRank: 4
     },
     {
-        name: 'Covert Operations',
-        description: 'Protect yourself from the dangers of the Wasteland with access to base level and Rank 1 armor mods.',
+        name: 'Toughness',
+        description: `If nothing else, you can take a beating! Instantly gain +10 Damage Resistance`,
         rank: 1,
-        maxRank: 4 
+        maxRank: 5
     },
     {
-        name: 'Gunslingers',
-        description: 'Protect yourself from the dangers of the Wasteland with access to base level and Rank 1 armor mods.',
+        name: 'Cap Collector',
+        description: `You've mastered the art of the deal! Buying and selling prices at vendors are better.`,
         rank: 1,
-        maxRank: 4 
+        maxRank: 3
     }
 ]
 
