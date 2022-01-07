@@ -1,0 +1,54 @@
+.agility-anim > g > * { 
+    opacity: 0; 
+    animation-duration: .86s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+}
+
+@keyframes agility-anim-1 { 
+    0% { 
+      opacity: 1; 
+    } 
+    23.1% { 
+      opacity: 0;
+    }
+}  
+.agility-anim > g > :nth-child(1) { 
+    animation-name: agility-anim-1; 
+} 
+
+@keyframes agility-anim-2 { 
+    23.1% { 
+      opacity: 1; 
+    } 
+    50.1% { 
+      opacity: 0;
+    }
+}  
+.agility-anim > g > :nth-child(2) { 
+    animation-name: agility-anim-2; 
+} 
+
+@keyframes agility-anim-3 { 
+    50.1% { 
+      opacity: 1; 
+    } 
+    77.1% { 
+      opacity: 0;
+    }
+}  
+.agility-anim > g > :nth-child(3) { 
+    animation-name: agility-anim-3; 
+} 
+
+@keyframes agility-anim-4 { 
+    77.1% { 
+      opacity: 1; 
+    } 
+    100% { 
+      opacity: 0;
+    }
+}  
+.agility-anim > g > :nth-child(4) { 
+    animation-name: agility-anim-4; 
+} 

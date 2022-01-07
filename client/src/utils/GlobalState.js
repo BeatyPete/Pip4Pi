@@ -21,13 +21,13 @@ const StoreProvider = ({ value = [], ...props }) => {
       currentWeight: 0,
       maxWeight: 165,
       special: {
-        Strenght: 2,
-        Perception: 4,
-        Endurance: 6,
-        Charisma: 8,
-        Intelligence: 10,
-        Agility: 12,
-        Luck: 14
+        Strength: 1,
+        Perception: 2,
+        Endurance: 3,
+        Charisma: 4,
+        Intelligence: 5,
+        Agility: 6,
+        Luck: 7
       }
     },
     damage: {
