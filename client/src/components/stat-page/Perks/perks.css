@@ -3,10 +3,18 @@
 }
 .perk-anim svg {
     width: 23vw;
+    max-width: 28rem;
 }
 .perk-rank {
     width: 3vw;
+    max-width: 4rem;
 }
 .perk-text {
     font-size: 2vw;
 }
+
+@media screen and (min-width: 1650px) {
+    .perk-text {
+        font-size: 2.5rem;
+    }
+  }
