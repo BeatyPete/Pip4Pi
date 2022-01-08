@@ -10,7 +10,10 @@ function Perks() {
     const [hoveredPerk, setHoveredPerk] = useState(0)
 
     const handlePerkInfo = e => {
-        const eventId = e.target.id
+        let eventId = e.target.id
+        if(e.target.tagName === 'DIV') {
+            eventId = e.target.parentNode.id
+        }
         const perkNum = eventId.split(' ')
         setHoveredPerk(perkNum[1])
     }
