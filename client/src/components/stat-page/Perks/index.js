@@ -43,8 +43,8 @@ function Perks() {
                 </div>
                 <div>
                     <div className='flex-center'>
-                        {[...Array(perks[hoveredPerk].rank)].map((e, i) => <StarSvg key={`rank ${i}`} classes='perk-rank'></StarSvg>)}
-                        {[...Array(perks[hoveredPerk].maxRank - perks[hoveredPerk].rank)].map((e, i) => <EmptyStarSvg key={`unrank ${i}`} classes='perk-rank'></EmptyStarSvg>)}
+                        {[...Array(perks[hoveredPerk].rank)].map((i) => <StarSvg key={`rank ${i}`} classes='perk-rank'></StarSvg>)}
+                        {[...Array(perks[hoveredPerk].maxRank - perks[hoveredPerk].rank)].map((i) => <EmptyStarSvg key={`unrank ${i}`} classes='perk-rank'></EmptyStarSvg>)}
                     </div>
                     <div className='perk-text'>
                         {perks[hoveredPerk].description}
