@@ -1,0 +1,102 @@
+.perception-anim > g > * { 
+    opacity: 0; 
+    animation-duration: 1.66s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+}
+
+@keyframes perception-anim-1 { 
+    0% { 
+      opacity: 1; 
+    } 
+    10% { 
+      opacity: 0; 
+    }
+    18% { 
+        opacity: 1; 
+      } 
+    28% { 
+        opacity: 0; 
+    } 
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}  
+.perception-anim > g > :nth-child(1) { 
+    animation-name: perception-anim-1; 
+} 
+
+@keyframes perception-anim-2 { 
+    10% { 
+      opacity: 1; 
+    } 
+    18% { 
+      opacity: 0; 
+    } 
+}  
+.perception-anim > g > :nth-child(2), .perception-anim > g > :nth-child(6){ 
+    animation-name: perception-anim-2; 
+} 
+
+@keyframes perception-anim-3 { 
+    18% { 
+      opacity: 1; 
+    } 
+    28% { 
+      opacity: 0; 
+    } 
+}  
+.perception-anim > g > :nth-child(7){ 
+    animation-name: perception-anim-3; 
+} 
+
+@keyframes perception-anim-4 { 
+    28% { 
+      opacity: 1; 
+    } 
+    38% { 
+      opacity: 0; 
+    } 
+}  
+.perception-anim > g > :nth-child(3), .perception-anim > g > :nth-child(8){ 
+    animation-name: perception-anim-4; 
+} 
+
+@keyframes perception-anim-5 { 
+    38% { 
+      opacity: 1; 
+    } 
+    48% { 
+      opacity: 0; 
+    } 
+}  
+.perception-anim > g > :nth-child(4), .perception-anim > g > :nth-child(9){ 
+    animation-name: perception-anim-5; 
+} 
+
+@keyframes perception-anim-6 { 
+    48% { 
+      opacity: 1; 
+    } 
+    60% { 
+      opacity: 0; 
+    } 
+}  
+.perception-anim > g > :nth-child(5){ 
+    animation-name: perception-anim-6; 
+} 
+
+@keyframes perception-anim-7 { 
+    48% { 
+      opacity: 1; 
+    } 
+    100% { 
+      opacity: 0; 
+    } 
+}  
+.perception-anim > g > :nth-child(10){ 
+    animation-name: perception-anim-7; 
+} 

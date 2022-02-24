@@ -1,9 +1,5 @@
-.radio-page {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 .radio-list {
+    font-size: 2.2vw;
     height: 90%;
     width: 50%;
 }
@@ -58,5 +54,11 @@
     }
     100% {
         transform: translateX(-200%) rotateZ(180deg);
+    }
+}
+
+@media screen and (min-width: 1650px) {
+    .radio-list {
+        font-size: 2.3rem;
     }
 }

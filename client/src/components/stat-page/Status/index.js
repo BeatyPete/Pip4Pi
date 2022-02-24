@@ -26,7 +26,7 @@ import BrokeLegsrArmAnim from '../../animations/limb-conditions/rArm-legs-broke'
 
 import { useStoreContext } from "../../../utils/GlobalState";
 
-function Status() {
+function Status({maxHealth}) {
   const [state] = useStoreContext();
   const { charStats, limbs, damage, damResist } = state;
   const [limbState, setLimbState] = useState('healthy')
@@ -112,7 +112,7 @@ function Status() {
   }
 
   const getHealthPercent = () => {
-    const healthPercent = Math.floor((charStats.currentHealth / charStats.maxHealth) * 100)
+    const healthPercent = Math.floor((charStats.currentHealth / maxHealth) * 100)
     return `${healthPercent}%`
   }
 

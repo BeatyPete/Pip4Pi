@@ -1,0 +1,38 @@
+.special-list {
+    font-size: 2.4vw;
+    width: 49%;
+}
+.special-list ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3vw 0.3vw 0.5vw 2vw;
+}
+
+.special-desc {
+    width: 49%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.special-anim {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.special-anim svg{
+    width: 22vw;
+    max-width: 28rem;
+}
+.special-text {
+    font-size: 2.2vw;
+}
+
+@media screen and (min-width: 1650px) {
+    .special-list {
+        font-size: 2.3rem;
+    }
+    .special-text {
+        font-size: 2.3rem;
+    }
+}

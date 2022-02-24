@@ -1,0 +1,279 @@
+.luck-anim > g > * { 
+    opacity: 0; 
+    animation-duration: 2.06s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: steps(1);
+}
+
+@keyframes luck-anim-1 { 
+    0% { 
+      opacity: 1; 
+    } 
+    4.8% { 
+      opacity: 0;
+    }
+    50.3% { 
+      opacity: 1; 
+    } 
+    56.8% { 
+      opacity: 0;
+    }
+
+}  
+.luck-anim > g > :nth-child(1) { 
+    animation-name: luck-anim-1; 
+} 
+
+@keyframes luck-anim-2 { 
+  4.8% { 
+    opacity: 1; 
+  } 
+  11.3% { 
+    opacity: 0;
+  }
+  56.8% { 
+    opacity: 1; 
+  } 
+  63.3% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(2) { 
+  animation-name: luck-anim-2; 
+} 
+
+@keyframes luck-anim-3 { 
+  11.3% { 
+    opacity: 1; 
+  } 
+  17.8% { 
+    opacity: 0;
+  }
+  63.3% { 
+    opacity: 1; 
+  } 
+  69.8% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(3) { 
+  animation-name: luck-anim-3; 
+} 
+
+@keyframes luck-anim-4 { 
+  17.8% { 
+    opacity: 1; 
+  } 
+  24.3% { 
+    opacity: 0;
+  }
+  69.8% { 
+    opacity: 1; 
+  } 
+  76.3% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(4) { 
+  animation-name: luck-anim-4; 
+} 
+
+@keyframes luck-anim-5 { 
+  24.3% { 
+    opacity: 1; 
+  } 
+  30.8% { 
+    opacity: 0;
+  }
+  76.3% { 
+    opacity: 1; 
+  } 
+  82.8% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(5) { 
+  animation-name: luck-anim-5; 
+} 
+
+@keyframes luck-anim-6 { 
+  30.8% { 
+    opacity: 1; 
+  } 
+  37.3% { 
+    opacity: 0;
+  }
+  82.8% { 
+    opacity: 1; 
+  } 
+  89.3% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(6) { 
+  animation-name: luck-anim-6; 
+} 
+
+@keyframes luck-anim-7 { 
+  37.3% { 
+    opacity: 1; 
+  } 
+  43.8% { 
+    opacity: 0;
+  }
+  89.3% { 
+    opacity: 1; 
+  } 
+  95.8% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(7) { 
+  animation-name: luck-anim-7; 
+} 
+
+@keyframes luck-anim-8 { 
+  43.8% { 
+    opacity: 1; 
+  } 
+  50.3% { 
+    opacity: 0;
+  }
+  95.8% { 
+    opacity: 1; 
+  } 
+  100% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(8) { 
+  animation-name: luck-anim-8; 
+} 
+
+/* cat */
+@keyframes cat-anim-1 { 
+  0% { 
+    opacity: 1; 
+  } 
+  4.8% { 
+    opacity: 0;
+  }
+
+  24.3% { 
+    opacity: 1; 
+  } 
+  30.8% { 
+    opacity: 0;
+  }
+  50.3% { 
+    opacity: 1; 
+  } 
+  56.8% { 
+    opacity: 0;
+  }
+  76.3% { 
+    opacity: 1; 
+  } 
+  82.8% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(9) { 
+  animation-name: cat-anim-1;
+  transform: translate(84%, 105%);
+} 
+
+@keyframes cat-anim-2 { 
+  4.8% { 
+    opacity: 1; 
+  } 
+  11.3% { 
+    opacity: 0;
+  }
+
+  30.8% { 
+    opacity: 1; 
+  } 
+  37.3% { 
+    opacity: 0;
+  }
+  56.8% { 
+    opacity: 1; 
+  } 
+  63.3% { 
+    opacity: 0;
+  }
+  82.8% { 
+    opacity: 1; 
+  } 
+  89.3% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(10) { 
+  animation-name: cat-anim-2;
+  transform: translate(84%, 105%); 
+} 
+
+@keyframes cat-anim-3 { 
+  11.3% { 
+    opacity: 1; 
+  } 
+  17.8% { 
+    opacity: 0;
+  }
+
+  37.3% { 
+    opacity: 1; 
+  } 
+  43.8% { 
+    opacity: 0;
+  }
+  63.3% { 
+    opacity: 1; 
+  } 
+  69.8% { 
+    opacity: 0;
+  }
+  89.3% { 
+    opacity: 1; 
+  } 
+  95.8% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(11) { 
+  animation-name: cat-anim-3; 
+  transform: translate(84%, 105%);
+} 
+
+@keyframes cat-anim-4 { 
+  17.8% { 
+    opacity: 1; 
+  } 
+  24.3% { 
+    opacity: 0;
+  }
+  43.8% { 
+    opacity: 1; 
+  } 
+  50.3% { 
+    opacity: 0;
+  }
+  69.8% { 
+    opacity: 1; 
+  } 
+  76.3% { 
+    opacity: 0;
+  }
+  95.8% { 
+    opacity: 1; 
+  } 
+  100% { 
+    opacity: 0;
+  }
+}  
+.luck-anim > g > :nth-child(12) { 
+  animation-name: cat-anim-4; 
+  transform: translate(84%, 105%);
+} 
