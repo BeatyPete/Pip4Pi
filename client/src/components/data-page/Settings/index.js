@@ -60,16 +60,8 @@ function Settings() {
             value: charSettings.levelFillPercent
         },
         {
-            title: 'Max Health:',
-            value: charSettings.maxHealth
-        },
-        {
             title: 'Current Health:',
             value: charSettings.currentHealth
-        },
-        {
-            title: 'Max AP:',
-            value: charSettings.maxAP
         },
         {
             title: 'Current AP:',
@@ -80,8 +72,32 @@ function Settings() {
             value: charSettings.caps
         },
         {
-            title: 'Max Weight:',
-            value: charSettings.maxWeight
+            title: 'Strength:',
+            value: charSettings.special.Strength
+        },
+        {
+            title: 'Perception:',
+            value: charSettings.special.Perception
+        },
+        {
+            title: 'Endurance:',
+            value: charSettings.special.Endurance
+        },
+        {
+            title: 'Charisma:',
+            value: charSettings.special.Charisma
+        },
+        {
+            title: 'Intelligence:',
+            value: charSettings.special.Intelligence
+        },
+        {
+            title: 'Agility:',
+            value: charSettings.special.Agility
+        },
+        {
+            title: 'Luck:',
+            value: charSettings.special.Luck
         }
     ]
     const limbList = [
@@ -282,14 +298,8 @@ function Settings() {
             case 'Set Level Percentage:':
                 newCharSettings.levelFillPercent = value
                 break;
-            case 'Max Health:':
-                newCharSettings.maxHealth = value
-                break;
             case 'Current Health:':
                 newCharSettings.currentHealth = value
-                break;
-            case 'Max AP:':
-                newCharSettings.maxAP = value
                 break;
             case 'Current AP:':
                 newCharSettings.currentAP = value
@@ -297,8 +307,26 @@ function Settings() {
             case 'Set Caps:':
                 newCharSettings.caps = value
                 break;
-            case 'Max Weight:':
-                newCharSettings.maxWeight = value
+            case 'Strength:':
+                newCharSettings.special.Strength = value
+                break;
+            case 'Perception:':
+                newCharSettings.special.Perception = value
+                break;
+            case 'Endurance:':
+                newCharSettings.special.Endurance = value
+                break;
+            case 'Charisma:':
+                newCharSettings.special.Charisma = value
+                break;
+            case 'Intelligence:':
+                newCharSettings.special.Intelligence = value
+                break;
+            case 'Agility:':
+                newCharSettings.special.Agility = value
+                break;
+            case 'Luck:':
+                newCharSettings.special.Luck = value
                 break;
 
             case 'Set Head:':

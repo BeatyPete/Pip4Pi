@@ -11,6 +11,9 @@ import { useStoreContext } from "../../utils/GlobalState";
 function STAT({mainTab, setMainTab}) {
   const [state] = useStoreContext();
   const [sub, setSub] = useState('STATUS')
+  const { charStats } = state;
+  const [maxHealth] = useState(80+(charStats.special.Endurance*5)+(charStats.currentLevel-1)*((charStats.special.Endurance/2)+2.5))
+  const [maxAP] = useState(60+(10*charStats.special.Agility))
 
   const subs = [
     {
@@ -27,9 +30,6 @@ function STAT({mainTab, setMainTab}) {
     }
   ]
 
-  const { charStats } = state;
-
-
     return (
         <>
       <header>
@@ -37,12 +37,12 @@ function STAT({mainTab, setMainTab}) {
         <SubTabs tabs={subs} sub={sub} setSub={setSub}></SubTabs>
       </header>
 
-      {sub === 'STATUS' && (<Status></Status>)}
+      {sub === 'STATUS' && (<Status maxHealth={maxHealth}></Status>)}
       {sub === 'SPECIAL' && (<Special></Special>)}
       {sub === 'PERKS' && (<Perks></Perks>)}
 
       <footer className='large-text'>
-        <div className='backing'>HP {charStats.currentHealth}/{charStats.maxHealth}</div>
+        <div className='backing'>HP {charStats.currentHealth}/{maxHealth}</div>
 
         <div className='backing xp-container large-footer'>
           LEVEL {charStats.currentLevel}
@@ -51,7 +51,7 @@ function STAT({mainTab, setMainTab}) {
           </div>
         </div>
 
-        <div className='backing right-footer'>AP {charStats.currentAP}/{charStats.maxAP}</div>
+        <div className='backing right-footer'>AP {charStats.currentAP}/{maxAP}</div>
       </footer>
       </>
 )}
